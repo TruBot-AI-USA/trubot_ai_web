@@ -242,7 +242,7 @@ const Page = () => {
           {pricingPlans.map((plan) => (
             <div
               key={plan.title}
-              className={`relative bg-white rounded-xl shadow-sm border p-6 hover:shadow-md transition-all duration-300 ${
+              className={`relative bg-white rounded-xl shadow-sm border p-6 hover:shadow-md transition-all duration-300 flex flex-col ${
                 plan.popular ? "border-blue-500 shadow-lg" : "border-gray-200"
               }`}
             >
@@ -278,7 +278,7 @@ const Page = () => {
               </div>
 
               {/* Features */}
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-2 mb-6 flex-grow">
                 {plan.features.map((feature, index) => (
                   <li
                     key={index}
@@ -300,13 +300,13 @@ const Page = () => {
                 ))}
               </ul>
 
-              {/* Button */}
+              {/* Button - Now positioned at the bottom */}
               <Button
                 href="https://trusocial.trubotai.com/auth/signup"
                 label={plan.buttonLabel}
                 variant={plan.buttonVariant}
                 iconRight={ArrowRight}
-                className="w-full text-sm py-2"
+                className="w-full text-sm py-2 mt-auto"
                 target="_blank"
                 rel="noopener noreferrer"
               />
