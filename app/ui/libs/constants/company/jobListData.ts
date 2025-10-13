@@ -248,6 +248,13 @@ const jobListData = [
     href: "/careers/engineer-machine-learning",
   },
   {
+    id: "engineer-qa",
+    title: "QA Engineer (Manual + Automation)",
+    department: "Technology",
+    level: "Engineer",
+    href: "/careers/engineer-qa",
+  },
+  {
     id: "engineer-software",
     title: "Software Engineer",
     department: "Technology",
