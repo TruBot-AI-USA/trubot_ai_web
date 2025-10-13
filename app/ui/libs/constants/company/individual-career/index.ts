@@ -40,6 +40,8 @@ import { vpTechnologyPageData } from "./vp-technology";
 import { performanceMarketerPageData } from "./marketer-performance";
 import { contentManagerPageData } from "./content-manager";
 import { grantsExpertPageData } from "./grants-expert";
+import { channelPartnerSalesManagerPageData } from "./manager-channel-partner-sales";
+import { qaEngineerPageData } from "./engineer-qa";
 
 export const careerPagesMap: Record<string, CareerPageDataType> = {
   "architect-ai-solutions": aiSolutionArchitectPageData,
@@ -55,6 +57,7 @@ export const careerPagesMap: Record<string, CareerPageDataType> = {
   "designer-graphic": graphicDesignerPageData,
   "designer-uiux": uiuxDesignerPageData,
   "engineer-machine-learning": MLEngineerPageData,
+  "engineer-qa": qaEngineerPageData,
   "engineer-software": softwareEngineerPageData,
   "head-fundraising": headFundraisingPageData,
   "head-human-resources": headHumanResourcesPageData,
@@ -79,6 +82,7 @@ export const careerPagesMap: Record<string, CareerPageDataType> = {
   "marketer-performance": performanceMarketerPageData,
   "content-manager": contentManagerPageData,
   "grants-expert": grantsExpertPageData,
+  "manager-channel-partner-sales": channelPartnerSalesManagerPageData,
   "senior-full-stack-developer": seniorFullStackDeveloperPageData,
   "svp-technology-ai": svpTechnologyAIPageData,
   "vp-technology": vpTechnologyPageData,
