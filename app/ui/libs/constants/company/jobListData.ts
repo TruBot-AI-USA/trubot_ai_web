@@ -180,6 +180,13 @@ const jobListData = [
     level: "Manager",
     href: "/careers/manager-technology-fullstack-engineer",
   },
+  {
+    id: "manager-channel-partner-sales",
+    title: "Channel & Partner Sales Manager",
+    department: "Sales & Marketing",
+    level: "Manager",
+    href: "/careers/manager-channel-partner-sales",
+  },
   // Lead Level
   {
     id: "lead-product-designer",
