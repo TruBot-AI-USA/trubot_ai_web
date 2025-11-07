@@ -87,5 +87,6 @@ export const careerPagesMap: Record<string, CareerPageDataType> = {
   "senior-full-stack-developer": seniorFullStackDeveloperPageData,
   "svp-technology-ai": svpTechnologyAIPageData,
   "vp-technology": vpTechnologyPageData,
-  "sdr-sales-development-representative": sdrSalesDevelopmentRepresentativePageData,
+  "sdr-sales-development-representative":
+    sdrSalesDevelopmentRepresentativePageData,
 };
