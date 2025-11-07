@@ -187,6 +187,13 @@ const jobListData = [
     level: "Manager",
     href: "/careers/manager-channel-partner-sales",
   },
+  {
+    id: "sdr-sales-development-representative",
+    title: "Sales Development Representative (SDR) – AI SaaS Platform",
+    department: "Sales & Marketing",
+    level: "Sales",
+    href: "/careers/sdr-sales-development-representative",
+  },
   // Lead Level
   {
     id: "lead-product-designer",
