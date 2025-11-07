@@ -42,6 +42,7 @@ import { contentManagerPageData } from "./content-manager";
 import { grantsExpertPageData } from "./grants-expert";
 import { channelPartnerSalesManagerPageData } from "./manager-channel-partner-sales";
 import { qaEngineerPageData } from "./engineer-qa";
+import { sdrSalesDevelopmentRepresentativePageData } from "./sdr-sales-development-representative";
 
 export const careerPagesMap: Record<string, CareerPageDataType> = {
   "architect-ai-solutions": aiSolutionArchitectPageData,
@@ -86,4 +87,5 @@ export const careerPagesMap: Record<string, CareerPageDataType> = {
   "senior-full-stack-developer": seniorFullStackDeveloperPageData,
   "svp-technology-ai": svpTechnologyAIPageData,
   "vp-technology": vpTechnologyPageData,
+  "sdr-sales-development-representative": sdrSalesDevelopmentRepresentativePageData,
 };
