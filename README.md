@@ -69,4 +69,5 @@ This project is licensed under [MIT License](LICENSE).
 - **Sales**: sales@trubotai.com
 - **Careers**: careers@trubotai.com
 
+
 Built with ❤️ by the TruBot AI team.
