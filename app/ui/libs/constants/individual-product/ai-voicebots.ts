@@ -20,12 +20,12 @@ const heroSection = {
   subtitle:
     "Engage your customers with intelligent voice assistants that understand context, recognize emotions, and provide hands-free convenience across all touchpoints.",
   primaryCTA: {
-    label: "Start Free Trial",
-    href: "/products",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
-    label: "Request Live Demo",
-    href: "/contact",
+    label: "Book a Consultation",
+    href: "/sales",
   },
   icon: Mic,
 };
@@ -337,12 +337,12 @@ const ctaSection = {
   subtitle:
     "Join forward-thinking companies already using our voice technology to create exceptional customer experiences, reduce costs, and drive business growth.",
   primaryCTA: {
-    label: "Start Your Free Trial",
-    href: "/products",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
-    label: "Schedule a Personalized Demo",
-    href: "/contact",
+    label: "Book a Consultation",
+    href: "/sales",
   },
 };
 

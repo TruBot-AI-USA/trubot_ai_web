@@ -21,12 +21,12 @@ const heroSection = {
   title: "AI Surveillance System",
   subtitle: "Intelligent Real-Time Security for Homes & SMEs",
   primaryCTA: {
-    label: "Request a Demo",
-    href: "/contact",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
-    label: "Download Architecture Whitepaper",
-    href: "/contact",
+    label: "Book a Consultation",
+    href: "/sales",
   },
   icon: SmartCamIcon,
 };
@@ -135,8 +135,8 @@ const ctaSection = {
   title: "Get Started Today",
   subtitle:
     "Launch a proof-of-concept MVP within weeks. Ideal for integrators, providers, and SME partners.",
-  primaryCTA: { label: "Request a Demo", href: "/contact" },
-  secondaryCTA: { label: "Download Architecture Whitepaper", href: "/contact" },
+  primaryCTA: { label: "Book a Demo", href: "/demo" },
+  secondaryCTA: { label: "Book a Consultation", href: "/sales" },
 };
 
 export {
