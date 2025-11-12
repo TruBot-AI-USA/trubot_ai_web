@@ -42,11 +42,11 @@ const heroSection = {
   subtitle:
     "TruBot AI Agents are autonomous, intelligent systems built to run repetitive business tasks — from lead follow-ups to appointment scheduling — without manual intervention.",
   primaryCTA: {
-    label: "Start Free Trial",
+    label: "Book a Demo",
     href: "/demo",
   },
   secondaryCTA: {
-    label: "Talk to an AI Expert",
+    label: "Book a Consultation",
     href: "/sales",
   },
   icon: FaRobot,
@@ -384,11 +384,11 @@ const ctaSection = {
   subtitle:
     "No code. No hassle. Just results. Get started with a smart agent that handles tasks while you focus on growing your business.",
   primaryCTA: {
-    label: "Start Free Trial",
+    label: "Book a Demo",
     href: "/demo",
   },
   secondaryCTA: {
-    label: "Talk to Our Team",
+    label: "Book a Consultation",
     href: "/sales",
   },
 };

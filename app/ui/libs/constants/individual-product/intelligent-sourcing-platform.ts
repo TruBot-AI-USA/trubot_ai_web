@@ -26,12 +26,12 @@ const heroSection = {
   subtitle:
     "Find, compare, and implement the perfect AI solutions for your business needs with our intelligent buying aggregator platform designed specifically for SMEs.",
   primaryCTA: {
-    label: "Start Your AI Journey",
-    href: "/contact",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
     label: "Book a Consultation",
-    href: "/contact",
+    href: "/sales",
   },
   icon: BrainCircuit,
 };
@@ -374,12 +374,12 @@ const ctaSection = {
   subtitle:
     "Join thousands of SMEs that have successfully implemented AI solutions to improve efficiency, enhance customer experiences, and drive growth with our strategic sourcing platform.",
   primaryCTA: {
-    label: "Start Free Assessment",
-    href: "/start",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
-    label: "Schedule Expert Consultation",
-    href: "/consultation",
+    label: "Book a Consultation",
+    href: "/sales",
   },
 };
 
