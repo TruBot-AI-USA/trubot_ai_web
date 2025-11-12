@@ -173,7 +173,7 @@ const testimonialList = [
   },
 ];
 
-const pricingPlans = [
+const pricingPlansMonthly = [
   {
     icon: Star,
     title: "Free Trial",
@@ -234,6 +234,68 @@ const pricingPlans = [
     description:
       "Enterprise-ready tools with AI-driven content, smart scheduling, advanced analytics, and premium support.",
     price: "$200 /month",
+    features: [
+      "AI Content Generation",
+      "Smart Scheduling",
+      "Integrations - Instagram, Facebook, LinkedIn",
+      "Basic Analytics",
+      "Priority Email Support",
+      "Pinterest & more (Coming Soon)",
+      "Approval workflow (Coming Soon)",
+      "Advanced Analytics (Coming Soon)",
+    ],
+    buttonLabel: "Get Started",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-pink-600",
+  },
+];
+
+const pricingPlansAnnual = [
+  {
+    icon: FaClock,
+    title: "Starter Annual",
+    description:
+      "Perfect for growing brands—AI text generation, smart scheduling, and core integrations to keep your content flowing.",
+    price: "$500 /year",
+    features: [
+      "AI Content Generation",
+      "Smart Scheduling",
+      "Integrations - Instagram, Facebook, LinkedIn",
+      "Email support",
+      "Approval workflow (Coming Soon)",
+    ],
+    buttonLabel: "Get Started",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-teal-600",
+  },
+  {
+    icon: Plus,
+    title: "Pro Annual",
+    description:
+      "Level up with AI text + image generation, advanced analytics, and priority support. Built for businesses that want impact with precision.",
+    price: "$1000 /year",
+    features: [
+      "AI Content Generation",
+      "Smart Scheduling",
+      "Integrations - Instagram, Facebook, LinkedIn",
+      "Basic Analytics",
+      "Priority Email Support",
+      "Pinterest & more (Coming Soon)",
+      "Approval workflow (Coming Soon)",
+    ],
+    buttonLabel: "Get Started",
+    buttonVariant: "primary" as const,
+    popular: true,
+    color: "text-blue-600",
+  },
+  {
+    icon: Users,
+    title: "Business Annual",
+    description:
+      "Enterprise-ready tools with AI-driven content, smart scheduling, advanced analytics, and premium support.",
+    price: "$2000 /year",
     features: [
       "AI Content Generation",
       "Smart Scheduling",
@@ -349,7 +411,8 @@ export {
   featureList,
   whyChooseList,
   testimonialList,
-  pricingPlans,
+  pricingPlansMonthly,
+  pricingPlansAnnual,
   faqList,
   relatedProductList,
   ctaSection,

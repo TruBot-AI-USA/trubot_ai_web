@@ -9,12 +9,12 @@ import ProductCard from "@/app/ui/components/shared/ProductCard";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
 import TestimonialCarousel from "./components/TestimonialCarousel";
+import Pricing from "./components/Pricing";
 import {
   heroSection,
   benefitList,
   featureList,
   whyChooseList,
-  pricingPlans,
   faqList,
   relatedProductList,
   ctaSection,
@@ -232,88 +232,7 @@ const Page = () => {
       </div>
 
       {/* Pricing Section */}
-      <PageLayout id="pricing" className="mx-auto">
-        <SectionHeader
-          title="Simple, Transparent Pricing"
-          subtitle="Choose the plan that fits your needs. Start with our free plan or upgrade anytime."
-        />
-
-        <div className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-4">
-          {pricingPlans.map((plan) => (
-            <div
-              key={plan.title}
-              className={`relative bg-white rounded-xl shadow-sm border p-6 hover:shadow-md transition-all duration-300 flex flex-col ${
-                plan.popular ? "border-blue-500 shadow-lg" : "border-gray-200"
-              }`}
-            >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
-              {/* Icon */}
-              <div className="flex items-center justify-center w-12 h-12 mb-4 mx-auto rounded-lg bg-gray-50">
-                <plan.icon className={`w-6 h-6 ${plan.color}`} />
-              </div>
-
-              {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
-                {plan.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-500 text-xs mb-4 text-center leading-relaxed">
-                {plan.description}
-              </p>
-
-              {/* Price */}
-              <div className="text-center mb-4">
-                <span className={`text-2xl font-bold ${plan.color}`}>
-                  {plan.price}
-                </span>
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6 flex-grow">
-                {plan.features.map((feature, index) => (
-                  <li
-                    key={index}
-                    className="flex items-center text-xs text-gray-600"
-                  >
-                    <svg
-                      className="w-3 h-3 text-green-500 mr-2 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Button - Now positioned at the bottom */}
-              <Button
-                href="https://trusocial.trubotai.com/auth/signup"
-                label={plan.buttonLabel}
-                variant={plan.buttonVariant}
-                iconRight={ArrowRight}
-                className="w-full text-sm py-2 mt-auto"
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            </div>
-          ))}
-        </div>
-      </PageLayout>
+      <Pricing />
 
       {/* FAQ */}
       <div className="bg-gray-soft">
