@@ -23,12 +23,12 @@ const heroSection = {
   subtitle:
     "Transform your accounts payable operations with our intelligent invoice management solution that captures data, matches invoices, detects fraud, and optimizes payments—all with minimal human intervention.",
   primaryCTA: {
-    label: "Start Free Trial",
-    href: "/contact",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
-    label: "Calculate Your ROI",
-    href: "/contact",
+    label: "Book a Consultation",
+    href: "/sales",
   },
   icon: FaRobot,
 };
@@ -372,12 +372,12 @@ const ctaSection = {
   subtitle:
     "Join thousands of organizations that have revolutionized their accounts payable operations, reduced costs, and improved accuracy with our AI-powered invoice management solution.",
   primaryCTA: {
-    label: "Start Your Free Trial",
-    href: "/products",
+    label: "Book a Demo",
+    href: "/demo",
   },
   secondaryCTA: {
-    label: "Schedule a Personalized Demo",
-    href: "/contact",
+    label: "Book a Consultation",
+    href: "/sales",
   },
 };
 

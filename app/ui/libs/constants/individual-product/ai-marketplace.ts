@@ -35,8 +35,8 @@ const heroSection = {
   title: "Intelligent AI Agents",
   subtitle:
     "Harness the power of autonomous AI agents that can reason, plan, and execute complex tasks with minimal human intervention.",
-  primaryCTA: { label: "Start Free Trial", href: "/contact" },
-  secondaryCTA: { label: "Start Free Trial", href: "/contact" },
+  primaryCTA: { label: "Book a Demo", href: "/demo" },
+  secondaryCTA: { label: "Book a Consultation", href: "/sales" },
   icon: BrainCircuit,
 };
 
@@ -383,8 +383,8 @@ const ctaSection = {
   title: "Ready to Transform Your Business with AI?",
   subtitle:
     "Explore our curated marketplace of enterprise-grade AI solutions and find the perfect tools to drive innovation, efficiency, and growth for your organization.",
-  primaryCTA: { label: "Explore the Marketplace", href: "/products" },
-  secondaryCTA: { label: "Schedule a Guided Tour", href: "/contact" },
+  primaryCTA: { label: "Book a Demo", href: "/demo" },
+  secondaryCTA: { label: "Book a Consultation", href: "/sales" },
 };
 
 export {

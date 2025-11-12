@@ -91,9 +91,9 @@ const Header = () => {
                 setDropdownOpen((prev) => ({ ...prev, [key]: false }))
               }
             >
-              {key === "partners" ? (
+              {["partners", "products", "solutions"].includes(key) ? (
                 <Link
-                  href="/partners"
+                  href={`/${key}`}
                   className={`${navLabelStyles} flex items-center gap-1`}
                   aria-haspopup="true"
                   aria-expanded={dropdownOpen[key]}

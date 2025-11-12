@@ -15,8 +15,8 @@ import SplitScreenChart from "@/app/ui/components/IconComponents/SplitScreenChar
 const heroSection = {
   title: "Enterprise Software Aggregator",
   subtitle: "Bulk Pricing. Unmatched Value. Elite Access.",
-  primaryCTA: { label: "Start Saving Now", href: "/contact" },
-  secondaryCTA: { label: "10X Your Sales", href: "/contact" },
+  primaryCTA: { label: "Book a Demo", href: "/demo" },
+  secondaryCTA: { label: "Book a Consultation", href: "/sales" },
   icon: SplitScreenChart,
 };
 
@@ -108,8 +108,8 @@ const benefitList = [
 const ctaSection = {
   title: "Ready to Optimize your Enterprise spend or Sales Pipeline?",
   subtitle: "Join our network of elite buyers and top vendors today.",
-  primaryCTA: { label: "BUYERS: Start Saving Now", href: "/contact" },
-  secondaryCTA: { label: "VENDORS: 10X Your Sales", href: "/contact" },
+  primaryCTA: { label: "Book a Demo", href: "/demo" },
+  secondaryCTA: { label: "Book a Consultation", href: "/sales" },
 };
 
 export {

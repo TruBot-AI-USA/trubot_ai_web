@@ -40,11 +40,11 @@ const heroSection = {
   subtitle:
     "Automate responses, qualify leads, and provide support around the clock—without writing a single line of code.",
   primaryCTA: {
-    label: "Start Free Trial",
+    label: "Book a Demo",
     href: "/demo",
   },
   secondaryCTA: {
-    label: "Talk to Sales",
+    label: "Book a Consultation",
     href: "/sales",
   },
   icon: Bot,
@@ -445,11 +445,11 @@ const ctaSection = {
   subtitle:
     "Join thousands of forward-thinking companies using our AI chatbots to deliver exceptional customer experiences, generate qualified leads, and drive business growth.",
   primaryCTA: {
-    label: "Start Your Free Trial",
+    label: "Book a Demo",
     href: "/demo",
   },
   secondaryCTA: {
-    label: "Contact Sales",
+    label: "Book a Consultation",
     href: "/sales",
   },
 };
