@@ -329,6 +329,39 @@ const pricingPlansAnnual = [
   },
 ];
 
+const addOns = [
+  {
+    name: "Onboarding Support",
+    type: "Features",
+    price: "$100.00",
+  },
+  {
+    name: "Infrastructure Support",
+    type: "Storage",
+    price: "$100.00",
+  },
+  {
+    name: "Customer Support",
+    type: "Features",
+    price: "$500.00",
+  },
+  {
+    name: "50 Credits Addon",
+    type: "Credits",
+    price: "$50.00",
+  },
+  {
+    name: "100 Credits Addon",
+    type: "Credits",
+    price: "$80.00",
+  },
+  {
+    name: "Reseller Support",
+    type: "Support",
+    price: "$200.00",
+  },
+];
+
 const faqList = [
   {
     question: "How does AI content generation work?",
@@ -429,6 +462,7 @@ export {
   testimonialList,
   pricingPlansMonthly,
   pricingPlansAnnual,
+  addOns,
   faqList,
   relatedProductList,
   ctaSection,

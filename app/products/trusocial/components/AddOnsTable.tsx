@@ -1,38 +1,6 @@
 // components/AddOnsTable.tsx
 import React from "react";
-
-const addOns = [
-  {
-    name: "Onboarding Support",
-    type: "Features",
-    price: "$100.00",
-  },
-  {
-    name: "Infrastructure Support",
-    type: "Storage",
-    price: "$100.00",
-  },
-  {
-    name: "Customer Support",
-    type: "Features",
-    price: "$500.00",
-  },
-  {
-    name: "50 Credits Addon",
-    type: "Credits",
-    price: "$50.00",
-  },
-  {
-    name: "100 Credits Addon",
-    type: "Credits",
-    price: "$80.00",
-  },
-  {
-    name: "Reseller Support",
-    type: "Support",
-    price: "$200.00",
-  },
-];
+import { addOns }  from "@/app/ui/libs/constants/individual-product/trusocial";
 
 export default function AddOnsTable() {
   return (
