@@ -253,6 +253,22 @@ const pricingPlansMonthly = [
 
 const pricingPlansAnnual = [
   {
+    icon: Star,
+    title: "Free Trial",
+    description:
+      "Kickstart your social media journey now! Explore AI-powered content creation, scheduling, and integrations for free.",
+    price: "Free / 15 Days",
+    features: [
+      "AI Content Generation",
+      "Smart Scheduling",
+      "Integrations - Facebook, LinkedIn, Instagram",
+    ],
+    buttonLabel: "Get Started",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-green-600",
+  },
+  {
     icon: FaClock,
     title: "Starter Annual",
     description:
@@ -310,6 +326,39 @@ const pricingPlansAnnual = [
     buttonVariant: "outline" as const,
     popular: false,
     color: "text-pink-600",
+  },
+];
+
+const addOns = [
+  {
+    name: "Onboarding Support",
+    type: "Features",
+    price: "$100.00",
+  },
+  {
+    name: "Infrastructure Support",
+    type: "Storage",
+    price: "$100.00",
+  },
+  {
+    name: "Customer Support",
+    type: "Features",
+    price: "$500.00",
+  },
+  {
+    name: "50 Credits Addon",
+    type: "Credits",
+    price: "$50.00",
+  },
+  {
+    name: "100 Credits Addon",
+    type: "Credits",
+    price: "$80.00",
+  },
+  {
+    name: "Reseller Support",
+    type: "Support",
+    price: "$200.00",
   },
 ];
 
@@ -413,6 +462,7 @@ export {
   testimonialList,
   pricingPlansMonthly,
   pricingPlansAnnual,
+  addOns,
   faqList,
   relatedProductList,
   ctaSection,

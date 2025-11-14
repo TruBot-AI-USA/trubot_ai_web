@@ -12,9 +12,9 @@ import {
 } from "@/app/ui/libs/constants/individual-product/trusocial";
 
 const Pricing = () => {
-  const [duration, setDuration] = useState<"monthly" | "annual">("monthly");
+  const [duration, setDuration] = useState<"monthly" | "annual">("annual");
   const plans =
-    duration === "monthly" ? pricingPlansMonthly : pricingPlansAnnual;
+    duration === "annual" ? pricingPlansAnnual : pricingPlansMonthly;
 
   return (
     <PageLayout id="pricing" className="mx-auto">
@@ -90,11 +90,7 @@ const Pricing = () => {
 
       {/* Pricing Cards */}
       <div
-        className={`grid gap-6 mt-12 ${
-          duration === "annual"
-            ? "md:grid-cols-2 lg:grid-cols-3"
-            : "md:grid-cols-2 lg:grid-cols-4"
-        }`}
+        className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-4"
       >
         {plans.map((plan) => {
           // Calculate savings for annual plans
