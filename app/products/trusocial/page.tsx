@@ -10,6 +10,7 @@ import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
 import TestimonialCarousel from "./components/TestimonialCarousel";
 import Pricing from "./components/Pricing";
+import AddOnsTable from "./components/AddOnsTable"
 import {
   heroSection,
   benefitList,
@@ -233,6 +234,9 @@ const Page = () => {
 
       {/* Pricing Section */}
       <Pricing />
+
+      {/* AddOns Section */}
+      <AddOnsTable />
 
       {/* FAQ */}
       <div className="bg-gray-soft">
