@@ -72,6 +72,14 @@ const jobListData = [
     level: "VP",
     href: "/careers/vp-technology",
   },
+  // Director Level
+  {
+    id: "director-digital-marketing",
+    title: "Director of Digital Marketing (Growth Path to VP)",
+    department: "Sales & Marketing",
+    level: "Director",
+    href: "/careers/director-digital-marketing",
+  },
   // Head Level
   {
     id: "head-fundraising",
