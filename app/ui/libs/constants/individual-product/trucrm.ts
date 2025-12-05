@@ -46,7 +46,6 @@ export const heroSection = {
     height: 500,
   },
   stats: [
-    { value: "500K+", label: "Active Users" },
     { value: "98%", label: "User Satisfaction" },
     { value: "Online/Offline", label: "Customer Support" },
   ],

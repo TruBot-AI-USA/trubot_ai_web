@@ -1,13 +1,11 @@
 import Image from "next/image";
 import { 
-  ArrowRight, 
   CheckCircle2, 
   TrendingUp, 
   Send, 
   Phone, 
   Video, 
   ClipboardList, 
-  MoreHorizontal,
   Download, 
   Clock,
   FileText
@@ -109,7 +107,7 @@ const ActivityDashboard = () => (
   <div className="mt-16 bg-[#0f172a] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
     <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
       <div>
-         <h3 className="text-3xl font-bold mb-4">Today's Activity Dashboard</h3>
+         <h3 className="text-3xl font-bold mb-4">Todays Activity Dashboard</h3>
          <p className="text-gray-400 mb-6">See what needs to be done today. Prioritize activities and manage your time effectively.</p>
          <button className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
             View My Activities
@@ -300,7 +298,7 @@ const Page = () => {
           />
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-12">
-            {coreFeaturesList.map((item, index) => (
+            {coreFeaturesList.map((item) => (
               <div
                 key={item.title}
                className="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group flex flex-col items-center text-center"
