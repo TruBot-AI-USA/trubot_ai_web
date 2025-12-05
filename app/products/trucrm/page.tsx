@@ -235,14 +235,12 @@ const Page = () => {
               <Button
                 href={heroSection.buttons.primary.href}
                 label={heroSection.buttons.primary.label}
-                variant="white"
-                className="bg-white text-[#1034A6] hover:bg-blue-50 border-white"
+                className="h-[50px] px-8 rounded-full !bg-white !text-[#1034A6] hover:!bg-blue-50 border-none flex items-center justify-center font-semibold whitespace-nowrap min-w-max"
               />
               <Button
                 href={heroSection.buttons.secondary.href}
                 label={heroSection.buttons.secondary.label}
-                variant="white"
-                className="bg-white text-[#1034A6] hover:bg-blue-50 border-white"
+               className="h-[50px] px-8 rounded-full !bg-white !text-[#1034A6] hover:!bg-blue-50 border-none flex items-center justify-center font-semibold whitespace-nowrap min-w-max"
               />
             </div>
 
