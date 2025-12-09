@@ -1,18 +1,11 @@
 import {
-  Search,
   Database,
   Zap,
-  Filter,
   Users,
   Target,
-  Globe,
   BrainCircuit,
-  CheckCircle2,
   Clock,
   ShieldCheck,
-  BarChart3,
-  Mail,
-  ArrowRight,
   Building2,
   LineChart
 } from "lucide-react";
