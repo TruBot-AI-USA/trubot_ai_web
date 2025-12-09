@@ -1,10 +1,7 @@
 import Image from "next/image";
 import { 
   ArrowRight, 
-  CheckCircle2, 
-  TrendingUp, 
-  Search,
-  Check,
+  CheckCircle2,
   Star
 } from "lucide-react";
 
@@ -12,7 +9,6 @@ import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
 import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
-import CTASection from "@/app/ui/components/shared/CTASection";
 
 import {
   heroSection,
@@ -198,7 +194,7 @@ const Page = () => {
           />
 
           <div className="grid gap-6 md:grid-cols-2 mt-12">
-            {featuresGrid.features.map((item, index) => (
+            {featuresGrid.features.map((item) => (
               <div
                 key={item.title}
                 className="bg-white border border-gray-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group flex gap-6 items-start"
@@ -224,7 +220,7 @@ const Page = () => {
       <div className="bg-[#1034A6] text-white py-5 text-center">
          <PageLayout>
              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-               We Didn't Build Just Another Database <br/>
+               We Didnt Build Just Another Database <br/>
              </h2>
              <h2 className="text-blue-300 text-3xl md:text-5xl font-bold">We Built an AI Partner</h2>
              <p className="text-lg text-blue-100 max-w-2xl mx-auto mt-10 mb-10">

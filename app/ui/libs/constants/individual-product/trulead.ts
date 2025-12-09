@@ -155,7 +155,7 @@ export const featuresGrid = {
 };
 
 export const testimonial = {
-  quote: "TruLead cut our prospecting time by 70%. We're now having conversations with qualified leads on day one, not week three.",
+  quote: "TruLead cut our prospecting time by 70%. We are now having conversations with qualified leads on day one, not week three.",
   author: "Darshan Chobarkar",
   role: "Founder, ClothSphere Enterprises",
   rating: 5,
