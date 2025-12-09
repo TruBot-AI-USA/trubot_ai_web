@@ -15,6 +15,9 @@ import {
   Store,
   Layers3,
   Zap,
+  Briefcase,
+  BarChart3,
+  Target
 } from "lucide-react";
 import {
   FaFacebook,
@@ -37,6 +40,26 @@ const heroSection = {
 };
 
 const productList = [
+  {
+    id: "business-apps",
+    title: "Business Applications",
+    items: [
+      {
+        name: "TruCRM",
+        description:
+          "The complete CRM solution. Streamline sales, manage customers, and close more deals with AI-driven insights.",
+        href: "/products/trucrm",
+        icon: BarChart3,
+      },
+      {
+        name: "TruLead",
+        description:
+          "AI-powered lead generation. Find, qualify, and enrich high-quality leads automatically.",
+        href: "/products/trulead",
+        icon: Target,
+      },
+    ],
+  },
   {
     id: "chatbots",
     title: "AI Chatbots",
