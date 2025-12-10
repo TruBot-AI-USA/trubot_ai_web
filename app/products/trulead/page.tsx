@@ -237,7 +237,7 @@ const Page = () => {
                  {[1,2,3,4,5].map(i => <Star key={i} fill="currentColor" className="w-6 h-6"/>)}
               </div>
               <blockquote className="text-2xl md:text-3xl font-medium text-navy mb-8 relative z-10">
-                 "{testimonial.quote}"
+                 `&quot;`{testimonial.quote}`&quot;`
               </blockquote>
               <div className="relative z-10">
                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-3">
