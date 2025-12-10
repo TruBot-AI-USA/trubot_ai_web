@@ -15,7 +15,6 @@ import {
   Store,
   Layers3,
   Zap,
-  Briefcase,
   BarChart3,
   Target
 } from "lucide-react";
