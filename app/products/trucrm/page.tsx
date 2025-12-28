@@ -1,21 +1,12 @@
 import Image from "next/image";
-import {
-  CheckCircle2,
-  TrendingUp,
-  Send,
-  Phone,
-  Video,
-  ClipboardList,
-  Download,
-  Clock,
-  FileText,
-} from "lucide-react";
+import { CheckCircle2, TrendingUp, Clock } from "lucide-react";
 
 import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
 import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
+import StatCard from "@/app/ui/components/shared/StatCard";
 import {
   heroSection,
   coreFeaturesList,
@@ -26,6 +17,9 @@ import {
   faqList,
   ctaSection,
 } from "@/app/ui/libs/constants/individual-product/trucrm";
+import LeadPipelineCard from "./components/LeadPipelineCard";
+import ActivityDashboard from "./components/ActivityDashboard";
+import QuotationCard from "./components/QuotationCard";
 
 export const metadata = {
   title: "TruCRM – AI-Powered Customer Relationship Management | TruBot AI",
@@ -49,192 +43,6 @@ export const metadata = {
     "TruBot AI CRM",
   ],
 };
-
-// 1. Lead Pipeline Card (Code-based)
-const LeadPipelineCard = () => (
-  <div className="bg-white p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 w-full max-w-md mx-auto relative z-10">
-    <div className="flex justify-between items-center mb-6">
-      <h3 className="text-xl font-bold text-gray-800">Lead Pipeline</h3>
-      <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">
-        Real-time
-      </span>
-    </div>
-
-    <div className="space-y-5">
-      {/* New Leads */}
-      <div>
-        <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
-          <span className="border-l-4 border-blue-600 pl-2">New Leads</span>
-          <span className="text-blue-600 font-bold">145</span>
-        </div>
-        <div className="h-2 bg-blue-50 rounded-full overflow-hidden">
-          <div className="h-full bg-blue-600 w-[70%] rounded-full"></div>
-        </div>
-      </div>
-
-      {/* Contacted */}
-      <div>
-        <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
-          <span className="border-l-4 border-purple-500 pl-2">Contacted</span>
-          <span className="text-purple-500 font-bold">98</span>
-        </div>
-        <div className="h-2 bg-purple-50 rounded-full overflow-hidden">
-          <div className="h-full bg-purple-500 w-[55%] rounded-full"></div>
-        </div>
-      </div>
-
-      {/* Qualified */}
-      <div>
-        <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
-          <span className="border-l-4 border-orange-500 pl-2">Qualified</span>
-          <span className="text-orange-500 font-bold">67</span>
-        </div>
-        <div className="h-2 bg-orange-50 rounded-full overflow-hidden">
-          <div className="h-full bg-orange-500 w-[40%] rounded-full"></div>
-        </div>
-      </div>
-
-      {/* Converted */}
-      <div>
-        <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
-          <span className="border-l-4 border-green-500 pl-2">Converted</span>
-          <span className="text-green-500 font-bold">42</span>
-        </div>
-        <div className="h-2 bg-green-50 rounded-full overflow-hidden">
-          <div className="h-full bg-green-500 w-[25%] rounded-full"></div>
-        </div>
-      </div>
-    </div>
-
-    <div className="mt-6 pt-6 border-t border-gray-100 flex justify-between">
-      <div>
-        <div className="text-xs text-gray-400 mb-1">Conversion Rate</div>
-        <div className="text-xl font-bold text-green-600">28.9%</div>
-      </div>
-      <div className="text-right">
-        <div className="text-xs text-gray-400 mb-1">Avg. Lead Score</div>
-        <div className="text-xl font-bold text-blue-600">72/100</div>
-      </div>
-    </div>
-  </div>
-);
-
-// 2. Activity Dashboard Component
-const ActivityDashboard = () => (
-  <div className="mt-16 bg-[#0f172a] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
-    <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
-      <div>
-        <h3 className="text-3xl font-bold mb-4">Todays Activity Dashboard</h3>
-        <p className="text-gray-400 mb-6">
-          See what needs to be done today. Prioritize activities and manage your
-          time effectively.
-        </p>
-        <button className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
-          View My Activities
-        </button>
-      </div>
-
-      <div className="space-y-4">
-        {/* Calls Card */}
-        <div className="bg-[#1e293b] p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-blue-500/50 transition-colors">
-          <div className="flex items-center gap-4">
-            <div className="bg-blue-600/20 p-3 rounded-lg text-blue-400">
-              <Phone size={20} />
-            </div>
-            <div>
-              <div className="font-bold">Calls Scheduled</div>
-              <div className="text-xs text-gray-400">Next: 10:30 AM</div>
-            </div>
-          </div>
-          <div className="text-2xl font-bold">8</div>
-        </div>
-
-        {/* Meetings Card */}
-        <div className="bg-[#1e293b] p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-purple-500/50 transition-colors">
-          <div className="flex items-center gap-4">
-            <div className="bg-purple-600/20 p-3 rounded-lg text-purple-400">
-              <Video size={20} />
-            </div>
-            <div>
-              <div className="font-bold">Meetings Today</div>
-              <div className="text-xs text-gray-400">Next: 2:00 PM</div>
-            </div>
-          </div>
-          <div className="text-2xl font-bold">3</div>
-        </div>
-
-        {/* Tasks Card */}
-        <div className="bg-[#1e293b] p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-orange-500/50 transition-colors">
-          <div className="flex items-center gap-4">
-            <div className="bg-orange-600/20 p-3 rounded-lg text-orange-400">
-              <ClipboardList size={20} />
-            </div>
-            <div>
-              <div className="font-bold">Tasks Due</div>
-              <div className="text-xs text-blue-400">5 high priority</div>
-            </div>
-          </div>
-          <div className="text-2xl font-bold">12</div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-// 3. Quotation Invoice Card
-const QuotationCard = () => (
-  <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden w-full max-w-md mx-auto rotate-1 hover:rotate-0 transition-all duration-500">
-    <div className="p-6 border-b border-gray-50">
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex items-center gap-2">
-          <div className="bg-green-100 p-2 rounded text-green-600">
-            <FileText size={20} />
-          </div>
-          <div>
-            <div className="font-bold text-gray-900 text-sm">
-              Quotation #Q-2024-1247
-            </div>
-            <div className="text-xs text-gray-500">Acme Corporation</div>
-          </div>
-        </div>
-        <span className="bg-yellow-100 text-yellow-700 text-[10px] font-bold px-2 py-0.5 rounded">
-          Pending
-        </span>
-      </div>
-
-      <div className="space-y-3 text-sm">
-        <div className="flex justify-between">
-          <span className="text-gray-600">Product License (x5)</span>
-          <span className="font-medium">$2,500</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-600">Implementation</span>
-          <span className="font-medium">$1,200</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-600">Training</span>
-          <span className="font-medium">$800</span>
-        </div>
-        <div className="flex justify-between text-red-500">
-          <span>Discount (10%)</span>
-          <span>-$450</span>
-        </div>
-      </div>
-    </div>
-    <div className="bg-gray-50 p-4 flex justify-between items-center">
-      <div className="font-bold text-gray-900">Total Amount</div>
-      <div className="font-bold text-xl text-green-600">$4,050</div>
-    </div>
-    <div className="p-4 flex gap-2">
-      <button className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2 rounded flex items-center justify-center gap-1">
-        <Send size={12} /> Send Quote
-      </button>
-      <button className="flex-1 border border-gray-200 hover:bg-gray-50 text-gray-600 text-xs font-bold py-2 rounded flex items-center justify-center gap-1">
-        <Download size={12} /> Download PDF
-      </button>
-    </div>
-  </div>
-);
 
 const Page = () => {
   return (
@@ -414,16 +222,16 @@ const Page = () => {
                   </div>
                 </div>
                 {/* Floating Card 2: Avg Response */}
-                <div className="absolute top-10 -right-8 bg-white p-3 rounded-lg shadow-lg flex-items-center gap-3 border border-gray-100 hidden md:flex">
-                  <div className="text-blue-600 bg-blue-50 p-2 rounded-full">
-                    <Clock size={16} />
-                  </div>
-                  <div>
-                    <div className="text-[10px] text-gray-500 uppercase font-bold">
-                      Avg Response Time
-                    </div>
-                    <div className="font-bold text-gray-900">2.3 hours</div>
-                  </div>
+                <div className="absolute top-10 -right-8 hidden md:block">
+                  <StatCard
+                    label="Avg Response Time"
+                    value="2.3 hours"
+                    icon={Clock}
+                    iconBgColor="bg-blue-50"
+                    iconColor="text-blue-600"
+                    size="sm"
+                    className="w-48"
+                  />
                 </div>
               </div>
             </div>
