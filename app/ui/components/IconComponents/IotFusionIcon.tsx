@@ -8,4 +8,5 @@ const IotFusionIcon = () => (
     />
   </svg>
 );
+
 export default IotFusionIcon;

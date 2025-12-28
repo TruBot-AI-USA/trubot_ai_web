@@ -31,4 +31,5 @@ const LogicGridIcon = () => (
     />
   </svg>
 );
+
 export default LogicGridIcon;

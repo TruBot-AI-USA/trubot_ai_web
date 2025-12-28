@@ -89,9 +89,7 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div
-        className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-4"
-      >
+      <div className="grid gap-6 mt-12 md:grid-cols-2 lg:grid-cols-4">
         {plans.map((plan) => {
           // Calculate savings for annual plans
           const isAnnualPlan = duration === "annual";

@@ -1,8 +1,8 @@
-// components/AddOnsTable.tsx
 import React from "react";
-import { addOns }  from "@/app/ui/libs/constants/individual-product/trusocial";
 
-export default function AddOnsTable() {
+import { addOns } from "@/app/ui/libs/constants/individual-product/trusocial";
+
+const AddOnsTable = () => {
   return (
     <div className="flex flex-col items-center justify-center mb-6 w-full">
       <h2 className="text-2xl font-bold mb-6 text-center">Add-Ons Pricing</h2>
@@ -15,41 +15,48 @@ export default function AddOnsTable() {
           </colgroup>
           <thead>
             <tr className="bg-blue-100">
-              <th className="py-3 px-4 text-center text-lg font-semibold">Name</th>
-              <th className="py-3 px-4 text-center text-lg font-semibold">Type</th>
-              <th className="py-3 px-4 text-center text-lg font-semibold">Price</th>
+              <th className="py-3 px-4 text-center text-lg font-semibold">
+                Name
+              </th>
+              <th className="py-3 px-4 text-center text-lg font-semibold">
+                Type
+              </th>
+              <th className="py-3 px-4 text-center text-lg font-semibold">
+                Price
+              </th>
             </tr>
           </thead>
           <tbody>
             {addOns.map((item, i) => (
-                <tr key={item.name}>
-                  <td
-                      className={`py-2 px-4 text-center break-words ${
-                      i !== addOns.length - 1 ? 'border-b border-gray-200' : ''
-                      }`}
-                  >
-                      {item.name}
-                  </td>
-                  <td
-                      className={`py-2 px-4 text-center break-words ${
-                      i !== addOns.length - 1 ? 'border-b border-gray-200' : ''
-                      }`}
-                  >
-                      {item.type}
-                  </td>
-                  <td
-                      className={`py-2 px-4 text-center break-words ${
-                      i !== addOns.length - 1 ? 'border-b border-gray-200' : ''
-                      }`}
-                  >
-                      {item.price}
-                  </td>
-                </tr>
+              <tr key={item.name}>
+                <td
+                  className={`py-2 px-4 text-center break-words ${
+                    i !== addOns.length - 1 ? "border-b border-gray-200" : ""
+                  }`}
+                >
+                  {item.name}
+                </td>
+                <td
+                  className={`py-2 px-4 text-center break-words ${
+                    i !== addOns.length - 1 ? "border-b border-gray-200" : ""
+                  }`}
+                >
+                  {item.type}
+                </td>
+                <td
+                  className={`py-2 px-4 text-center break-words ${
+                    i !== addOns.length - 1 ? "border-b border-gray-200" : ""
+                  }`}
+                >
+                  {item.price}
+                </td>
+              </tr>
             ))}
-            </tbody>
+          </tbody>
         </table>
       </div>
     </div>
   );
-}
+};
 
+export default AddOnsTable;

@@ -10,4 +10,5 @@ const AnalyzeIcon = () => (
     <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1" />
   </svg>
 );
+
 export default AnalyzeIcon;

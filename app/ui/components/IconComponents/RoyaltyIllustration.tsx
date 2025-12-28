@@ -1,5 +1,3 @@
-// components/RoyaltyIllustration.tsx
-
 import { FC } from "react";
 import { FaHandshake, FaCrown, FaChartLine } from "react-icons/fa";
 

@@ -5,4 +5,5 @@ const ScalableStackIcon = () => (
     <rect x="4" y="16" width="16" height="4" rx="1" fill="currentColor" />
   </svg>
 );
+
 export default ScalableStackIcon;
