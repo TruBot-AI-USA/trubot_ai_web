@@ -7,6 +7,9 @@ import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
 import StatCard from "@/app/ui/components/shared/StatCard";
+import LeadPipelineCard from "./components/LeadPipelineCard";
+import ActivityDashboard from "./components/ActivityDashboard";
+import QuotationCard from "./components/QuotationCard";
 import {
   heroSection,
   coreFeaturesList,
@@ -17,9 +20,6 @@ import {
   faqList,
   ctaSection,
 } from "@/app/ui/libs/constants/individual-product/trucrm";
-import LeadPipelineCard from "./components/LeadPipelineCard";
-import ActivityDashboard from "./components/ActivityDashboard";
-import QuotationCard from "./components/QuotationCard";
 
 export const metadata = {
   title: "TruCRM – AI-Powered Customer Relationship Management | TruBot AI",
