@@ -5,7 +5,6 @@ import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
 import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
-
 import {
   heroSection,
   problemSolution,
@@ -17,9 +16,26 @@ import {
 } from "@/app/ui/libs/constants/individual-product/trulead";
 
 export const metadata = {
-  title: "TruLead – AI-Powered Lead Generation & Prospecting",
+  title: "TruLead – AI-Powered Lead Generation & Prospecting | TruBot AI",
   description:
-    "Automate your prospecting with AI. Find, qualify, and enrich high-quality leads in minutes with TruLead.",
+    "Automate your prospecting with AI. Find, qualify, and enrich high-quality leads in minutes with TruLead. Transform your sales pipeline with intelligent lead generation and data enrichment.",
+  keywords: [
+    "Lead Generation Software",
+    "AI Lead Generation",
+    "Lead Prospecting Tools",
+    "Automated Lead Generation",
+    "Lead Enrichment Platform",
+    "Sales Prospecting Software",
+    "B2B Lead Generation",
+    "AI-Powered Prospecting",
+    "Lead Qualification",
+    "Contact Data Enrichment",
+    "Sales Intelligence Platform",
+    "Lead Scoring Software",
+    "Prospect Research Tools",
+    "TruLead",
+    "TruBot AI Lead Generation",
+  ],
 };
 
 const Page = () => {
