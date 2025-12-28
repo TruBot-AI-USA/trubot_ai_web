@@ -13,4 +13,5 @@ const CaptureIcon = () => (
     <path d="M8 5L10 2h4l2 3" stroke="currentColor" strokeWidth="2" />
   </svg>
 );
+
 export default CaptureIcon;
