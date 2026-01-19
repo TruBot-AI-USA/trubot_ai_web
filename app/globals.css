@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@import "./ui/styles/animations.css";
+@import "./ui/styles/fancy-animations.css";
+
+/* Theme Variables */
+@theme {
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Sora", sans-serif;
+
+  --color-navy: #1f2937;
+  --color-electric: #3b82f6;
+  --color-coral: #f87171;
+  --color-teal: #14b8a6;
+  --color-gray-soft: #f3f4f6;
+  --color-light: #ffffff;
+  --color-dark: #0f172a;
+}
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-light);
+    color: var(--color-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

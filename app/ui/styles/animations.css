@@ -1,0 +1,216 @@
+@layer utilities {
+  /* === Fade === */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  /* === Slide In Directions === */
+  @keyframes slide-in-up {
+    from {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-down {
+    from {
+      transform: translateY(-1rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-1rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in-up {
+    animation: slide-in-up 0.5s ease-out forwards;
+  }
+  .slide-in-down {
+    animation: slide-in-down 0.5s ease-out forwards;
+  }
+  .slide-in-left {
+    animation: slide-in-left 0.5s ease-out forwards;
+  }
+  .slide-in-right {
+    animation: slide-in-right 0.5s ease-out forwards;
+  }
+
+  /* === Scale/Zoom === */
+  @keyframes scale-up {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-down {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+  }
+
+  .scale-up {
+    animation: scale-up 0.4s ease-out forwards;
+  }
+  .scale-down {
+    animation: scale-down 0.4s ease-in forwards;
+  }
+
+  /* === Pulse === */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.05);
+    }
+  }
+  .pulse {
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+
+  /* === Rotate === */
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .rotate {
+    animation: rotate 1s linear infinite;
+  }
+
+  /* === Hover Effects === */
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  .hover-raise {
+    transition: transform 0.3s ease;
+  }
+  .hover-raise:hover {
+    transform: translateY(-0.25rem);
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s ease;
+  }
+  .hover-glow:hover {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  /* === Loading Spinner === */
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    border: 2px solid #ccc;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: spin 1s linear infinite;
+  }
+
+  /* === Accordion === */
+  .accordion-open {
+    max-height: 1000px; /* Enough room for longer answers */
+    opacity: 1;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    overflow: hidden;
+  }
+  .accordion-close {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    overflow: hidden;
+  }
+
+  /* === Delay + Duration === */
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .animation-duration-300 {
+    animation-duration: 0.3s;
+  }
+  .animation-duration-500 {
+    animation-duration: 0.5s;
+  }
+  .animation-duration-800 {
+    animation-duration: 0.8s;
+  }
+
+  /* === Accessibility === */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}

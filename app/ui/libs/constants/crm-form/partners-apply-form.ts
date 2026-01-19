@@ -1,0 +1,162 @@
+import {
+  Building,
+  Globe,
+  Briefcase,
+  Users,
+  User,
+  Mail,
+  Phone,
+  MessageSquare,
+  Layers,
+  HelpCircle,
+} from "lucide-react";
+
+const inputList = [
+  // Company Information
+  {
+    id: "companyName",
+    label: "Company Name",
+    icon: Building,
+    placeholder: "Enter your company name",
+    type: "text",
+    required: true,
+  },
+  {
+    id: "website",
+    label: "Website",
+    icon: Globe,
+    placeholder: "https://yourcompany.com",
+    type: "text",
+    required: false,
+  },
+  {
+    id: "industry",
+    label: "Industry",
+    icon: Briefcase,
+    placeholder: "Select your industry",
+    type: "select",
+    required: true,
+    options: [
+      "Technology",
+      "Consulting",
+      "Digital Agency",
+      "Managed Services",
+      "Reseller/Distributor",
+      "AI Startup",
+      "Other",
+    ],
+  },
+  {
+    id: "companySize",
+    label: "Company Size",
+    icon: Users,
+    placeholder: "Select company size",
+    type: "select",
+    required: true,
+    options: [
+      "1-10 employees",
+      "11-50 employees",
+      "51-200 employees",
+      "201-500 employees",
+      "500+ employees",
+    ],
+  },
+  // Partnership Information
+  {
+    id: "partnershipType",
+    label: "Partnership Type",
+    icon: Layers,
+    placeholder: "Select partnership type",
+    type: "select",
+    required: true,
+    options: [
+      "White Label Partner",
+      "Implementation Partner",
+      "Technology Partner",
+      "Strategic Partner",
+      "Sales Partner",
+      "Startup Program",
+      "Royalty Program",
+      "Reseller Program",
+    ],
+  },
+  {
+    id: "partnershipGoals",
+    label: "Partnership Goals",
+    icon: MessageSquare,
+    placeholder:
+      "Describe your partnership goals and how you plan to work with TruBot AI...",
+    type: "textarea",
+    required: true,
+  },
+  // Contact Information
+  {
+    id: "firstName",
+    label: "First Name",
+    icon: User,
+    placeholder: "Enter your first name",
+    type: "text",
+    required: true,
+  },
+  {
+    id: "lastName",
+    label: "Last Name",
+    icon: User,
+    placeholder: "Enter your last name",
+    type: "text",
+    required: true,
+  },
+  {
+    id: "email",
+    label: "Email Address",
+    icon: Mail,
+    placeholder: "Enter your email address",
+    type: "email",
+    required: true,
+  },
+  {
+    id: "phone",
+    label: "Phone Number",
+    icon: Phone,
+    placeholder: "Enter your phone number",
+    type: "text",
+    required: false,
+  },
+  {
+    id: "jobTitle",
+    label: "Job Title",
+    icon: Briefcase,
+    placeholder: "Enter your job title",
+    type: "text",
+    required: true,
+  },
+  // Additional Information
+  {
+    id: "currentCustomers",
+    label: "Current Customer Base",
+    icon: Users,
+    placeholder: "Describe your current customer base and target market...",
+    type: "textarea",
+    required: false,
+  },
+  {
+    id: "technicalCapabilities",
+    label: "Technical Capabilities",
+    icon: Layers,
+    placeholder:
+      "Describe your technical capabilities and integration experience...",
+    type: "textarea",
+    required: false,
+  },
+  {
+    id: "questions",
+    label: "Questions or Comments",
+    icon: HelpCircle,
+    placeholder:
+      "Any questions or additional information you'd like to share...",
+    type: "textarea",
+    required: false,
+  },
+];
+
+export { inputList };
