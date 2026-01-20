@@ -58,7 +58,7 @@ const productList = [
         icon: Target,
       },
       {
-        name: "TrueRP",
+        name: "TruERP",
         description:
           "Enterprise resource planning solution powered by AI for seamless business operations and automation.",
         href: "/products/truerp",

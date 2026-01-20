@@ -73,7 +73,7 @@ const productList = [
   },
   {
     icon: FaCogs,
-    title: "TrueRP – ERP System",
+    title: "TruERP – ERP System",
     description:
       "Run your entire business in one place. Unified ERP platform bringing CRM, Finance, HR, and Operations together.",
     link: "/products/truerp",
