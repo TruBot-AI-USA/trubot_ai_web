@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  
+
   // 2. Your existing redirects
   async redirects() {
     return [

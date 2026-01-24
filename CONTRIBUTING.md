@@ -36,7 +36,7 @@ pnpm dev
 
 Follow [Conventional Commits](https://www.conventionalcommits.org):
 
-```
+```code
 feat: add new chatbot integration
 fix: correct meta title mismatch
 chore: update README and sitemap

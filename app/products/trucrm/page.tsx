@@ -1,5 +1,15 @@
 import Image from "next/image";
-import { CheckCircle2, TrendingUp, Clock } from "lucide-react";
+import {
+  CheckCircle2,
+  TrendingUp,
+  Clock,
+  Phone,
+  Video,
+  ClipboardList,
+  Send,
+  Download,
+  FileText,
+} from "lucide-react";
 
 import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
@@ -7,9 +17,6 @@ import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
 import StatCard from "@/app/ui/components/shared/StatCard";
-import LeadPipelineCard from "./components/LeadPipelineCard";
-import ActivityDashboard from "./components/ActivityDashboard";
-import QuotationCard from "./components/QuotationCard";
 import {
   heroSection,
   coreFeaturesList,
@@ -128,7 +135,7 @@ const Page = () => {
       </div>
 
       {/* --- 8-GRID CORE FEATURES --- */}
-      <div id="features" className="bg-white">
+      <div id="features" className="bg-gray-soft">
         <PageLayout className="mx-auto">
           <SectionHeader
             title="Everything You Need to Close More Deals"
@@ -161,85 +168,83 @@ const Page = () => {
       {/* --- ZIG-ZAG DETAILED SECTIONS --- */}
       <div className="space-y-0">
         {/* 1. EMAIL MANAGEMENT */}
-        <div className=" bg-white">
-          <PageLayout>
-            <div className="flex flex-col lg:flex-row items-center gap-16">
-              {/* Text */}
-              <div className="flex-1 space-y-6">
-                <span className="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full">
-                  Email Management
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-navy">
-                  {detailedFeatures[0].title}
-                </h2>
-                <p className="text-lg text-gray-600">
-                  {detailedFeatures[0].description}
-                </p>
-                <div className="space-y-4 pt-4">
-                  {detailedFeatures[0].features.map((feat, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-50 text-blue-600">
-                        <feat.icon size={20} />
-                      </div>
-                      <div>
-                        <h4 className="font-bold">{feat.title}</h4>
-                        <p className="text-sm text-gray-600">
-                          {feat.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Image & Cards */}
-              <div className="flex-1 w-full relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-                  <Image
-                    src={detailedFeatures[0].imageSrc}
-                    alt={detailedFeatures[0].imageAlt}
-                    width={600}
-                    height={450}
-                    className="w-full object-cover"
-                  />
-                </div>
-                {/* Floating Card 1: Sync Status */}
-                <div className="absolute -bottom-10 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 w-56 hidden md:block">
-                  <div className="flex items-center gap-2 mb-2 text-sm font-bold text-gray-800">
-                    <div className="text-blue-500">
-                      <CheckCircle2 size={16} />
-                    </div>{" "}
-                    Email Sync Status
-                  </div>
-                  <div className="flex justify-between text-xs text-gray-500 mt-2 pt-2 border-t">
-                    <div>
-                      <div className="font-bold text-gray-900 text-lg">247</div>
-                      Sent Today
+        <PageLayout>
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Text */}
+            <div className="flex-1 space-y-6">
+              <span className="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full">
+                Email Management
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-navy">
+                {detailedFeatures[0].title}
+              </h2>
+              <p className="text-lg text-gray-600">
+                {detailedFeatures[0].description}
+              </p>
+              <div className="space-y-4 pt-4">
+                {detailedFeatures[0].features.map((feat, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-blue-50 text-blue-600">
+                      <feat.icon size={20} />
                     </div>
                     <div>
-                      <div className="font-bold text-gray-900 text-lg">68%</div>
-                      Response
+                      <h4 className="font-bold">{feat.title}</h4>
+                      <p className="text-sm text-gray-600">
+                        {feat.description}
+                      </p>
                     </div>
                   </div>
-                </div>
-                {/* Floating Card 2: Avg Response */}
-                <div className="absolute top-10 -right-8 hidden md:block">
-                  <StatCard
-                    label="Avg Response Time"
-                    value="2.3 hours"
-                    icon={Clock}
-                    iconBgColor="bg-blue-50"
-                    iconColor="text-blue-600"
-                    size="sm"
-                    className="w-48"
-                  />
-                </div>
+                ))}
               </div>
             </div>
-          </PageLayout>
-        </div>
+            {/* Image & Cards */}
+            <div className="flex-1 w-full relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+                <Image
+                  src={detailedFeatures[0].imageSrc}
+                  alt={detailedFeatures[0].imageAlt}
+                  width={600}
+                  height={450}
+                  className="w-full object-cover"
+                />
+              </div>
+              {/* Floating Card 1: Sync Status */}
+              <div className="absolute -bottom-10 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-100 w-56 hidden md:block">
+                <div className="flex items-center gap-2 mb-2 text-sm font-bold text-gray-800">
+                  <div className="text-blue-500">
+                    <CheckCircle2 size={16} />
+                  </div>{" "}
+                  Email Sync Status
+                </div>
+                <div className="flex justify-between text-xs text-gray-500 mt-2 pt-2 border-t">
+                  <div>
+                    <div className="font-bold text-gray-900 text-lg">247</div>
+                    Sent Today
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 text-lg">68%</div>
+                    Response
+                  </div>
+                </div>
+              </div>
+              {/* Floating Card 2: Avg Response */}
+              <div className="absolute top-10 -right-8 hidden md:block">
+                <StatCard
+                  label="Avg Response Time"
+                  value="2.3 hours"
+                  icon={Clock}
+                  iconBgColor="bg-blue-50"
+                  iconColor="text-blue-600"
+                  size="sm"
+                  className="w-48"
+                />
+              </div>
+            </div>
+          </div>
+        </PageLayout>
 
         {/* 2. LEAD GENERATION (Code-based Card) */}
-        <div className=" bg-blue-50/30">
+        <div className="bg-gray-soft">
           <PageLayout>
             <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
               {/* Text */}
@@ -274,89 +279,167 @@ const Page = () => {
               </div>
               {/* Component */}
               <div className="flex-1 w-full">
-                <LeadPipelineCard />
+                <div className="bg-white p-6 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-gray-100 w-full max-w-md mx-auto relative z-10">
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-xl font-bold text-gray-800">
+                      Lead Pipeline
+                    </h3>
+                    <span className="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">
+                      Real-time
+                    </span>
+                  </div>
+
+                  <div className="space-y-5">
+                    {/* New Leads */}
+                    <div>
+                      <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
+                        <span className="border-l-4 border-blue-600 pl-2">
+                          New Leads
+                        </span>
+                        <span className="text-blue-600 font-bold">145</span>
+                      </div>
+                      <div className="h-2 bg-blue-50 rounded-full overflow-hidden">
+                        <div className="h-full bg-blue-600 w-[70%] rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Contacted */}
+                    <div>
+                      <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
+                        <span className="border-l-4 border-purple-500 pl-2">
+                          Contacted
+                        </span>
+                        <span className="text-purple-500 font-bold">98</span>
+                      </div>
+                      <div className="h-2 bg-purple-50 rounded-full overflow-hidden">
+                        <div className="h-full bg-purple-500 w-[55%] rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Qualified */}
+                    <div>
+                      <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
+                        <span className="border-l-4 border-orange-500 pl-2">
+                          Qualified
+                        </span>
+                        <span className="text-orange-500 font-bold">67</span>
+                      </div>
+                      <div className="h-2 bg-orange-50 rounded-full overflow-hidden">
+                        <div className="h-full bg-orange-500 w-[40%] rounded-full"></div>
+                      </div>
+                    </div>
+
+                    {/* Converted */}
+                    <div>
+                      <div className="flex justify-between text-sm mb-1 font-medium text-gray-700">
+                        <span className="border-l-4 border-green-500 pl-2">
+                          Converted
+                        </span>
+                        <span className="text-green-500 font-bold">42</span>
+                      </div>
+                      <div className="h-2 bg-green-50 rounded-full overflow-hidden">
+                        <div className="h-full bg-green-500 w-[25%] rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t border-gray-100 flex justify-between">
+                    <div>
+                      <div className="text-xs text-gray-400 mb-1">
+                        Conversion Rate
+                      </div>
+                      <div className="text-xl font-bold text-green-600">
+                        28.9%
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-gray-400 mb-1">
+                        Avg. Lead Score
+                      </div>
+                      <div className="text-xl font-bold text-blue-600">
+                        72/100
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </PageLayout>
         </div>
 
         {/* 3. OPPORTUNITY MANAGEMENT */}
-        <div className=" bg-white">
-          <PageLayout>
-            <div className="flex flex-col lg:flex-row items-center gap-16">
-              {/* Text */}
-              <div className="flex-1 space-y-6">
-                <span className="inline-block px-3 py-1 text-sm font-semibold text-pink-600 bg-pink-100 rounded-full">
-                  Opportunity Management
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-navy">
-                  {detailedFeatures[2].title}
-                </h2>
-                <p className="text-lg text-gray-600">
-                  {detailedFeatures[2].description}
-                </p>
-                <div className="space-y-4 pt-4">
-                  {detailedFeatures[2].features.map((feat, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-pink-50 text-pink-600">
-                        <feat.icon size={20} />
-                      </div>
-                      <div>
-                        <h4 className="font-bold">{feat.title}</h4>
-                        <p className="text-sm text-gray-600">
-                          {feat.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              {/* Image */}
-              <div className="flex-1 w-full relative">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-                  <Image
-                    src={detailedFeatures[2].imageSrc}
-                    alt={detailedFeatures[2].imageAlt}
-                    width={600}
-                    height={450}
-                    className="w-full object-cover"
-                  />
-                </div>
-                {/* Floating Card: Active Opps */}
-                <div className="absolute -bottom-8 -left-8 bg-white p-5 rounded-xl shadow-xl border border-gray-100 hidden md:block">
-                  <p className="text-xs text-gray-500 mb-3 font-semibold">
-                    Active Opportunities
-                  </p>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="bg-green-100 text-green-600 p-1.5 rounded-full">
-                      <CheckCircle2 size={16} />
+        <PageLayout>
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            {/* Text */}
+            <div className="flex-1 space-y-6">
+              <span className="inline-block px-3 py-1 text-sm font-semibold text-pink-600 bg-pink-100 rounded-full">
+                Opportunity Management
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-navy">
+                {detailedFeatures[2].title}
+              </h2>
+              <p className="text-lg text-gray-600">
+                {detailedFeatures[2].description}
+              </p>
+              <div className="space-y-4 pt-4">
+                {detailedFeatures[2].features.map((feat, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-pink-50 text-pink-600">
+                      <feat.icon size={20} />
                     </div>
                     <div>
-                      <div className="text-[10px] text-gray-500">
-                        Won This Month
-                      </div>
-                      <div className="font-bold text-gray-900">$485K</div>
+                      <h4 className="font-bold">{feat.title}</h4>
+                      <p className="text-sm text-gray-600">
+                        {feat.description}
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="bg-blue-100 text-blue-600 p-1.5 rounded-full">
-                      <TrendingUp size={16} />
+                ))}
+              </div>
+            </div>
+            {/* Image */}
+            <div className="flex-1 w-full relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+                <Image
+                  src={detailedFeatures[2].imageSrc}
+                  alt={detailedFeatures[2].imageAlt}
+                  width={600}
+                  height={450}
+                  className="w-full object-cover"
+                />
+              </div>
+              {/* Floating Card: Active Opps */}
+              <div className="absolute -bottom-8 -left-8 bg-white p-5 rounded-xl shadow-xl border border-gray-100 hidden md:block">
+                <p className="text-xs text-gray-500 mb-3 font-semibold">
+                  Active Opportunities
+                </p>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="bg-green-100 text-green-600 p-1.5 rounded-full">
+                    <CheckCircle2 size={16} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-gray-500">
+                      Won This Month
                     </div>
-                    <div>
-                      <div className="text-[10px] text-gray-500">
-                        In Pipeline
-                      </div>
-                      <div className="font-bold text-gray-900">$1.2M</div>
-                    </div>
+                    <div className="font-bold text-gray-900">$485K</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="bg-blue-100 text-blue-600 p-1.5 rounded-full">
+                    <TrendingUp size={16} />
+                  </div>
+                  <div>
+                    <div className="text-[10px] text-gray-500">In Pipeline</div>
+                    <div className="font-bold text-gray-900">$1.2M</div>
                   </div>
                 </div>
               </div>
             </div>
-          </PageLayout>
-        </div>
+          </div>
+        </PageLayout>
 
         {/* 4. CUSTOMER MANAGEMENT */}
-        <div className=" bg-green-50/30">
+        <div className="bg-gray-soft">
           <PageLayout>
             <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
               {/* Text */}
@@ -434,55 +517,112 @@ const Page = () => {
       </div>
 
       {/* --- ACTIVITY MANAGEMENT (Unique Layout) --- */}
-      <div className="bg-white">
-        <PageLayout>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-3 py-1 text-sm font-semibold text-orange-600 bg-orange-100 rounded-full mb-4">
-              {activitySection.badge}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              {activitySection.title}
-            </h2>
-            <p className="text-gray-600 text-lg">{activitySection.subtitle}</p>
-          </div>
+      <PageLayout>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block px-3 py-1 text-sm font-semibold text-orange-600 bg-orange-100 rounded-full mb-4">
+            {activitySection.badge}
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+            {activitySection.title}
+          </h2>
+          <p className="text-gray-600 text-lg">{activitySection.subtitle}</p>
+        </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {activitySection.cards.map((card, idx) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {activitySection.cards.map((card, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300"
+            >
               <div
-                key={idx}
-                className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300"
+                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${card.color}`}
               >
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${card.color}`}
-                >
-                  <card.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {card.title}
-                </h3>
-                <p className="text-gray-600 mb-6 text-sm">{card.description}</p>
-                <ul className="space-y-3">
-                  {card.features.map((feat, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-2 text-sm text-gray-700 font-medium"
-                    >
-                      <CheckCircle2 size={16} className="text-green-500" />
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
+                <card.icon size={24} />
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                {card.title}
+              </h3>
+              <p className="text-gray-600 mb-6 text-sm">{card.description}</p>
+              <ul className="space-y-3">
+                {card.features.map((feat, i) => (
+                  <li
+                    key={i}
+                    className="flex items-center gap-2 text-sm text-gray-700 font-medium"
+                  >
+                    <CheckCircle2 size={16} className="text-green-500" />
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-          {/* Activity Dashboard Component */}
-          <ActivityDashboard />
-        </PageLayout>
-      </div>
+        {/* Activity Dashboard Component */}
+        <div className="mt-16 bg-[#0f172a] rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-2xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+              <h3 className="text-3xl font-bold mb-4">
+                Todays Activity Dashboard
+              </h3>
+              <p className="text-gray-400 mb-6">
+                See what needs to be done today. Prioritize activities and
+                manage your time effectively.
+              </p>
+              <button className="bg-white/10 hover:bg-white/20 text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-colors">
+                View My Activities
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              {/* Calls Card */}
+              <div className="bg-[#1e293b] p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-blue-500/50 transition-colors">
+                <div className="flex items-center gap-4">
+                  <div className="bg-blue-600/20 p-3 rounded-lg text-blue-400">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <div className="font-bold">Calls Scheduled</div>
+                    <div className="text-xs text-gray-400">Next: 10:30 AM</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold">8</div>
+              </div>
+
+              {/* Meetings Card */}
+              <div className="bg-[#1e293b] p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-purple-500/50 transition-colors">
+                <div className="flex items-center gap-4">
+                  <div className="bg-purple-600/20 p-3 rounded-lg text-purple-400">
+                    <Video size={20} />
+                  </div>
+                  <div>
+                    <div className="font-bold">Meetings Today</div>
+                    <div className="text-xs text-gray-400">Next: 2:00 PM</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold">3</div>
+              </div>
+
+              {/* Tasks Card */}
+              <div className="bg-[#1e293b] p-4 rounded-xl flex items-center justify-between border border-white/5 hover:border-orange-500/50 transition-colors">
+                <div className="flex items-center gap-4">
+                  <div className="bg-orange-600/20 p-3 rounded-lg text-orange-400">
+                    <ClipboardList size={20} />
+                  </div>
+                  <div>
+                    <div className="font-bold">Tasks Due</div>
+                    <div className="text-xs text-blue-400">5 high priority</div>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold">12</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </PageLayout>
 
       {/* --- QUOTATIONS SECTION (Green Theme) --- */}
-      <div className="bg-gradient-to-br from-green-50 to-white">
+      <div className="bg-gray-soft">
         <PageLayout>
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="flex-1 space-y-8">
@@ -516,7 +656,61 @@ const Page = () => {
             </div>
 
             <div className="flex-1 w-full relative">
-              <QuotationCard />
+              <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden w-full max-w-md mx-auto rotate-1 hover:rotate-0 transition-all duration-500">
+                <div className="p-6 border-b border-gray-50">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="bg-green-100 p-2 rounded text-green-600">
+                        <FileText size={20} />
+                      </div>
+                      <div>
+                        <div className="font-bold text-gray-900 text-sm">
+                          Quotation #Q-2024-1247
+                        </div>
+                        <div className="text-xs text-gray-500">
+                          Acme Corporation
+                        </div>
+                      </div>
+                    </div>
+                    <span className="bg-yellow-100 text-yellow-700 text-[10px] font-bold px-2 py-0.5 rounded">
+                      Pending
+                    </span>
+                  </div>
+
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">
+                        Product License (x5)
+                      </span>
+                      <span className="font-medium">$2,500</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Implementation</span>
+                      <span className="font-medium">$1,200</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Training</span>
+                      <span className="font-medium">$800</span>
+                    </div>
+                    <div className="flex justify-between text-red-500">
+                      <span>Discount (10%)</span>
+                      <span>-$450</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 p-4 flex justify-between items-center">
+                  <div className="font-bold text-gray-900">Total Amount</div>
+                  <div className="font-bold text-xl text-green-600">$4,050</div>
+                </div>
+                <div className="p-4 flex gap-2">
+                  <button className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs font-bold py-2 rounded flex items-center justify-center gap-1">
+                    <Send size={12} /> Send Quote
+                  </button>
+                  <button className="flex-1 border border-gray-200 hover:bg-gray-50 text-gray-600 text-xs font-bold py-2 rounded flex items-center justify-center gap-1">
+                    <Download size={12} /> Download PDF
+                  </button>
+                </div>
+              </div>
 
               {/* Floating Performance Card */}
               <div className="absolute top-1/2 -right-4 translate-y-12 bg-white p-4 rounded-xl shadow-xl border border-gray-100 hidden lg:block w-48">
@@ -544,92 +738,90 @@ const Page = () => {
       </div>
 
       {/* --- ANALYTICS SECTION --- */}
-      <div className="bg-white">
-        <PageLayout>
-          <div className="text-center mb-16">
-            <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full text-sm">
-              {analyticsSection.badge}
-            </span>
-            <h2 className="text-4xl font-bold text-navy mt-4 mb-4">
-              {analyticsSection.title}
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {analyticsSection.subtitle}
-            </p>
-          </div>
+      <PageLayout>
+        <div className="text-center mb-16">
+          <span className="text-purple-600 font-semibold bg-purple-100 px-3 py-1 rounded-full text-sm">
+            {analyticsSection.badge}
+          </span>
+          <h2 className="text-4xl font-bold text-navy mt-4 mb-4">
+            {analyticsSection.title}
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            {analyticsSection.subtitle}
+          </p>
+        </div>
 
-          {/* 3 Colored Dashboard Cards */}
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {analyticsSection.cards.map((card, idx) => (
-              <div
-                key={idx}
-                className={`${card.color} rounded-2xl p-8 shadow-xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300`}
-              >
-                <div className="relative z-10">
-                  <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 backdrop-blur-sm">
-                    <card.icon className="text-white" size={24} />
+        {/* 3 Colored Dashboard Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {analyticsSection.cards.map((card, idx) => (
+            <div
+              key={idx}
+              className={`${card.color} rounded-2xl p-8 shadow-xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300`}
+            >
+              <div className="relative z-10">
+                <div className="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6 backdrop-blur-sm">
+                  <card.icon className="text-white" size={24} />
+                </div>
+                <h3 className="text-2xl font-bold mb-8">{card.title}</h3>
+                <div className="space-y-4">
+                  {card.metrics.map((m, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center border-b border-white/20 pb-2"
+                    >
+                      <span className="text-white/80 text-sm">{m.label}</span>
+                      <span className="font-bold text-lg">{m.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Comprehensive Suite Section */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 bg-gray-50 rounded-3xl p-8 md:p-12">
+          <div className="flex-1 w-full relative">
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+              <Image
+                src={analyticsSection.imageSrc}
+                alt="Analytics Dashboard"
+                width={800}
+                height={600}
+                className="w-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="flex-1 space-y-8">
+            <h3 className="text-3xl font-bold text-gray-900">
+              Comprehensive Analytics Suite
+            </h3>
+            <div className="space-y-6">
+              {analyticsSection.features.map((item, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 h-fit text-blue-600">
+                    <item.icon size={24} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-8">{card.title}</h3>
-                  <div className="space-y-4">
-                    {card.metrics.map((m, i) => (
-                      <div
-                        key={i}
-                        className="flex justify-between items-center border-b border-white/20 pb-2"
-                      >
-                        <span className="text-white/80 text-sm">{m.label}</span>
-                        <span className="font-bold text-lg">{m.value}</span>
-                      </div>
-                    ))}
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-lg">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-600">{item.description}</p>
                   </div>
                 </div>
-                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-              </div>
-            ))}
-          </div>
-
-          {/* Comprehensive Suite Section */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 bg-gray-50 rounded-3xl p-8 md:p-12">
-            <div className="flex-1 w-full relative">
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                <Image
-                  src={analyticsSection.imageSrc}
-                  alt="Analytics Dashboard"
-                  width={800}
-                  height={600}
-                  className="w-full object-cover"
-                />
-              </div>
+              ))}
             </div>
-            <div className="flex-1 space-y-8">
-              <h3 className="text-3xl font-bold text-gray-900">
-                Comprehensive Analytics Suite
-              </h3>
-              <div className="space-y-6">
-                {analyticsSection.features.map((item, idx) => (
-                  <div key={idx} className="flex gap-4">
-                    <div className="bg-white p-3 rounded-xl shadow-sm border border-gray-100 h-fit text-blue-600">
-                      <item.icon size={24} />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 text-lg">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex gap-4 pt-4">
-                <Button label="View Sample Dashboard" variant="primary" />
-                <Button label="Create Custom Report" variant="outline" />
-              </div>
+            <div className="flex gap-4 pt-4">
+              <Button label="View Sample Dashboard" variant="primary" />
+              <Button label="Create Custom Report" variant="outline" />
             </div>
           </div>
-        </PageLayout>
-      </div>
+        </div>
+      </PageLayout>
 
       {/* --- FAQ SECTION --- */}
-      <div className="bg-white">
+      <div className="bg-gray-soft">
         <FAQSection
           title="Frequently Asked Questions"
           subtitle="Got questions? We've got answers."
