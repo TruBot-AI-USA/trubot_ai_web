@@ -14,9 +14,25 @@ import {
 } from "@/app/ui/libs/constants/individual-product/truerp";
 
 export const metadata: Metadata = {
-  title: "TruERP - Run Your Entire Business in One Place",
+  title: "TruERP – Unified ERP Platform for Business Operations | TruBot AI",
   description:
-    "Unified ERP platform bringing CRM, Finance, HR, and Operations together. Sell faster, track inventory, manage accounting, and control operations.",
+    "Run your entire business in one place. TruERP unifies CRM, Finance, HR, and Operations. Sell faster, track inventory, manage accounting, and control operations with a single integrated platform.",
+  keywords: [
+    "ERP Software",
+    "Enterprise Resource Planning",
+    "Unified Business Platform",
+    "CRM and ERP Integration",
+    "Business Management Software",
+    "Inventory Management System",
+    "Financial Management Software",
+    "HR Management System",
+    "Operations Management",
+    "ERP for SMEs",
+    "Business Operations Platform",
+    "Integrated Business Software",
+    "TruERP",
+    "TruBot AI ERP",
+  ],
 };
 
 const Page = () => {
