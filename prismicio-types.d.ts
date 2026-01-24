@@ -107,7 +107,7 @@ interface BlogPostDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>
+  slices: prismic.SliceZone<BlogPostDocumentDataSlicesSlice>;
   /**
    * Meta Title field in *Blog Post*
    *
@@ -116,7 +116,7 @@ interface BlogPostDocumentData {
    * - **API ID Path**: blog_post.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_title: prismic.KeyTextField;
 
   /**
@@ -164,14 +164,14 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 
   interface CreateWriteClient {
     (
       repositoryNameOrEndpoint: string,
-      options: prismic.WriteClientConfig
+      options: prismic.WriteClientConfig,
     ): prismic.WriteClient<AllDocumentTypes>;
   }
 

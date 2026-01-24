@@ -11,7 +11,7 @@ Welcome to the official repository for **TruBot AI** — a platform delivering A
 
 ## 📚 Project Structure
 
-```
+```structure
 /app
   /ui
     /components ➔ Reusable UI Components (Button, Header, Footer, etc.)
@@ -66,8 +66,7 @@ This project is licensed under [MIT License](LICENSE).
 
 ## 📬 Contact
 
-- **Sales**: sales@trubotai.com
-- **Careers**: careers@trubotai.com
-
+- **Sales**: <sales@trubotai.com>
+- **Careers**: <careers@trubotai.com>
 
 Built with ❤️ by the TruBot AI team.
