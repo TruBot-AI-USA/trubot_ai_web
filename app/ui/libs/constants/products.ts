@@ -57,6 +57,13 @@ const productList = [
         href: "/products/trulead",
         icon: Target,
       },
+      {
+        name: "TruERP",
+        description:
+          "Enterprise resource planning solution powered by AI for seamless business operations and automation.",
+        href: "/products/truerp",
+        icon: Layers3,
+      },
     ],
   },
   {

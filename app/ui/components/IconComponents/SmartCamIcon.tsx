@@ -1,4 +1,3 @@
-// components/icons/SmartCamIcon.tsx
 const SmartCamIcon = () => {
   return (
     <svg

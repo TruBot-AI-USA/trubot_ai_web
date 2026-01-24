@@ -8,4 +8,5 @@ const ActionIcon = () => (
     <polygon points="10,9 14,9 12,15" fill="currentColor" />
   </svg>
 );
+
 export default ActionIcon;

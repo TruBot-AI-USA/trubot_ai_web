@@ -4,13 +4,12 @@ import { ArrowRight } from "lucide-react";
 import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
 import Button from "@/app/ui/components/shared/Button";
-
 import ProductCard from "@/app/ui/components/shared/ProductCard";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
 import TestimonialCarousel from "./components/TestimonialCarousel";
 import Pricing from "./components/Pricing";
-import AddOnsTable from "./components/AddOnsTable"
+import AddOnsTable from "./components/AddOnsTable";
 import {
   heroSection,
   benefitList,

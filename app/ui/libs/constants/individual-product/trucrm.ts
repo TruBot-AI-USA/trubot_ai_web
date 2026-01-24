@@ -18,7 +18,7 @@ import {
   Filter,
 } from "lucide-react";
 
-export const heroSection = {
+const heroSection = {
   badge: "The Complete CRM Solution",
   title: {
     main: "Transform Your Sales Process",
@@ -51,7 +51,7 @@ export const heroSection = {
   ],
 };
 
-export const coreFeaturesList = [
+const coreFeaturesList = [
   {
     icon: Target,
     iconColor: "bg-purple-50 text-purple-500",
@@ -100,10 +100,9 @@ export const coreFeaturesList = [
     title: "Reports & Analytics",
     description: "Gain insights with powerful sales funnel and analytics",
   },
-  
 ];
 
-export const detailedFeatures = [
+const detailedFeatures = [
   {
     id: "email-integration",
     badge: "Email Communication Management",
@@ -111,23 +110,27 @@ export const detailedFeatures = [
     description:
       "Connect your email accounts and communicate with leads and customers directly from True CRM. Track all conversations in one centralized platform.",
     // Person using phone/laptop
-    imageSrc: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1000",
+    imageSrc:
+      "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=1000",
     imageAlt: "Email Sync Interface",
-    reversed: false, 
+    reversed: false,
     features: [
       {
         title: "Easy Email Setup",
-        description: "Connect Gmail, Outlook, or any IMAP/SMTP email account in minutes.",
+        description:
+          "Connect Gmail, Outlook, or any IMAP/SMTP email account in minutes.",
         icon: Settings,
       },
       {
         title: "Send Emails from CRM",
-        description: "Compose and send personalized emails with templates and automated follow-ups.",
+        description:
+          "Compose and send personalized emails with templates and automated follow-ups.",
         icon: Mail,
       },
       {
         title: "Track Email Activity",
-        description: "Monitor opens, clicks, and replies. Get real-time notifications.",
+        description:
+          "Monitor opens, clicks, and replies. Get real-time notifications.",
         icon: Bell,
       },
     ],
@@ -139,28 +142,32 @@ export const detailedFeatures = [
     description:
       "Capture leads and score them automatically, and nurture them through your sales pipeline with intelligent workflows.",
     // Note: This image source is not used because we are coding the card, but keeping it for fallback
-    imageSrc: "", 
+    imageSrc: "",
     imageAlt: "Lead Pipeline Dashboard",
-    reversed: true, 
+    reversed: true,
     features: [
       {
         title: "Multi-Channel Lead Capture",
-        description: "Capture leads from web forms, email, social media, and manual entry.",
+        description:
+          "Capture leads from web forms, email, social media, and manual entry.",
         icon: Users,
       },
       {
         title: "Automatic Lead Scoring",
-        description: "AI-powered scoring helps prioritize the most promising leads.",
+        description:
+          "AI-powered scoring helps prioritize the most promising leads.",
         icon: Target,
       },
       {
         title: "Smart Lead Assignment",
-        description: "Automatically assign leads to the right sales reps based on territory.",
+        description:
+          "Automatically assign leads to the right sales reps based on territory.",
         icon: Filter,
       },
       {
         title: "Lead Nurturing Campaigns",
-        description: "Create automated email sequences to nurture leads through the funnel.",
+        description:
+          "Create automated email sequences to nurture leads through the funnel.",
         icon: TrendingUp,
       },
     ],
@@ -174,7 +181,7 @@ export const detailedFeatures = [
     // Hand stacking blocks (Growth concept)
     imageSrc: "/images/opportunity-management.jpg",
     imageAlt: "Sales Pipeline Visualization",
-    reversed: false, 
+    reversed: false,
     features: [
       {
         title: "Visual Pipeline Management",
@@ -207,7 +214,7 @@ export const detailedFeatures = [
     // Professional woman on call
     imageSrc: "/images/customermanagement.jpg",
     imageAlt: "Customer Profile View",
-    reversed: true, 
+    reversed: true,
     features: [
       {
         title: "Unified Customer Profiles",
@@ -221,7 +228,8 @@ export const detailedFeatures = [
       },
       {
         title: "Document Management",
-        description: "Store contracts and proposals attached to customer records.",
+        description:
+          "Store contracts and proposals attached to customer records.",
         icon: FileText,
       },
       {
@@ -233,57 +241,108 @@ export const detailedFeatures = [
   },
 ];
 
-export const activitySection = {
+const activitySection = {
   badge: "Activity Management",
   title: "Keep Your Sales Team Organized & Productive",
-  subtitle: "Manage all sales activities, schedule meetings, set reminders, and ensure nothing falls through the cracks.",
+  subtitle:
+    "Manage all sales activities, schedule meetings, set reminders, and ensure nothing falls through the cracks.",
   cards: [
     {
       title: "Unified Calendar",
-      description: "View all meetings, calls, and tasks in one calendar. Sync with Google Calendar and Outlook.",
-      features: ["Team calendar sharing", "Meeting scheduling", "Calendar sync"],
+      description:
+        "View all meetings, calls, and tasks in one calendar. Sync with Google Calendar and Outlook.",
+      features: [
+        "Team calendar sharing",
+        "Meeting scheduling",
+        "Calendar sync",
+      ],
       icon: Calendar,
       color: "text-orange-600 bg-orange-50", // Changed to Orange/Peach
     },
     {
       title: "Task Management",
-      description: "Create, assign, and track tasks. Set priorities and due dates. Get automated reminders.",
+      description:
+        "Create, assign, and track tasks. Set priorities and due dates. Get automated reminders.",
       features: ["Task automation", "Priority levels", "Task templates"],
       icon: CheckCircle2,
       color: "text-blue-600 bg-blue-50", // Blue
     },
     {
       title: "Smart Reminders",
-      description: "Never miss a follow-up. Get intelligent reminders based on customer engagement.",
-      features: ["Automatic follow-ups", "Email & push alerts", "Custom reminders"],
+      description:
+        "Never miss a follow-up. Get intelligent reminders based on customer engagement.",
+      features: [
+        "Automatic follow-ups",
+        "Email & push alerts",
+        "Custom reminders",
+      ],
       icon: Bell,
       color: "text-purple-600 bg-purple-50", // Purple
     },
-  ]
+  ],
 };
 
-export const quotesSection = {
+const quotesSection = {
   badge: "Sales Documents",
   title: "Create Professional Quotations & Sales Orders",
-  description: "Generate branded quotes in seconds, track their status, and convert them to sales orders with a single click.",
+  description:
+    "Generate branded quotes in seconds, track their status, and convert them to sales orders with a single click.",
   features: [
-    { title: "Quick Quote Generation", description: "Create professional quotes with your branding.", icon: FileText, color: "text-green-600" },
-    { title: "Dynamic Pricing & Discounts", description: "Apply volume discounts and custom terms.", icon: Zap, color: "text-green-600" },
-    { title: "E-Signature Integration", description: "Send quotes for electronic signature.", icon: CheckCircle2, color: "text-green-600" },
-    { title: "Quote to Order Conversion", description: "Convert approved quotes to sales orders instantly.", icon: CheckCircle2, color: "text-green-600" },
-  ]
+    {
+      title: "Quick Quote Generation",
+      description: "Create professional quotes with your branding.",
+      icon: FileText,
+      color: "text-green-600",
+    },
+    {
+      title: "Dynamic Pricing & Discounts",
+      description: "Apply volume discounts and custom terms.",
+      icon: Zap,
+      color: "text-green-600",
+    },
+    {
+      title: "E-Signature Integration",
+      description: "Send quotes for electronic signature.",
+      icon: CheckCircle2,
+      color: "text-green-600",
+    },
+    {
+      title: "Quote to Order Conversion",
+      description: "Convert approved quotes to sales orders instantly.",
+      icon: CheckCircle2,
+      color: "text-green-600",
+    },
+  ],
 };
 
-export const analyticsSection = {
+const analyticsSection = {
   badge: "Reports & Analytics",
   title: "Make Data-Driven Decisions with Powerful Analytics",
-  subtitle: "Get real-time insights into your sales performance. Track KPIs, analyze trends, and generate custom reports.",
-  imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+  subtitle:
+    "Get real-time insights into your sales performance. Track KPIs, analyze trends, and generate custom reports.",
+  imageSrc:
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
   features: [
-     { title: "Performance Tracking", description: "Monitor individual and team performance metrics.", icon: BarChart3 },
-     { title: "Advanced Filtering", description: "Slice and dice data by any field or criteria.", icon: Filter },
-     { title: "Scheduled Reports", description: "Automated reports delivered to your inbox.", icon: Clock },
-     { title: "Export & Share", description: "Export to PDF, Excel, or CSV instantly.", icon: FileText },
+    {
+      title: "Performance Tracking",
+      description: "Monitor individual and team performance metrics.",
+      icon: BarChart3,
+    },
+    {
+      title: "Advanced Filtering",
+      description: "Slice and dice data by any field or criteria.",
+      icon: Filter,
+    },
+    {
+      title: "Scheduled Reports",
+      description: "Automated reports delivered to your inbox.",
+      icon: Clock,
+    },
+    {
+      title: "Export & Share",
+      description: "Export to PDF, Excel, or CSV instantly.",
+      icon: FileText,
+    },
   ],
   cards: [
     {
@@ -315,34 +374,50 @@ export const analyticsSection = {
         { label: "Growth", value: "+23%" },
       ],
       color: "bg-red-600 text-white",
-    }
-  ]
+    },
+  ],
 };
 
-export const faqList = [
+const faqList = [
   {
     question: "Is there a free trial available?",
-    answer: "Yes! We offer a 14-day free trial with full access to all features so you can experience True CRM before committing.",
+    answer:
+      "Yes! We offer a 14-day free trial with full access to all features so you can experience True CRM before committing.",
   },
   {
     question: "Can I import my existing data?",
-    answer: "Absolutely. We provide easy-to-use import tools for contacts, leads, and deals from CSV files or other CRM platforms.",
+    answer:
+      "Absolutely. We provide easy-to-use import tools for contacts, leads, and deals from CSV files or other CRM platforms.",
   },
   {
     question: "Does True CRM integrate with other tools?",
-    answer: "Yes, we integrate with popular tools like Gmail, Outlook, Slack, Zoom, and many marketing automation platforms.",
+    answer:
+      "Yes, we integrate with popular tools like Gmail, Outlook, Slack, Zoom, and many marketing automation platforms.",
   },
   {
     question: "Is my data secure?",
-    answer: "Your security is our top priority. We use enterprise-grade encryption and comply with global data privacy regulations.",
+    answer:
+      "Your security is our top priority. We use enterprise-grade encryption and comply with global data privacy regulations.",
   },
 ];
 
-export const ctaSection = {
+const ctaSection = {
   title: "Ready to Transform Your Sales Process?",
-  subtitle: "Join thousands of sales teams who have increased their productivity and closed more deals with TruCRM.",
+  subtitle:
+    "Join thousands of sales teams who have increased their productivity and closed more deals with TruCRM.",
   primaryCTA: {
     label: "Book a Demo",
     href: "/demo",
   },
+};
+
+export {
+  heroSection,
+  coreFeaturesList,
+  detailedFeatures,
+  activitySection,
+  quotesSection,
+  analyticsSection,
+  faqList,
+  ctaSection,
 };

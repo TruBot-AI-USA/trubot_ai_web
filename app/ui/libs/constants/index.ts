@@ -72,6 +72,13 @@ const productList = [
     link: "/products/ai-agents",
   },
   {
+    icon: FaCogs,
+    title: "TruERP – ERP System",
+    description:
+      "Run your entire business in one place. Unified ERP platform bringing CRM, Finance, HR, and Operations together.",
+    link: "/products/truerp",
+  },
+  {
     icon: FaFileInvoice,
     title: "TruFinance – Invoice Automation",
     description:
@@ -82,7 +89,7 @@ const productList = [
     icon: FaShareAlt,
     title: "TruSocial – Social Media Tools",
     description:
-      "Never miss a trend. Create posts, detect what’s working, and engage your audience with AI-powered content optimization.",
+      "Never miss a trend. Create posts, detect what's working, and engage your audience with AI-powered content optimization.",
     link: "/products/ai-social-media-suite",
   },
   {
