@@ -16,7 +16,8 @@ import {
   Layers3,
   Zap,
   BarChart3,
-  Target
+  Target,
+  Heart,
 } from "lucide-react";
 import {
   FaFacebook,
@@ -58,11 +59,11 @@ const productList = [
         icon: Target,
       },
       {
-        name: "TruERP",
+        name: "TruHealth",
         description:
-          "Enterprise resource planning solution powered by AI for seamless business operations and automation.",
-        href: "/products/truerp",
-        icon: Layers3,
+          "Smart AI consultation booking agent. Revolutionize healthcare appointment scheduling with 24/7 intelligent chatbot and voicebot.",
+        href: "/products/truhealth",
+        icon: Heart,
       },
     ],
   },
