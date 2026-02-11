@@ -1,9 +1,14 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 
 import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
 import Button from "@/app/ui/components/shared/Button";
+import ProductCard from "@/app/ui/components/shared/ProductCard";
+import FAQSection from "@/app/ui/components/shared/FAQSection";
+import CTASection from "@/app/ui/components/shared/CTASection";
+import Pricing from "./components/Pricing";
 import {
   heroSection,
   problemsList,
@@ -39,63 +44,69 @@ const Page = () => {
   return (
     <>
       {/* --- HERO SECTION --- */}
-      <PageLayout className="flex flex-col items-center gap-12 mx-auto md:flex-row py-12 lg:pt-20 lg:pb-20">
-        {/* Left: Text Content */}
-        <div className="flex-1 w-full text-center md:text-left z-10">
-          <h1 className="mb-6 text-4xl font-bold text-navy md:text-5xl leading-tight">
-            {heroSection.title.main}
-            <br />
-            <span className="text-electric">{heroSection.title.highlight}</span>
-          </h1>
-          <p className="mb-8 text-lg text-gray-600 max-w-[600px] mx-auto md:mx-0 leading-relaxed">
-            {heroSection.subtitle}
-          </p>
+      <div className="bg-gradient-to-br from-blue-50 via-white to-blue-50">
+        <PageLayout className="flex flex-col items-center gap-12 mx-auto md:flex-row py-12 lg:pt-20 lg:pb-20">
+          {/* Left: Text Content */}
+          <div className="flex-1 w-full text-center md:text-left z-10">
+            <span className="inline-block px-4 py-1 mb-4 font-semibold text-electric rounded-full bg-electric/10">
+              {heroSection.badge}
+            </span>
+            <h1 className="mb-6 text-4xl font-bold text-navy md:text-5xl leading-tight">
+              {heroSection.title.main}
+              <br />
+              <span className="text-electric">{heroSection.title.highlight}</span>
+            </h1>
+            <p className="mb-8 text-lg text-gray-600 max-w-[600px] mx-auto md:mx-0 leading-relaxed">
+              {heroSection.subtitle}
+            </p>
 
-          <div className="flex flex-col justify-center gap-4 sm:flex-row md:justify-start mb-12">
-            <Button
-              href={heroSection.buttons.primary.href}
-              label={heroSection.buttons.primary.label}
-              variant="primary"
-              className="h-[52px] px-7 rounded-full"
-            />
-            <Button
-              href={heroSection.buttons.secondary.href}
-              label={heroSection.buttons.secondary.label}
-              variant="outline"
-              className="h-[52px] px-7 rounded-full border-electric text-electric hover:bg-electric/5"
-            />
-          </div>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row md:justify-start mb-12">
+              <Button
+                href={heroSection.buttons.primary.href}
+                label={heroSection.buttons.primary.label}
+                variant="primary"
+                iconRight={ArrowRight}
+                className="h-[52px] px-7 rounded-full"
+              />
+              <Button
+                href={heroSection.buttons.secondary.href}
+                label={heroSection.buttons.secondary.label}
+                variant="outline"
+                className="h-[52px] px-7 rounded-full border-electric text-electric hover:bg-electric/5"
+              />
+            </div>
 
-          {/* Feature Cards */}
-          <div className="grid sm:grid-cols-3 gap-6">
-            {heroSection.featureCards.map((card, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl p-4 border border-gray-200 flex items-center gap-3 bg-white hover:bg-gray-50 hover:border-electric/30 transition-all"
-              >
-                <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0">
-                  <card.icon className="w-6 h-6 text-electric" />
+            {/* Feature Cards */}
+            <div className="grid sm:grid-cols-3 gap-6">
+              {heroSection.featureCards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl p-4 border border-gray-200 flex items-center gap-3 bg-white hover:bg-gray-50 hover:border-electric/30 transition-all"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-electric/10 flex items-center justify-center flex-shrink-0">
+                    <card.icon className="w-6 h-6 text-electric" />
+                  </div>
+                  <p className="text-sm font-medium text-navy">{card.text}</p>
                 </div>
-                <p className="text-sm font-medium text-navy">{card.text}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Right: Hero Image */}
-        <div className="relative flex-1 w-full max-w-lg mt-12 md:mt-0 z-10">
-          <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-            <Image
-              src={heroSection.image.src}
-              alt={heroSection.image.alt}
-              width={heroSection.image.width}
-              height={heroSection.image.height}
-              priority
-              className="w-full h-auto object-cover"
-            />
+          {/* Right: Hero Image */}
+          <div className="relative flex-1 w-full max-w-lg mt-12 md:mt-0 z-10">
+            <div className="relative rounded-2xl overflow-hidden shadow-lg border border-gray-200">
+              <Image
+                src={heroSection.image.src}
+                alt={heroSection.image.alt}
+                width={heroSection.image.width}
+                height={heroSection.image.height}
+                priority
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
-        </div>
-      </PageLayout>
+        </PageLayout>
+      </div>
 
       {/* --- PROBLEMS SECTION --- */}
       <div id="problems" className="bg-gray-soft">
@@ -218,31 +229,15 @@ const Page = () => {
         </PageLayout>
       </div>
 
+      {/* --- PRICING SECTION --- */}
+      <Pricing />
+
       {/* --- CTA SECTION --- */}
-      <PageLayout>
-        <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-2">
-              {ctaSection.title}
-            </h2>
-            <p className="text-sm text-gray-600">{ctaSection.subtitle}</p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-            <Button
-              href={ctaSection.primaryCTA.href}
-              label={ctaSection.primaryCTA.label}
-              variant="primary"
-              className="h-[50px] px-6 rounded-full font-semibold"
-            />
-            <Button
-              href={ctaSection.secondaryCTA.href}
-              label={ctaSection.secondaryCTA.label}
-              variant="outline"
-              className="h-[50px] px-6 rounded-full border-electric text-electric hover:bg-electric/5 font-semibold"
-            />
-          </div>
-        </div>
-      </PageLayout>
+      <CTASection
+        title={ctaSection.title}
+        subtitle={ctaSection.subtitle}
+        primaryCTA={ctaSection.primaryCTA}
+      />
     </>
   );
 };

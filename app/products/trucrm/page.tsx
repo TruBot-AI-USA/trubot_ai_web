@@ -17,6 +17,7 @@ import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
 import CTASection from "@/app/ui/components/shared/CTASection";
 import StatCard from "@/app/ui/components/shared/StatCard";
+import Pricing from "./components/Pricing"; // IMPORT PRICING COMPONENT
 import {
   heroSection,
   coreFeaturesList,
@@ -819,6 +820,9 @@ const Page = () => {
           </div>
         </div>
       </PageLayout>
+
+      {/* --- PRICING SECTION --- */}
+      <Pricing />
 
       {/* --- FAQ SECTION --- */}
       <div className="bg-gray-soft">

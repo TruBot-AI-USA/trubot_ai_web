@@ -18,6 +18,7 @@ import {
   BarChart3,
   Target,
   Heart,
+  Boxes,
 } from "lucide-react";
 import {
   FaFacebook,
@@ -57,13 +58,24 @@ const productList = [
           "AI-powered lead generation. Find, qualify, and enrich high-quality leads automatically.",
         href: "/products/trulead",
         icon: Target,
-      },
+      }, {name: "TruERP",
+        description:
+          "Enterprise resource planning solution powered by AI for seamless business operations and automation.",
+        href: "/products/truerp",
+        icon: Layers3,},
       {
         name: "TruHealth",
         description:
           "Smart AI consultation booking agent. Revolutionize healthcare appointment scheduling with 24/7 intelligent chatbot and voicebot.",
         href: "/products/truhealth",
         icon: Heart,
+      },
+       {
+        name: "Tru3d",
+        description:
+          "Smart AI consultation booking agent. Revolutionize healthcare appointment scheduling with 24/7 intelligent chatbot and voicebot.",
+        href: "/products/3d",
+        icon: Boxes,
       },
     ],
   },
