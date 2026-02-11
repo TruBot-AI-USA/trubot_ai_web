@@ -16,6 +16,7 @@ import {
   Clock,
   Bell,
   Filter,
+  Briefcase,
 } from "lucide-react";
 
 const heroSection = {
@@ -378,6 +379,127 @@ const analyticsSection = {
   ],
 };
 
+// TRUCRM GLOBAL PRICING - EXACTLY LIKE TRUSOCIAL AND TRUERP PATTERN
+const pricingPlansMonthly = [
+  {
+    icon: Zap,
+    title: "Free",
+    description: "Perfect for trying out TruCRM",
+    price: "$0",
+    features: [
+      "7-10 day free trial",
+      "Basic contact management",
+      "Up to 100 contacts",
+      "Email support",
+      "Single user",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-gray-600",
+  },
+  {
+    icon: Users,
+    title: "Pro",
+    description: "For growing sales teams",
+    price: "$25/month",
+    features: [
+      "Everything in Free, plus:",
+      "Lead & Contact Management",
+      "Automation & Omnichannel",
+      "AI Forecasting",
+      "Custom Roles & Permissions",
+      "API access",
+      "Priority support",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "primary" as const,
+    popular: true,
+    color: "text-blue-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Enterprise",
+    description: "Tailored for large organizations",
+    price: "Contact Sales",
+    features: [
+      "Everything in Pro, plus:",
+      "Custom integrations",
+      "Dedicated account manager",
+      "SLA guarantee",
+      "Advanced AI capabilities",
+      "Custom reporting",
+      "On-premise option",
+      "24/7 phone support",
+      "Unlimited customization",
+    ],
+    buttonLabel: "Contact Sales",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-purple-600",
+  },
+];
+
+const pricingPlansAnnual = [
+  {
+    icon: Zap,
+    title: "Free",
+    description: "Perfect for trying out TruCRM",
+    price: "$0",
+    features: [
+      "7-10 day free trial",
+      "Basic contact management",
+      "Up to 100 contacts",
+      "Email support",
+      "Single user",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-gray-600",
+  },
+  {
+    icon: Users,
+    title: "Pro",
+    description: "For growing sales teams",
+    price: "$20/month",
+    features: [
+      "Everything in Free, plus:",
+      "Lead & Contact Management",
+      "Automation & Omnichannel",
+      "AI Forecasting",
+      "Custom Roles & Permissions",
+      "API access",
+      "Priority support",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "primary" as const,
+    popular: true,
+    color: "text-blue-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Enterprise",
+    description: "Tailored for large organizations",
+    price: "Contact Sales",
+    features: [
+      "Everything in Pro, plus:",
+      "Custom integrations",
+      "Dedicated account manager",
+      "SLA guarantee",
+      "Advanced AI capabilities",
+      "Custom reporting",
+      "On-premise option",
+      "24/7 phone support",
+      "Unlimited customization",
+    ],
+    buttonLabel: "Contact Sales",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-purple-600",
+  },
+];
+
 const faqList = [
   {
     question: "Is there a free trial available?",
@@ -418,6 +540,8 @@ export {
   activitySection,
   quotesSection,
   analyticsSection,
+  pricingPlansMonthly,
+  pricingPlansAnnual,
   faqList,
   ctaSection,
 };
