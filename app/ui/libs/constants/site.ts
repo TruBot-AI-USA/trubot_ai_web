@@ -2,12 +2,11 @@ const productLinkList = [
   { href: "/products/trusocial", label: "TruSocial" },
   { href: "/products/trucrm", label: "TruCRM" },
   { href: "/products/trulead", label: "TruLead" },
-  { href: "/products/truhealth", label: "TruHealth" },
+  { href: "/products/TruChat&TruVoice", label: "TruChat & TruVoice" },
   { href: "/products/truerp", label: "TruERP" },
-  { href: "/products/3d", label: "Tru3D" },
+  
   { href: "/products/ai-agents", label: "AI Agents" },
-  { href: "/products/ai-chatbots", label: "AI Chatbots" },
-  { href: "/products/ai-voicebots", label: "AI Voicebots" },
+ 
   { href: "/products/ai-marketplace", label: "AI Marketplace" },
   {
     href: "/products/ai-powered-surveillance",

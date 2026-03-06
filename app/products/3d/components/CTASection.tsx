@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, Check } from 'lucide-react';
+import Link from 'next/link';
 
 const benefits = [
   'No credit card required',
@@ -71,22 +72,26 @@ export default function CTASection() {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
               >
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-cyan-400 text-[#0a1628] font-bold text-lg rounded-xl hover:bg-cyan-300 transition-colors flex items-center justify-center gap-2 group shadow-xl shadow-cyan-400/20"
-                >
-                  Get Started Free
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
+                <Link href="/demo">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-cyan-400 text-[#0a1628] font-bold text-lg rounded-xl hover:bg-cyan-300 transition-colors flex items-center justify-center gap-2 group shadow-xl shadow-cyan-400/20"
+                  >
+                    Get Started Free
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.button>
+                </Link>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-transparent border-2 border-white/20 text-white font-bold text-lg rounded-xl hover:border-cyan-400/50 hover:bg-white/5 transition-all"
-                >
-                  Schedule a Demo
-                </motion.button>
+                <Link href="/sales">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-10 py-4 bg-transparent border-2 border-white/20 text-white font-bold text-lg rounded-xl hover:border-cyan-400/50 hover:bg-white/5 transition-all"
+                  >
+                    Schedule a Demo
+                  </motion.button>
+                </Link>
               </motion.div>
 
               {/* Benefits */}

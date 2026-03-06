@@ -5,6 +5,7 @@ import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
 import Button from "@/app/ui/components/shared/Button";
 import FAQSection from "@/app/ui/components/shared/FAQSection";
+import Pricing from "./components/Pricing"; // Import Pricing component
 import {
   heroSection,
   problemSolution,
@@ -321,6 +322,9 @@ const Page = () => {
           </div>
         </PageLayout>
       </div>
+
+      {/* --- PRICING SECTION --- */}
+      <Pricing />
 
       {/* --- CTA SECTION --- */}
       <div className="bg-white pb-0">

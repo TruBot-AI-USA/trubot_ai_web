@@ -1,176 +1,193 @@
-import MainHero from "./ui/components/landing/MainHero";
-import PageLayout from "./ui/components/shared/PageLayout";
-import SectionHeader from "./ui/components/shared/SectionHeader";
-import Button from "./ui/components/shared/Button";
-import FeatureCard from "./ui/components/shared/FeatureCard";
-import ProductCard from "./ui/components/shared/ProductCard";
-import UseCaseCard from "./ui/components/shared/UseCaseCard";
-import VerticalTimeline from "./ui/components/shared/VerticalTimeline";
-import CTASection from "./ui/components/shared/CTASection";
-import {
-  benefitList,
-  productList,
-  useCaseList,
-  stepList,
-  reasonList,
-  ctaSection,
-} from "./ui/libs/constants";
+'use client';
 
-export const metadata = {
-  title: "AI Chatbot Solutions for SMEs | TruBot AI",
-  description:
-    "AI chatbot solutions for small and medium businesses. No-code chatbot builder for WhatsApp, Messenger & websites. Automate customer support & lead generation.",
-  keywords: [
-    "AI Chatbot Solutions",
-    "No-Code Chatbot Builder",
-    "Multilingual Chatbots",
-    "Omnichannel Customer Support",
-    "AI-Powered Customer Engagement",
-    "Chatbot for SMEs",
-    "WhatsApp Business Chatbot",
-    "Facebook Messenger Automation",
-    "Lead Generation Chatbot",
-    "Customer Support Automation",
-  ],
-};
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
+import HeroSection from '../app/products/3d/components/HeroSection';
+import ProductsSection from '../app/products/3d/components/ProductsSection';
+import MetricsSection from '../app/products/3d/components/MetricsSection';
+import TestimonialsSection from '../app/products/3d/components/TestimonialsSection';
+import CTASection from '../app/products/3d/components/CTASection';
+import FloatingParticles from '../app/products/3d/components/3d/FloatingParticles';
 
-const Page = () => {
+const sections = [
+  { id: 'hero', label: 'Home' },
+  { id: 'products', label: 'Products' },
+  { id: 'metrics', label: 'Impact' },
+  { id: 'testimonials', label: 'Testimonials' },
+  { id: 'cta', label: 'Get Started' },
+];
+
+export default function Page() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeSection, setActiveSection] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  
+  // Initialize useScroll with null ref first, then update when mounted
+  const [scrollTarget, setScrollTarget] = useState<React.RefObject<HTMLDivElement> | null>(null);
+  
+  useEffect(() => {
+    setIsMounted(true);
+    // Set the scroll target after mount to ensure ref is ready
+    setScrollTarget(containerRef);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: scrollTarget,
+    offset: ["start start", "end end"]
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 50,
+    damping: 20,
+    restDelta: 0.001
+  });
+
+  // Setup Intersection Observer for section detection
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const options = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const handleIntersect: IntersectionObserverCallback = (entries) => {
+      let maxRatio = 0;
+      let activeIndex = 0;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          const id = entry.target.id;
+          const index = sections.findIndex(section => section.id === id);
+          if (index !== -1) {
+            activeIndex = index;
+          }
+        }
+      });
+
+      if (maxRatio > 0) {
+        setActiveSection(activeIndex);
+      }
+    };
+
+    observerRef.current = new IntersectionObserver(handleIntersect, options);
+
+    // Observe all sections
+    sections.forEach(section => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        observerRef.current?.observe(element);
+      }
+    });
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [isMounted]);
+
+  const scrollToSection = useCallback((sectionId: string) => {
+    if (typeof window === 'undefined' || !sectionId) return;
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      // Temporarily disconnect observer during scroll to prevent flickering
+      if (observerRef.current) {
+        sections.forEach(section => {
+          const el = document.getElementById(section.id);
+          if (el) observerRef.current?.unobserve(el);
+        });
+      }
+
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Reconnect observer after a delay
+      setTimeout(() => {
+        if (observerRef.current) {
+          sections.forEach(section => {
+            const el = document.getElementById(section.id);
+            if (el) observerRef.current?.observe(el);
+          });
+        }
+      }, 1000);
+    }
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
-    <>
-      {/* Hero */}
-      <MainHero />
+    <div 
+      ref={containerRef}
+      className="min-h-screen bg-[#0a1628] overflow-x-hidden relative"
+    >
+      {/* 3D Floating Particles Background */}
+      <FloatingParticles />
 
-      {/* Benefit */}
-      <div className="bg-gray-soft">
-        <PageLayout id="key-benefits">
-          <SectionHeader
-            title="Why Choose TruBot AI?"
-            subtitle="Empower your business with intelligent automation tailored for SMEs."
-          />
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {benefitList.map((benefit, idx) => (
-              <FeatureCard
-                key={idx}
-                icon={benefit.icon}
-                title={benefit.title}
-                subtitle={benefit.subtitle}
-                description={benefit.description}
-                index={idx}
-              />
-            ))}
-          </div>
-        </PageLayout>
-      </div>
+      {/* Navigation Dots */}
+      <nav className="fixed right-8 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-4 lg:flex">
+        {sections.map((section, index) => (
+          <button
+            key={section.id}
+            onClick={() => scrollToSection(section.id)}
+            className="group relative flex items-center outline-none focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a1628] rounded-full"
+            aria-label={`Navigate to ${section.label}`}
+          >
+            <span className="absolute right-8 whitespace-nowrap rounded-lg bg-[#1a2942]/80 px-3 py-1.5 text-sm text-gray-300 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-focus:opacity-100 group-hover:right-10 group-focus:right-10 border border-cyan-500/20">
+              {section.label}
+            </span>
+            
+            <motion.div
+              className={`relative h-3 w-3 rounded-full border-2 transition-all duration-300 ${
+                activeSection === index
+                  ? 'border-cyan-400 bg-cyan-400 shadow-lg shadow-cyan-400/50 scale-125'
+                  : 'border-gray-500/50 bg-transparent hover:border-cyan-400/50 hover:scale-110 group-focus:border-cyan-400/50 group-focus:scale-110'
+              }`}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: index * 0.1, type: "spring" }}
+            >
+              {activeSection === index && (
+                <motion.div
+                  className="absolute -inset-2 rounded-full border border-cyan-400/50"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1.5, opacity: 0 }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+              )}
+            </motion.div>
+          </button>
+        ))}
+      </nav>
 
-      {/* Products */}
-      <PageLayout id="products">
-        <SectionHeader
-          title="Meet the Bots That Run Your Business"
-          subtitle="Each product is designed to solve a specific pain point — whether it's handling chats, calls, or complex business processes."
+      {/* Scroll Progress Indicator */}
+      {scrollTarget && (
+        <motion.div
+          className="fixed left-0 top-0 z-50 h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400"
+          style={{ scaleX: smoothProgress, transformOrigin: '0%' }}
+          aria-hidden="true"
         />
+      )}
 
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {productList.map((product, index) => (
-            <ProductCard
-              key={index}
-              icon={product.icon}
-              title={product.title}
-              description={product.description}
-              link={product.link}
-              animationDelay={index * 100}
-            />
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="mt-16 text-center fade-in slide-in-up animation-delay-500">
-          <p className="text-lg text-navy font-body mb-4">
-            Not sure which product fits your workflow?
-          </p>
-
-          <Button
-            href="/contact"
-            label="Get a Personalized Demo"
-            variant="primary"
-            animate
-          />
-        </div>
-      </PageLayout>
-
-      {/* Use Cases */}
-      <div className="bg-gray-soft">
-        <PageLayout id="use-cases">
-          <SectionHeader
-            title="Smart Use Cases for Every Industry"
-            subtitle="Whether you're running a local clinic or scaling a global SaaS business, TruBot AI adapts to your industry and unlocks instant automation results."
-          />
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {useCaseList.map((props, index) => (
-              <UseCaseCard key={index} index={index} {...props} />
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button
-              href="/sales"
-              variant="primary"
-              animate
-              label="Get a Personalized Demo"
-            />
-          </div>
-        </PageLayout>
-      </div>
-
-      {/* Steps */}
-      <PageLayout id="how-it-works">
-        <SectionHeader
-          title="How TruBot AI Works"
-          subtitle="From setup to success — here’s how you go from zero to automated in just a few minutes."
-        />
-
-        <div className="mt-12 max-w-3xl mx-auto">
-          <VerticalTimeline title="" steps={stepList} animationOffset={100} />
-        </div>
-
-        <div className="text-center mt-12 flex flex-col md:flex-row justify-center gap-4">
-          <Button href="/demo" variant="primary" animate label="Try TruBot" />
-          <Button
-            href="/sales"
-            variant="outline"
-            animate
-            label="Talk to Our Team"
-          />
-        </div>
-      </PageLayout>
-
-      {/* Trust Section */}
-      <div className="bg-gray-soft">
-        <PageLayout id="why-trubot">
-          <SectionHeader
-            title="Why Businesses Choose TruBot AI"
-            subtitle="At TruBot AI, we're committed to delivering reliable and efficient automation solutions tailored for growing businesses."
-          />
-
-          {/* Feature Grid using FeatureCard */}
-          <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {reasonList.map((reason, index) => (
-              <FeatureCard
-                key={index}
-                icon={reason.icon}
-                title={reason.title}
-                description={reason.description}
-                index={index}
-              />
-            ))}
-          </div>
-        </PageLayout>
-      </div>
-
-      {/* CTA */}
-      <CTASection {...ctaSection} />
-    </>
+      {/* Main Content */}
+      <main className="relative z-10">
+        <HeroSection />
+        <ProductsSection />
+        <MetricsSection />
+        <TestimonialsSection />
+        <CTASection />
+      </main>
+    </div>
   );
-};
+}
 
-export default Page;
+// Named export for flexibility
+export { Page };

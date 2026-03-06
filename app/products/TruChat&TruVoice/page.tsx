@@ -1,4 +1,3 @@
-// app/products/truHealth/page.tsx
 import Image from "next/image";
 import PageLayout from "@/app/ui/components/shared/PageLayout";
 import SectionHeader from "@/app/ui/components/shared/SectionHeader";
@@ -6,7 +5,7 @@ import Button from "@/app/ui/components/shared/Button";
 import { MessageCircle, Mic, CheckCircle, Calendar, Shield, BarChart3, Zap, Cpu, Database } from "lucide-react";
 
 export const metadata = {
-  title: "TruHealth – Smart AI Consultation Booking Agent | TruBot AI Healthcare",
+  title: "TruChat & TruVoice – Smart AI Consultation Booking Agent | TruBot AI Healthcare",
   description: "Revolutionize healthcare appointment booking with our intelligent chatbot and voicebot. Transform patient experience with AI-powered healthcare solutions.",
   keywords: [
     "Healthcare AI",
@@ -97,7 +96,7 @@ const Page = () => {
   ];
 
   return (
-    <PageLayout className="min-h-screen bg-background">
+    <PageLayout className="min-h-screen bg-background marginTop: 0, paddingTop: 0">
       {/* Hero Section */}
       <section className="relative py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,12 +114,12 @@ const Page = () => {
               
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
-                  href="/products/ai-chatbots"
+                  href="/demo"
                   label="Try Chatbot Demo"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md hover:shadow-lg hover:scale-105 h-12 px-6 py-3 text-base"
                 />
                 <Button
-                  href="/products/ai-voicebots"
+                  href="/demo"
                   label="Try Voicebot Demo"
                   variant="outline"
                   className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-50 hover:shadow-soft h-12 px-6 py-3 text-base"
@@ -272,40 +271,50 @@ const Page = () => {
             </p>
           </div>
           
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 md:p-12">
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Get Started Today
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Schedule a demo to see how our AI booking agent can transform your practice.
-              </p>
-              <Button
-                  href="/consultation"
-                  label="Book A Consultation"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md hover:shadow-lg hover:scale-105 h-12 px-6 py-3 text-base"
-                />
-              <div className="space-y-4">
-                <Button
-                  href="/demo"
-                  label="Try Chatbot Demo"
-                  variant="outline"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all w-full border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-50 hover:shadow-soft h-12 px-6 py-3 text-base"
-                />
+          <div className="bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10 max-w-md mx-auto">
+  
+  <div className="text-center space-y-3 mb-8">
+    <h3 className="text-2xl font-bold text-gray-900">
+      Get Started Today
+    </h3>
+    <p className="text-gray-600 text-sm leading-relaxed">
+      Schedule a demo and see how our AI booking agent can transform your practice.
+    </p>
+  </div>
 
+  <div className="flex flex-col gap-4">
 
+    {/* Primary CTA */}
+    <Button
+      href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3GU3FqaXzxYUNEFvVUp1AAFUErY1k6klqKYNbU0X2tC7RZ_3AGQSuMjUeIeQ_4yCrjej7YLAEV"
+      label="Book A Consultation"
+      className="w-full rounded-xl font-semibold transition-all bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md hover:shadow-xl hover:-translate-y-0.5 h-11 text-sm"
+    />
 
-                
-                
-                <Button
-                  href="/try-assistant"
-                  label="Try Voicebot Demo"
-                  variant="outline"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg font-semibold transition-all w-full border-2 border-blue-600 text-blue-600 bg-white hover:bg-blue-50 hover:shadow-soft h-12 px-6 py-3 text-base"
-                />
-              </div>
-            </div>
-          </div>
+    {/* Divider */}
+    <div className="flex items-center gap-3">
+      <div className="flex-1 h-px bg-gray-200" />
+      <span className="text-xs text-gray-400 font-medium">OR TRY A DEMO</span>
+      <div className="flex-1 h-px bg-gray-200" />
+    </div>
+
+    {/* Secondary CTAs */}
+    <Button
+      href="/demo"
+      label="Try Chatbot Demo"
+      variant="outline"
+      className="w-full rounded-xl font-semibold transition-all border border-gray-300 text-gray-700 hover:bg-gray-50 h-10 text-sm"
+    />
+
+    <Button
+      href="/demo"
+      label="Try Voicebot Demo"
+      variant="outline"
+      className="w-full rounded-xl font-semibold transition-all border border-gray-300 text-gray-700 hover:bg-gray-50 h-10 text-sm"
+    />
+
+  </div>
+</div>
         </div>
       </section>
     </PageLayout>

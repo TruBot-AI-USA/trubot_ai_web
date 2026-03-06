@@ -64,10 +64,10 @@ const productList = [
         href: "/products/truerp",
         icon: Layers3,},
       {
-        name: "TruHealth",
+        name: "TruChat & TruVoice",
         description:
           "Smart AI consultation booking agent. Revolutionize healthcare appointment scheduling with 24/7 intelligent chatbot and voicebot.",
-        href: "/products/truhealth",
+        href: "/products/TruChat&TruVoice",
         icon: Heart,
       },
        {

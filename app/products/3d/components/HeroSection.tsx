@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -81,23 +82,27 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap gap-4 mb-8"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 sm:px-8 sm:py-4 bg-cyan-400 text-[#0a1628] font-semibold rounded-lg hover:bg-cyan-300 transition-colors flex items-center gap-2 group"
-              >
-                Start Free Trial
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              <Link href="/demo">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 sm:px-8 sm:py-4 bg-cyan-400 text-[#0a1628] font-semibold rounded-lg hover:bg-cyan-300 transition-colors flex items-center gap-2 group"
+                >
+                  Start Free Trial
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white/20 text-white font-semibold rounded-lg hover:border-cyan-400/50 transition-colors flex items-center gap-2 group"
-              >
-                <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Watch How It Works
-              </motion.button>
+              <Link href="/sales">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white/20 text-white font-semibold rounded-lg hover:border-cyan-400/50 transition-colors flex items-center gap-2 group"
+                >
+                  <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  Watch How It Works
+                </motion.button>
+              </Link>
             </motion.div>
 
             {/* Trust Badge */}
@@ -110,17 +115,8 @@ export default function HeroSection() {
               Trusted by 500+ businesses worldwide
             </motion.div>
 
-            {/* Company Logos Placeholder */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap gap-6 mt-4 items-center opacity-40"
-            >
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="w-16 h-8 sm:w-20 sm:h-10 bg-white/10 rounded"></div>
-              ))}
-            </motion.div>
+           
+            
           </div>
 
           {/* Right Column: Video Content */}
@@ -135,7 +131,7 @@ export default function HeroSection() {
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/50 via-transparent to-transparent z-10 pointer-events-none" />
               
-              {/* Video Element - SIMPLIFIED */}
+              {/* Video Element */}
               <video
                 ref={videoRef}
                 autoPlay
@@ -145,27 +141,18 @@ export default function HeroSection() {
                 className="w-full h-auto rounded-2xl"
                 aria-label="Demo video showing TruBot AI no-code automation platform"
                 title="TruBot AI Platform Demo"
-                poster="/images/video-poster.jpg" // Optional: Add a poster image
+                poster="/images/video-poster.jpg"
                 preload="metadata"
               >
-                {/* Try different paths */}
+                {/* Video sources */}
                 <source src="/vid.mp4" type="video/mp4" />
                 <source src="/video/vid.mp4" type="video/mp4" />
                 <source src="/videos/vid.mp4" type="video/mp4" />
                 <source src="/public/vid.mp4" type="video/mp4" />
                 
-                {/* Fallback image if video fails */}
-                <img 
-                  src="/images/fallback-demo.jpg" 
-                  alt="TruBot AI Platform Preview" 
-                  className="w-full h-full object-cover"
-                />
+                {/* Fallback if video fails */}
                 <p className="absolute inset-0 flex items-center justify-center text-white bg-[#0a1628]/90 p-4 text-center">
-                  Your browser doesn't support HTML video or video failed to load.
-                  <br />
-                  <a href="/vid.mp4" className="text-cyan-400 underline ml-1">
-                    Download the video
-                  </a>
+                  Your browser doesn't support HTML video.
                 </p>
               </video>
 
@@ -175,30 +162,10 @@ export default function HeroSection() {
                   <div className="text-center">
                     <div className="w-12 h-12 border-4 border-cyan-400/30 border-t-cyan-400 rounded-full animate-spin mb-4 mx-auto"></div>
                     <p className="text-cyan-300">Loading video...</p>
-                    <p className="text-gray-400 text-xs mt-2">If stuck, check console for errors</p>
                   </div>
                 </div>
               )}
-
-              
-
-              {/* Video Stats Overlay */}
-              <div className="absolute bottom-4 left-4 right-4 z-20">
-                <div className="flex justify-between items-center text-xs">
-                  
-                </div>
-              </div>
             </div>
-
-            {/* Video Caption */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-gray-400 text-sm mt-4 text-center"
-            >
-              
-            </motion.p>
           </motion.div>
         </div>
       </div>

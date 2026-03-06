@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
+import Image from 'next/image';
 
 const testimonials = [
   {
@@ -10,7 +11,7 @@ const testimonials = [
     name: 'Emily Rodriguez',
     role: 'Head of Innovation',
     company: 'FutureBrand',
-    image: '/api/placeholder/80/80',
+    image: '/images/partners/emily.jfif',
     quote: 'TruAgent handles complex decision trees that used to require entire teams. ROI was visible within the first month.',
     rating: 5,
   },
@@ -19,7 +20,7 @@ const testimonials = [
     name: 'David Kim',
     role: 'CTO',
     company: 'NextGen Systems',
-    image: '/api/placeholder/80/80',
+    image: '/images/partners/david.jfif',
     quote: 'Security, scalability, and simplicity - TruBot AI delivers on all fronts. Our enterprise clients love the seamless integration.',
     rating: 5,
   },
@@ -28,7 +29,7 @@ const testimonials = [
     name: 'Lisa Thompson',
     role: 'VP of Sales',
     company: 'GrowthMetrics',
-    image: '/api/placeholder/80/80',
+    image: '/images/partners/lisa.jpg',
     quote: 'TruCRM connected all our scattered data into one intelligent hub. Sales forecasting accuracy improved by 60%.',
     rating: 5,
   },
@@ -106,10 +107,22 @@ export default function TestimonialsSection() {
                       {/* Quote Icon */}
                       <Quote className="absolute top-8 right-8 w-16 h-16 text-cyan-400/10" />
 
-                      {/* Profile */}
+                      {/* Profile with Actual Image */}
                       <div className="flex items-center gap-4 mb-6">
                         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 p-0.5">
-                          <div className="w-full h-full rounded-full bg-gray-700"></div>
+                          <div className="w-full h-full rounded-full overflow-hidden bg-gray-700">
+                            <Image
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              width={80}
+                              height={80}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                // Fallback if image fails to load
+                                e.currentTarget.src = '/images/placeholder-avatar.jpg';
+                              }}
+                            />
+                          </div>
                         </div>
                         <div>
                           <h4 className="text-xl font-bold text-white">{testimonial.name}</h4>
@@ -129,8 +142,6 @@ export default function TestimonialsSection() {
                       <p className="text-gray-300 text-lg leading-relaxed italic">
                         "{testimonial.quote}"
                       </p>
-
-                     
                     </div>
                   </motion.div>
                 );

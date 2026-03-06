@@ -1,3 +1,4 @@
+// app/ui/components/individual-product/trulead/components/Pricing.tsx
 "use client";
 
 import { useState } from "react";
@@ -17,20 +18,21 @@ const plans = [
       annual: "$0"
     },
     billingPeriod: "forever",
-    description: "Perfect for getting started with social media management",
+    description: "Perfect for getting started with lead generation",
     icon: Users,
     color: "text-gray-600",
     iconBg: "bg-gray-100",
     buttonLabel: "Get Started",
     buttonVariant: "outline" as ButtonVariant,
-    buttonHref: "https://trusocial.trubotai.com/auth/signup",
+    buttonHref: "/signup",
     popular: false,
     features: [
-      "AI content generation",
-      "Smart scheduling",
-      "Up to 5 social accounts",
+      "Verified leads",
+      "Intent data",
+      "AI scoring",
+      "5 lead analyses/month",
     ],
-    credits: "25 credits",
+    credits: "10 credits",
     users: "1 user",
   },
   {
@@ -40,24 +42,22 @@ const plans = [
       annual: "$42"
     },
     billingPeriod: "/month",
-    description: "For growing teams ready to scale their social presence",
+    description: "For growing teams ready to scale",
     icon: Target,
     color: "text-blue-600",
     iconBg: "bg-blue-100",
     buttonLabel: "Start Free Trial",
     buttonVariant: "primary" as ButtonVariant,
-    buttonHref: "https://trusocial.trubotai.com/auth/signup",
+    buttonHref: "/signup",
     popular: false,
-    savings: "15% OFF",
+    savings: "15.14% OFF",
     features: [
       "Everything in Free, plus:",
-      "AI content generation",
-      "Smart scheduling",
-      "10 social accounts",
-      "Email support",
-      "Approval workflow",
+      "Advanced filters",
+      "50 lead analyses/month",
+      "Lead scoring",
     ],
-    credits: "250 credits",
+    credits: "100 credits",
     users: "2 users",
   },
   {
@@ -67,50 +67,49 @@ const plans = [
       annual: "$83"
     },
     billingPeriod: "/month",
-    description: "For professional social media managers",
+    description: "For professional sales teams",
     icon: Zap,
     color: "text-purple-600",
     iconBg: "bg-purple-100",
     buttonLabel: "Start Free Trial",
     buttonVariant: "primary" as ButtonVariant,
-    buttonHref: "https://trusocial.trubotai.com/auth/signup",
+    buttonHref: "/signup",
     popular: true,
-    savings: "16% OFF",
+    savings: "15.91% OFF",
     features: [
       "Everything in Starter, plus:",
-      "AI image generation",
-      "Advanced analytics",
-      "10 social accounts",
-      "Priority support",
+      "Email/phone verification",
+      "TruCRM sync",
+      "150 lead analyses/month",
       "Most Popular",
     ],
-    credits: "750 credits",
+    credits: "300 credits",
     users: "5+ users",
   },
   {
     name: "Business",
     price: {
-      monthly: "$199",
-      annual: "$167"
+      monthly: "$239",
+      annual: "$200"
     },
     billingPeriod: "/month",
-    description: "For scaling businesses and agencies",
+    description: "For scaling businesses",
     icon: Star,
     color: "text-orange-600",
     iconBg: "bg-orange-100",
     buttonLabel: "Start Free Trial",
     buttonVariant: "primary" as ButtonVariant,
-    buttonHref: "https://trusocial.trubotai.com/auth/signup",
+    buttonHref: "/signup",
     popular: false,
-    savings: "16% OFF",
+    savings: "16.35% OFF",
     features: [
       "Everything in Pro, plus:",
-      "Advanced AI features",
-      "25 social accounts",
-      "Advanced analytics",
       "Priority support",
+      "SLA guarantee",
+      "250 lead analyses/month",
+      "Advanced scoring",
     ],
-    credits: "1,250 credits",
+    credits: "500 credits",
     users: "10+ users",
   },
   {
@@ -130,9 +129,9 @@ const plans = [
     popular: false,
     features: [
       "Everything in Business, plus:",
-      "Custom AI workflows",
-      "Unlimited accounts",
-      "Dedicated account manager",
+      "Custom AI scoring models",
+      "Unlimited analyses",
+      "Dedicated support",
       "Custom integrations",
     ],
     credits: "Custom credits",
@@ -144,14 +143,14 @@ const Pricing = () => {
   const [duration, setDuration] = useState<"monthly" | "annual">("annual");
 
   // Calculate max savings for the banner
-  const maxSavings = "$400";
+  const maxSavings = "16%";
 
   return (
     <div id="pricing" className="bg-white py-16">
       <PageLayout className="mx-auto max-w-7xl">
         <SectionHeader
           title="Simple, Transparent Pricing"
-          subtitle="Choose the plan that fits your needs. Start with our free plan or upgrade anytime."
+          subtitle="Choose the plan that fits your needs. Start with our free tier and scale as you grow."
         />
 
         {/* Annual Savings Banner */}
@@ -179,12 +178,12 @@ const Pricing = () => {
                     />
                   </svg>
                   <span className="text-white font-bold text-lg md:text-xl">
-                    2 Months Free!
+                    Save up to {maxSavings} Annually!
                   </span>
                 </div>
                 <div className="hidden sm:block w-px h-6 bg-white/30"></div>
                 <p className="text-white/90 text-sm md:text-base font-medium text-center">
-                  Save up to {maxSavings} when you choose annual billing
+                  Best value for growing businesses
                 </p>
               </div>
             </div>
@@ -194,8 +193,8 @@ const Pricing = () => {
         {/* Billing Toggle */}
         <div className="flex justify-center items-center gap-4 mb-12 fade-in slide-in-up">
           {[
-            { key: "monthly", label: "Monthly Plans" },
-            { key: "annual", label: "Annual Plans (Save up to 16%)" },
+            { key: "monthly", label: "Monthly Billing" },
+            { key: "annual", label: "Annual Billing (Save up to 16%)" },
           ].map((option) => {
             const isActive = duration === option.key;
 
@@ -207,8 +206,8 @@ const Pricing = () => {
                   aria-pressed={isActive}
                   className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                     isActive
-                      ? "bg-electric text-light shadow"
-                      : "bg-light text-electric border border-electric hover-glow"
+                      ? "bg-[#1034A6] text-white shadow-md"
+                      : "bg-white text-[#1034A6] border border-[#1034A6]/30 hover:bg-blue-50"
                   }`}
                 >
                   {option.label}
@@ -218,7 +217,7 @@ const Pricing = () => {
           })}
         </div>
 
-        {/* Pricing Cards */}
+        {/* Pricing Cards - Made wider with better spacing */}
         <div className="grid gap-6 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {plans.map((plan) => {
             const isAnnualPlan = duration === "annual";
@@ -226,28 +225,20 @@ const Pricing = () => {
             const showSavings = isAnnualPlan && plan.savings && plan.name !== "Free" && plan.name !== "Enterprise";
             const isProPlan = plan.name === "Pro";
 
-            // Calculate savings in dollars
-            const getSavingsAmount = () => {
-              if (plan.name === "Starter") return "$98";
-              if (plan.name === "Pro") return "$192";
-              if (plan.name === "Business") return "$384";
-              return "";
-            };
-
             return (
               <div
                 key={plan.name}
                 className={`relative bg-white rounded-2xl shadow-sm border p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full min-w-[220px] ${
                   plan.popular 
-                    ? "border-blue-500 shadow-lg ring-2 ring-blue-100 scale-105 z-10" 
-                    : "border-gray-200 hover:border-blue-500/30"
+                    ? "border-[#1034A6] shadow-lg ring-2 ring-[#1034A6]/10 scale-105 z-10" 
+                    : "border-gray-200 hover:border-[#1034A6]/30"
                 }`}
               >
-                {/* Badge Container */}
+                {/* Badge Container - Better spacing */}
                 <div className="relative h-12 mb-2">
                   {/* Global Badge - Left */}
                   <div className="absolute -top-3 left-0">
-                    <div className="bg-blue-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 whitespace-nowrap">
+                    <div className="bg-[#1034A6] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1 whitespace-nowrap">
                       🌏 Global
                     </div>
                   </div>
@@ -276,7 +267,7 @@ const Pricing = () => {
                 {/* Popular Badge - Centered above */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
-                    <span className="bg-blue-500 text-white px-4 py-1.5 rounded-full text-xs font-medium shadow-md whitespace-nowrap">
+                    <span className="bg-[#1034A6] text-white px-4 py-1.5 rounded-full text-xs font-medium shadow-md whitespace-nowrap">
                       ⭐ Most Popular
                     </span>
                   </div>
@@ -325,16 +316,6 @@ const Pricing = () => {
                           Save $192/year
                         </span>
                       )}
-                      {isAnnualPlan && plan.name === "Starter" && (
-                        <span className="text-xs text-green-600 font-medium mt-1">
-                          Save $98/year
-                        </span>
-                      )}
-                      {isAnnualPlan && plan.name === "Business" && (
-                        <span className="text-xs text-green-600 font-medium mt-1">
-                          Save $384/year
-                        </span>
-                      )}
                     </div>
                   )}
                 </div>
@@ -374,11 +355,9 @@ const Pricing = () => {
                   iconRight={plan.buttonLabel !== "Contact Sales" ? ArrowRight : undefined}
                   className={`w-full text-sm py-3 mt-auto ${
                     plan.buttonVariant === "primary" 
-                      ? "!bg-electric hover:!bg-electric/90 !text-white" 
-                      : "!border-electric !text-electric hover:!bg-electric/5"
+                      ? "!bg-[#1034A6] hover:!bg-[#0c2b85] !text-white" 
+                      : "!border-[#1034A6] !text-[#1034A6] hover:!bg-blue-50"
                   }`}
-                  target="_blank"
-                  rel="noopener noreferrer"
                 />
               </div>
             );
@@ -388,7 +367,7 @@ const Pricing = () => {
         {/* Additional Info */}
         <div className="mt-12 text-center">
           <p className="text-sm text-gray-500">
-            All plans include a free trial. No credit card required.
+            All plans include a 7-10 day free trial. No credit card required.
           </p>
         </div>
       </PageLayout>
