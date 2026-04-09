@@ -55,7 +55,7 @@ const businessAcquisitionPartnerPageData: CareerPageDataType = {
   workingHours:
     "Flexible, with at least 4 hours overlap between 8:30 AM – 1:30 PM EST (6:00 PM – 11:00 PM IST).",
   applyInstructions:
-    "To apply, please email your resume to careers@trubotai.com with CC to gopal@trubotai.com. Subject line: 'Application – Business / Acquisition Partner (SBA)'. Also complete the application form: https://docs.google.com/forms/d/e/1FAIpQLScbPDKyxISAWdhr8fZc9Qth3ZzgE1mPjDraJwx6zFY6ZeiDoQ/viewform",
+    "To apply, please email your resume to careers@trubotai.com with CC to gopal@trubotai.com. Subject line: 'Application – Business / Acquisition Partner (SBA)' ",
   applyEmail: "careers@trubotai.com",
 };
 
