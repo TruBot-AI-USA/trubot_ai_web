@@ -1,5 +1,6 @@
 import { CareerPageDataType } from "../../../types/careerPage";
-
+import { businessAcquisitionPartnerPageData } from "./business-acquisition-partner-sba";
+import { devopsCloudArchitectPageData } from "./devops-cloud-architect-azure";
 import { aiSolutionArchitectPageData } from "./architect-ai-solutions";
 import { accountsPayrollManagerPageData } from "./manager-accounts-payroll";
 import { executiveAssistantPageData } from "./assistant-operations-founder";
@@ -46,6 +47,8 @@ import { sdrSalesDevelopmentRepresentativePageData } from "./sdr-sales-developme
 import { directorDigitalMarketingPageData } from "./director-digital-marketing";
 
 export const careerPagesMap: Record<string, CareerPageDataType> = {
+  "business-acquisition-partner-sba": businessAcquisitionPartnerPageData,
+  "devops-cloud-architect-azure": devopsCloudArchitectPageData,
   "architect-ai-solutions": aiSolutionArchitectPageData,
   "assistant-operations-founder": executiveAssistantPageData,
   "board-advisor-finance": financeAdvisorPageData,

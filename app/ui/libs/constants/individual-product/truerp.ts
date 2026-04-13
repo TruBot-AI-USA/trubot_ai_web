@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Settings,
   Monitor,
+  Zap,
 } from "lucide-react";
 
 const heroSection = {
@@ -151,6 +152,123 @@ const industriesList = [
   },
 ];
 
+// TRUERP GLOBAL PRICING - EXACTLY LIKE TRUSOCIAL PATTERN
+const pricingPlansMonthly = [
+  {
+    icon: Zap,
+    title: "Free",
+    description: "Perfect for trying out TruERP",
+    price: "$0",
+    features: [
+      "7-10 day free trial",
+      "Basic inventory tracking",
+      "Up to 100 transactions",
+      "Email support",
+      "Single user",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-gray-600",
+  },
+  {
+    icon: Package,
+    title: "Pro",
+    description: "For growing businesses",
+    price: "$40/month",
+    features: [
+      "Everything in Free, plus:",
+      "Advanced inventory management",
+      "Unlimited transactions",
+      "Multi-location support",
+      "Basic analytics",
+      "Priority email support",
+      "API access",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "primary" as const,
+    popular: true,
+    color: "text-blue-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Enterprise",
+    description: "Tailored for large organizations",
+    price: "Contact Sales",
+    features: [
+      "Everything in Pro, plus:",
+      "Custom integrations",
+      "Dedicated account manager",
+      "SLA guarantee",
+      "Custom reporting",
+      "On-premise option",
+      "24/7 phone support",
+    ],
+    buttonLabel: "Contact Sales",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-purple-600",
+  },
+];
+
+const pricingPlansAnnual = [
+  {
+    icon: Zap,
+    title: "Free",
+    description: "Perfect for trying out TruERP",
+    price: "$0",
+    features: [
+      "7-10 day free trial",
+      "Basic inventory tracking",
+      "Up to 100 transactions",
+      "Email support",
+      "Single user",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-gray-600",
+  },
+  {
+    icon: Package,
+    title: "Pro",
+    description: "For growing businesses",
+    price: "$32/month",
+    features: [
+      "Everything in Free, plus:",
+      "Advanced inventory management",
+      "Unlimited transactions",
+      "Multi-location support",
+      "Basic analytics",
+      "Priority email support",
+      "API access",
+    ],
+    buttonLabel: "Start Free Trial",
+    buttonVariant: "primary" as const,
+    popular: true,
+    color: "text-blue-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Enterprise",
+    description: "Tailored for large organizations",
+    price: "Contact Sales",
+    features: [
+      "Everything in Pro, plus:",
+      "Custom integrations",
+      "Dedicated account manager",
+      "SLA guarantee",
+      "Custom reporting",
+      "On-premise option",
+      "24/7 phone support",
+    ],
+    buttonLabel: "Contact Sales",
+    buttonVariant: "outline" as const,
+    popular: false,
+    color: "text-purple-600",
+  },
+];
+
 const ctaSection = {
   title: "Get Started with TruERP",
   subtitle:
@@ -171,5 +289,7 @@ export {
   coreCapabilities,
   flowSteps,
   industriesList,
+  pricingPlansMonthly,
+  pricingPlansAnnual,
   ctaSection,
 };

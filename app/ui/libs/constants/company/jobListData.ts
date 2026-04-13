@@ -1,4 +1,18 @@
 const jobListData = [
+  {
+  id: "business-acquisition-partner-sba",
+  title: "Business Partner / Acquisition Partner (SBA-Backed)",
+  department: "Business Development",
+  level: "Partner",
+  href: "/careers/business-acquisition-partner-sba",
+},
+  {
+  id: "devops-cloud-architect-azure",
+  title: "DevOps Cloud Architect (Azure)",
+  department: "Technology",
+  level: "Architect",
+  href: "/careers/devops-cloud-architect-azure",
+},
   // Board Level
   {
     id: "board-advisor-finance",

@@ -186,7 +186,7 @@ const Page = () => {
       {/* Why Choose */}
       <PageLayout>
         <SectionHeader
-          title="Why Choose Tru Social?"
+          title="Why Choose TruSocial?"
           subtitle="Join thousands of businesses that trust TrubotSocial to power their social media success."
         />
 
