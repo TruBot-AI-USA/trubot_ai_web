@@ -36,7 +36,7 @@ const plans = [
       "Basic Filters",
       "Lead Analysis Limit: 5",
     ],
-    credits: "10 credits",
+    credits: "10 credits"
     users: "1 user",
   },
   {

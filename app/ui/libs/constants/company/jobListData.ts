@@ -5,6 +5,13 @@ const jobListData = [
   department: "Business Development",
   level: "Partner",
   href: "/careers/business-acquisition-partner-sba",
+},{
+  id: "investment-partner-acquisition-ai-saas-sme-real-estate",
+  title:
+    "Investment Partner – Acquisition (AI SaaS / SME Ecosystem / Real Estate)",
+  department: "Business Development",
+  level: "Partner",
+  href: "/careers/investment-partner-acquisition-ai-saas-sme-real-estate",
 },
   {
   id: "devops-cloud-architect-azure",
