@@ -1,12 +1,12 @@
-const productLinkList = [
+const PlatformAI360List = [
   { href: "/products/trusocial", label: "TruSocial" },
   { href: "/products/trucrm", label: "TruCRM" },
   { href: "/products/trulead", label: "TruLead" },
   { href: "/products/TruChat&TruVoice", label: "TruChat & TruVoice" },
-  { href: "/products/truerp", label: "TruERP" },
-  
+  { href: "/products/truerp", label: "TruERP" },  
   { href: "/products/ai-agents", label: "AI Agents" },
- 
+];
+const PlatformAI720List = [  
   { href: "/products/ai-marketplace", label: "AI Marketplace" },
   {
     href: "/products/ai-powered-surveillance",
@@ -21,6 +21,16 @@ const productLinkList = [
     href: "/products/intelligent-sourcing-platform",
     label: "Intelligent Sourcing Platform",
   },
+];
+
+const PlatformAI1080List: { href: string; label: string }[] = [
+  // Coming soon
+];
+
+const productLinkList = [
+  { label: "Platform AI 360", submenu: PlatformAI360List },
+   { label: "Platform AI 720", submenu: PlatformAI720List },
+    { label: "Platform AI 1080", submenu: PlatformAI1080List },
 ];
 
 const solutionLinkList = [
