@@ -84,7 +84,7 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         location={location}
         type={type}
         shortDescription={shortDescription}
-        applyHref={mailtoLink}
+        applyHref="https://forms.gle/M5ieW89sNHFTAkVC8"
       />
 
       {/* Who We Are */}

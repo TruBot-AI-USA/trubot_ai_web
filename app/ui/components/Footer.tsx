@@ -12,20 +12,7 @@ import {
 
 type LinkItem = { href: string; label: string };
 type IndustryItem = { label: string };
-
-type NavSection =
-  | {
-      id: string;
-      title: string;
-      links: LinkItem[];
-      renderer: (items: LinkItem[]) => JSX.Element[];
-    }
-  | {
-      id: string;
-      title: string;
-      links: IndustryItem[];
-      renderer: (items: IndustryItem[]) => JSX.Element[];
-    };
+type SubmenuItem = { label: string; submenu: LinkItem[] };
 
 const linkClass =
   "relative inline-block text-sm transition-colors duration-300 text-navy font-medium hover:text-electric " +
@@ -44,40 +31,48 @@ const renderLinks = (items: LinkItem[]) =>
 
 const renderIndustries = (items: IndustryItem[]) =>
   items.map(({ label }) => (
-    <li
-      key={label}
-      className="text-left text-sm text-navy font-medium list-none"
-    >
+    <li key={label} className="text-left text-sm text-navy font-medium list-none">
       {label}
     </li>
   ));
 
+const renderProductGroups = (items: SubmenuItem[]) =>
+  items.map(({ label, submenu }) => (
+    <li key={label} className="text-left list-none">
+      <p className="text-xs font-bold text-navy uppercase tracking-wide mb-1">{label}</p>
+      <ul className="space-y-1 pl-2">
+        {submenu.length > 0 ? (
+          submenu.map(({ href, label: subLabel }) => (
+            <li key={href} className="list-none">
+              <Link href={href} className={linkClass}>
+                {subLabel}
+              </Link>
+            </li>
+          ))
+        ) : (
+          <li className="text-xs text-gray-400 italic">Coming soon</li>
+        )}
+      </ul>
+    </li>
+  ));
+
+type NavSection =
+  | { id: string; title: string; type: "links"; links: LinkItem[] }
+  | { id: string; title: string; type: "industries"; links: IndustryItem[] }
+  | { id: string; title: string; type: "products"; links: SubmenuItem[] };
+
 const NAV_SECTIONS: NavSection[] = [
-  {
-    id: "products",
-    title: "Products",
-    links: productLinkList,
-    renderer: renderLinks,
-  },
-  {
-    id: "solutions",
-    title: "Solutions",
-    links: solutionLinkList,
-    renderer: renderIndustries,
-  },
-  {
-    id: "partners",
-    title: "Partners",
-    links: partnerLinkList,
-    renderer: renderLinks,
-  },
-  {
-    id: "company",
-    title: "Company",
-    links: companyLinkList,
-    renderer: renderLinks,
-  },
+  { id: "products", title: "Products", type: "products", links: productLinkList },
+  { id: "solutions", title: "Solutions", type: "industries", links: solutionLinkList },
+  { id: "partners", title: "Partners", type: "links", links: partnerLinkList },
+  { id: "company", title: "Company", type: "links", links: companyLinkList },
 ];
+
+const renderSection = (section: NavSection): JSX.Element[] => {
+  if (section.type === "products") return renderProductGroups(section.links);
+  if (section.type === "industries") return renderIndustries(section.links);
+  return renderLinks(section.links);
+};
 
 const Footer = () => {
   return (
@@ -94,31 +89,31 @@ const Footer = () => {
               </p>
             </div>
 
-            {NAV_SECTIONS.map(({ id, title, links, renderer }) => (
-              <nav key={id} aria-labelledby={`footer-${id}-heading`}>
+            {NAV_SECTIONS.map((section) => (
+              <nav key={section.id} aria-labelledby={`footer-${section.id}-heading`}>
                 <h4
-                  id={`footer-${id}-heading`}
+                  id={`footer-${section.id}-heading`}
                   className="font-bold font-heading mb-2"
                 >
-                  {title}
+                  {section.title}
                 </h4>
-                <ul className="space-y-2">{renderer(links as LinkItem[])}</ul>
+                <ul className="space-y-2">{renderSection(section)}</ul>
               </nav>
             ))}
           </div>
 
           {/* Mobile Accordion */}
           <div className="md:hidden space-y-6 fade-in">
-            {NAV_SECTIONS.map(({ id, title, links, renderer }, idx) => (
-              <details key={idx}>
+            {NAV_SECTIONS.map((section) => (
+              <details key={section.id}>
                 <summary
-                  id={`mobile-${id}`}
+                  id={`mobile-${section.id}`}
                   className="font-bold font-heading cursor-pointer"
                 >
-                  {title}
+                  {section.title}
                 </summary>
                 <div className="mt-2 space-y-2 pl-4">
-                  {renderer(links as LinkItem[])}
+                  {renderSection(section)}
                 </div>
               </details>
             ))}
@@ -140,26 +135,11 @@ const Footer = () => {
                 </Link>
               ))}
             </div>
-            <div
-              className="flex gap-4 text-xl text-navy"
-              aria-label="Social Media"
-            >
+            <div className="flex gap-4 text-xl text-navy" aria-label="Social Media">
               {[
-                {
-                  href: "https://www.linkedin.com/company/trubotai/",
-                  label: "LinkedIn",
-                  icon: <FaLinkedin />,
-                },
-                {
-                  href: "https://twitter.com/trubotai",
-                  label: "Twitter",
-                  icon: <FaTwitter />,
-                },
-                {
-                  href: "https://www.youtube.com/channel/UCykytJyGUvapijemVYYp62w",
-                  label: "YouTube",
-                  icon: <FaYoutube />,
-                },
+                { href: "https://www.linkedin.com/company/trubotai/", label: "LinkedIn", icon: <FaLinkedin /> },
+                { href: "https://twitter.com/trubotai", label: "Twitter", icon: <FaTwitter /> },
+                { href: "https://www.youtube.com/channel/UCykytJyGUvapijemVYYp62w", label: "YouTube", icon: <FaYoutube /> },
               ].map(({ href, label, icon }) => (
                 <Link
                   key={label}
@@ -177,13 +157,9 @@ const Footer = () => {
 
           {/* Legal */}
           <div className="text-center mt-6 text-xs space-x-4">
-            <Link href="/privacy" className={linkClass}>
-              Privacy Policy
-            </Link>
+            <Link href="/privacy" className={linkClass}>Privacy Policy</Link>
             <span>|</span>
-            <Link href="/terms" className={linkClass}>
-              Terms of Service
-            </Link>
+            <Link href="/terms" className={linkClass}>Terms of Service</Link>
           </div>
         </div>
       </div>
