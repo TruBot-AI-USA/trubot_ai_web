@@ -41,13 +41,17 @@ const renderProductGroups = (items: SubmenuItem[]) =>
     <li key={label} className="text-left list-none">
       <p className="text-xs font-bold text-navy uppercase tracking-wide mb-1">{label}</p>
       <ul className="space-y-1 pl-2">
-        {submenu.map(({ href, label: subLabel }) => (
-          <li key={href} className="list-none">
-            <Link href={href} className={linkClass}>
-              {subLabel}
-            </Link>
-          </li>
-        ))}
+        {submenu.length > 0 ? (
+          submenu.map(({ href, label: subLabel }) => (
+            <li key={href} className="list-none">
+              <Link href={href} className={linkClass}>
+                {subLabel}
+              </Link>
+            </li>
+          ))
+        ) : (
+          <li className="text-xs text-gray-400 italic">Coming soon</li>
+        )}
       </ul>
     </li>
   ));

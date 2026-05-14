@@ -11,8 +11,9 @@ const investmentPartnerAcquisitionPageData: CareerPageDataType = {
   about:
     "At TruBot AI, we are building the infrastructure for AI-powered business automation—helping SMEs scale through chatbots, voice bots, AI agents, and intelligent workflows. We are now expanding into a roll-up + acquisition strategy targeting AI SaaS tools, SME service businesses, automation-first agencies, and micro-SaaS / cash-flow businesses.",
   roleIntro:
-    "We are looking for a strategic Investment Partner who brings capital and deal-thinking focused purely on funding acquisitions, structuring deals, and building a scalable acquisition portfolio. This is not an operator or sales role. This opportunity is designed for investors, capital allocators, syndicate leads, and acquisition entrepreneurs who want ownership exposure in AI-enabled businesses and recurring-revenue ecosystems.",
+    "We are looking for a strategic Investment Partner who brings own capital + investor capital + deal-thinking focused purely on funding acquisitions, structuring deals, and building a scalable acquisition portfolio. This is not an operator or sales role. This opportunity is designed for investors, capital allocators, syndicate leads, and acquisition entrepreneurs who want ownership exposure in AI-enabled businesses and recurring-revenue ecosystems.",
   responsibilities: [
+    "Brings own capital and investor capital",
     "Invest in acquisition deals (deal-by-deal or pooled structure)",
     "Evaluate ROI potential, risk, and scalability of acquisition targets",
     "Support structuring including equity, debt, earn-outs, and SBA-style deals if applicable",
