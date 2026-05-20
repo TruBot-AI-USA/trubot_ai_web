@@ -1,25 +1,32 @@
 const jobListData = [
   {
-  id: "business-acquisition-partner-sba",
-  title: "Business Partner / Acquisition Partner (SBA-Backed)",
-  department: "Business Development",
-  level: "Partner",
-  href: "/careers/business-acquisition-partner-sba",
-},{
-  id: "investment-partner-acquisition-ai-saas-sme-real-estate",
-  title:
-    "Investment Partner – Acquisition (AI SaaS / SME Ecosystem / Real Estate)",
-  department: "Business Development",
-  level: "Partner",
-  href: "/careers/investment-partner-acquisition-ai-saas-sme-real-estate",
-},
+    id: "business-acquisition-partner-sba",
+    title: "Business Partner / Acquisition Partner (SBA-Backed)",
+    department: "Business Development",
+    level: "Partner",
+    href: "/careers/business-acquisition-partner-sba",
+  }, {
+    id: "investment-partner-acquisition-ai-saas-sme-real-estate",
+    title:
+      "Investment Partner – Acquisition (AI SaaS / SME Ecosystem / Real Estate)",
+    department: "Business Development",
+    level: "Partner",
+    href: "/careers/investment-partner-acquisition-ai-saas-sme-real-estate",
+  },
   {
-  id: "devops-cloud-architect-azure",
-  title: "DevOps Cloud Architect (Azure)",
-  department: "Technology",
-  level: "Architect",
-  href: "/careers/devops-cloud-architect-azure",
-},
+    id: "cofounder",
+    title: "Cofounder",
+    department: "Business Development",
+    level: "Cofounder",
+    href: "/careers/cofounder",
+  },
+  {
+    id: "devops-cloud-architect-azure",
+    title: "DevOps Cloud Architect (Azure)",
+    department: "Technology",
+    level: "Architect",
+    href: "/careers/devops-cloud-architect-azure",
+  },
   // Board Level
   {
     id: "board-advisor-finance",

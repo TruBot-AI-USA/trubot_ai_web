@@ -46,6 +46,7 @@ import { channelPartnerSalesManagerPageData } from "./manager-channel-partner-sa
 import { qaEngineerPageData } from "./engineer-qa";
 import { sdrSalesDevelopmentRepresentativePageData } from "./sdr-sales-development-representative";
 import { directorDigitalMarketingPageData } from "./director-digital-marketing";
+import { cofounderPageData } from "./cofounder";
 
 export const careerPagesMap: Record<string, CareerPageDataType> = {
   "business-acquisition-partner-sba": businessAcquisitionPartnerPageData,
@@ -96,4 +97,5 @@ export const careerPagesMap: Record<string, CareerPageDataType> = {
   "sdr-sales-development-representative":
     sdrSalesDevelopmentRepresentativePageData,
   "director-digital-marketing": directorDigitalMarketingPageData,
+  "cofounder": cofounderPageData,
 };
