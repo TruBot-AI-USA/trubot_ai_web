@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 import { Calculator, Users, Database, Rocket, ArrowRight } from "lucide-react";
 
 const categories = [
-  { name: "Finance Templates", icon: Calculator, price: "49", href: "/marketplace/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600" },
-  { name: "Investor", icon: Users, price: "199", href: "/marketplace/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600" },
-  { name: "Grant", icon: Database, price: "49", href: "/marketplace/grant-database", bg: "bg-green-100", iconColor: "text-green-600" },
-  { name: "Accelerator", icon: Rocket, price: "49", href: "/marketplace/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600" },
-  { name: "Leads (1M)", icon: Users, price: "49", href: "/marketplace/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600" },
+  { name: "Finance Templates", icon: Calculator, price: "49", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600" },
+  { name: "Investor", icon: Users, price: "199", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600" },
+  { name: "Grant", icon: Database, price: "49", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600" },
+  { name: "Accelerator", icon: Rocket, price: "49", href: "/digitalAssets/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600" },
+  { name: "Leads (1M)", icon: Users, price: "49", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600" },
 ];
 
-export default function MarketplacePage() {
+export default function digitalAssetsPage() {
   const [loadingIndex, setLoadingIndex] = useState<number | null>(null);
 
   return (

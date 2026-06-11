@@ -137,7 +137,7 @@ const Header = () => {
         {/* Desktop CTA */}
         <div className="hidden lg:flex gap-2">
           <Button
-            href="/marketplace"
+            href="/digitalAssets"
             label="Buy Digital Assets"
             ariaLabel="Buy Digital Assets with TruBot AI"
             variant="primary"

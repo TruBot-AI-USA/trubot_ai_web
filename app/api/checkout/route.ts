@@ -39,8 +39,8 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${domain}/marketplace/success?session_id={CHECKOUT_SESSION_ID}&product=${encodeURIComponent(product)}&price=${displayPrice}&currency=usd`,
-      cancel_url: `${domain}/marketplace?canceled=1`,
+      success_url: `${domain}/digitalAssets/success?session_id={CHECKOUT_SESSION_ID}&product=${encodeURIComponent(product)}&price=${displayPrice}&currency=usd`,
+      cancel_url: `${domain}/digitalAssets?canceled=1`,
       automatic_tax: { enabled: process.env.STRIPE_TAX_AUTO === 'true' },
       metadata: { product, email, name, currency: 'usd' },
     });

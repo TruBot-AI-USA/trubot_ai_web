@@ -9,8 +9,8 @@ export default function CancelPage() {
           Your checkout was canceled. You can continue browsing digital assets and try again when ready.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/marketplace" className="inline-flex justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
-            Return to marketplace
+          <Link href="/digitalAssets" className="inline-flex justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
+            Return to Digital Assets
           </Link>
           <Link href="/" className="inline-flex justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
             Back to home

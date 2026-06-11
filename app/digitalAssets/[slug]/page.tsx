@@ -223,7 +223,7 @@ export default function ProductPage() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-            <Link href="/marketplace" className="hover:text-blue-600 transition-colors">Marketplace</Link>
+            <Link href="/digitalAssets" className="hover:text-blue-600 transition-colors">Digital Assets</Link>
             <span>/</span>
             <span className="text-[#18352b]">{product.name}</span>
           </div>

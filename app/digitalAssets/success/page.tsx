@@ -20,7 +20,7 @@ export default function SuccessPage({ searchParams }: SuccessPageProps) {
           <p className="mb-6 text-sm text-slate-500">Your purchase has completed successfully.</p>
         )}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/marketplace" className="inline-flex justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
+          <Link href="/digitalAssets" className="inline-flex justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700">
             Browse more assets
           </Link>
           <Link href="/" className="inline-flex justify-center rounded-full border border-slate-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">
