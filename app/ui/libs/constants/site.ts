@@ -27,10 +27,23 @@ const PlatformAI1080List: { href: string; label: string }[] = [
   // Coming soon
 ];
 
+const DigitalAssetsList = [
+  { href: "/digitalAssets", label: "Accelerator" },
+  { href: "/digitalAssets",label: "AI Linkedin Prompts Pack" },
+  { href: "/digitalAssets", label: "Architecture PRD" },
+  { href: "/digitalAssets", label: "Finance Templates" },
+  { href: "/digitalAssets", label: "Grant" },
+  { href: "/digitalAssets", label: "Investor" },  
+  { href: "/digitalAssets", label: "Leads (1M)" },
+  { href: "/digitalAssets", label: "Product PRDs" },
+  { href: "/digitalAssets", label: "Real Estate" },
+];
+
 const productLinkList = [
   { label: "Platform AI 360", submenu: PlatformAI360List },
    { label: "Platform AI 720", submenu: PlatformAI720List },
     { label: "Platform AI 1080", submenu: PlatformAI1080List },
+    { label: "Digital Assets 360", submenu: DigitalAssetsList },
 ];
 
 const solutionLinkList = [

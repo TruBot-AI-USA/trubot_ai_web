@@ -85,7 +85,16 @@ export async function sendCheckoutConfirmationEmail(
 
   const productName = session.metadata?.name || session.metadata?.product || 'Your Purchase';
   const amount = session.amount_total ? (session.amount_total / 100).toFixed(2) : 'N/A';
+  const productLinks = {
+  "Finance Templates": process.env.FINANCE_TEMPLATES,
+  "Leads (1M)": process.env.LEADS_1M,
+  "Accelerator": process.env.ACCELERATOR,
+  "Grant": process.env.GRANT,
+  "Investor": process.env.INVESTOR,
+};
 
+  // Get the download link for the purchased product
+  const downloadLink = productLinks[productName] || "";
   const emailClient = getEmailClient();
   const poller = await emailClient.beginSend({
     senderAddress: emailSender,
@@ -99,7 +108,7 @@ export async function sendCheckoutConfirmationEmail(
           <p><strong>Product:</strong> ${productName}</p>
           <p><strong>Amount:</strong> $${amount}</p>
           <p><strong>Order ID:</strong> ${session.id}</p>
-          <p>Your digital asset will be available for download shortly.</p>
+          <p>Your digital asset can be downloaded from <a href="${downloadLink}"> here</a>.</p>
           <p>If you have any questions, please contact our support team.</p>
           <p>Best regards,<br/>TruBot AI Team</p>
         </div>
