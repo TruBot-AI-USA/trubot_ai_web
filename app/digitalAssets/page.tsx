@@ -12,7 +12,7 @@ const categories = [
   { name: "Leads (1M)", icon: Users, price: "49", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600" },
 ];
 
-export default function digitalAssetsPage() {
+export default function DigitalAssetsPage() {
   const [loadingIndex, setLoadingIndex] = useState<number | null>(null);
 
   return (
@@ -68,12 +68,12 @@ export default function digitalAssetsPage() {
                             e.stopPropagation();
                             setLoadingIndex(index);
                             try {
-                                const amount = Math.round(Number(cat.price) * 100);
-                                const res = await fetch('/api/checkout', {
-                                  method: 'POST',
-                                  headers: { 'Content-Type': 'application/json' },
-                                  body: JSON.stringify({ product: cat.href.split('/').pop(), amount, name: cat.name })
-                                });
+                              const amount = Math.round(Number(cat.price) * 100);
+                              const res = await fetch('/api/checkout', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ product: cat.href.split('/').pop(), amount, name: cat.name })
+                              });
                               const data = await res.json().catch(() => null);
                               if (res.ok && data?.url) {
                                 window.location.href = data.url;
@@ -82,7 +82,6 @@ export default function digitalAssetsPage() {
                                 alert(errorMessage);
                               }
                             } catch (err) {
-                              // eslint-disable-next-line no-console
                               console.error(err);
                               alert('Checkout error');
                             } finally {

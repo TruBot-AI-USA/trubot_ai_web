@@ -49,7 +49,9 @@ function SuccessContent() {
   const [product, setProduct] = useState("");
   const [price, setPrice] = useState(0);
   const [orderId, setOrderId] = useState("");
+  const [customerEmail, setCustomerEmail] = useState("");
   const toastShown = useRef(false);
+  const confirmationRequested = useRef(false);
 
   const productName = product.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   const formattedPrice = useMemo(() => new Intl.NumberFormat("en-US").format(price), [price]);
@@ -61,10 +63,30 @@ function SuccessContent() {
     const queryProduct = params.get("product") || "";
     const queryPrice = parseInt(params.get("price") || "0", 10);
     const queryOrderId = params.get("orderId") || `ORD-${Date.now().toString(36).toUpperCase()}`;
+    const queryEmail = params.get("email") || "";
+    const sessionId = params.get("session_id") || "";
 
     setProduct(queryProduct);
     setPrice(queryPrice);
     setOrderId(queryOrderId);
+    setCustomerEmail(queryEmail);
+
+    if (sessionId && !confirmationRequested.current) {
+      confirmationRequested.current = true;
+
+      fetch('/api/checkout/send-confirmation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: sessionId }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.email) {
+            setCustomerEmail(data.email);
+          }
+        })
+        .catch((err) => console.error('Failed to send confirmation email:', err));
+    }
 
     if (!toastShown.current) {
       toastShown.current = true;
@@ -213,7 +235,7 @@ function SuccessContent() {
               </h2>
               <div className="space-y-0">
                 {[
-                  { icon: Mail, title: "Check Email", desc: "Receipt with access link" },
+                  { icon: Mail, title: "Check Email", desc: customerEmail && customerEmail !== 'undefined' ? `Receipt with access link (${customerEmail})` : "Receipt with access link" },
                   { icon: Cloud, title: "Access SharePoint", desc: "Download your assets" },
                   { icon: Download, title: "Download & Use", desc: "Start using in projects" },
                 ].map((item, idx) => (

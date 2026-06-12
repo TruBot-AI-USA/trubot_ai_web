@@ -11,6 +11,7 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@azure/communication-email": "^1.1.0",
     "@googlemaps/js-api-loader": "^1.16.10",
     "@hookform/resolvers": "^5.1.1",
     "@prismicio/client": "^7.17.2",

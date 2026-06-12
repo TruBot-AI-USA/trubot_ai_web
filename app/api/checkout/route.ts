@@ -23,10 +23,9 @@ export async function POST(req: Request) {
     // Keep the original price for display (not multiplied by 100)
     const displayPrice = amount ? Math.round(amount / 100) : price;
 
-    const session = await stripe.checkout.sessions.create({
+    const checkoutParams: Record<string, any> = {
       payment_method_types: ['card'],
       mode: 'payment',
-      customer_email: email,
       locale: 'en',
       billing_address_collection: 'required',
       line_items: [
@@ -39,11 +38,18 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${domain}/digitalAssets/success?session_id={CHECKOUT_SESSION_ID}&product=${encodeURIComponent(product)}&price=${displayPrice}&currency=usd`,
+      success_url: `${domain}/digitalAssets/success?session_id={CHECKOUT_SESSION_ID}${email ? `&email=${encodeURIComponent(email)}` : ''}&product=${encodeURIComponent(product)}&price=${displayPrice}&orderId={CHECKOUT_SESSION_ID}&currency=usd`,
       cancel_url: `${domain}/digitalAssets?canceled=1`,
       automatic_tax: { enabled: process.env.STRIPE_TAX_AUTO === 'true' },
-      metadata: { product, email, name, currency: 'usd' },
-    });
+      metadata: { product, name, currency: 'usd' },
+    };
+
+    if (email) {
+      checkoutParams.customer_email = email;
+      checkoutParams.metadata.email = email;
+    }
+
+    const session = await stripe.checkout.sessions.create(checkoutParams);
 
     return NextResponse.json({ url: session.url });
   } catch (err: any) {
