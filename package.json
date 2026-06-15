@@ -11,6 +11,7 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
+    "@azure/communication-email": "^1.1.0",
     "@googlemaps/js-api-loader": "^1.16.10",
     "@hookform/resolvers": "^5.1.1",
     "@prismicio/client": "^7.17.2",
@@ -27,9 +28,12 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.59.0",
+    "react-hot-toast": "^2.6.0",
     "react-icons": "^5.5.0",
     "react-phone-number-input": "^3.4.12",
+    "resend": "^6.12.4",
     "sonner": "^2.0.5",
+    "stripe": "^22.2.0",
     "three": "^0.183.2",
     "zod": "^3.25.67"
   },
