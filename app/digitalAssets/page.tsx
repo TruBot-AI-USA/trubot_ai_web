@@ -16,7 +16,7 @@ const categories = [
   { name: "Leads (1M)", icon: Users, price: "49", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
     description: "Instant access to a massive outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
   { name: "AI LinkedIn Prompts Pack", icon: Sparkles, price: "49", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
-    description: ""},
+    description: "A curated collection of AI prompts engineered to help you write data-driven, insight-led LinkedIn content that positions you as a thought leader — not just another poster. Use it to build a consistent presence, Generate post ideas, hooks, and full drafts in minutes, Create content series that position you around a specific expertise, and respond to trends and news with credible, structured takes. One-time purchase. Use it forever."},
   { name: "Architecture PRD", icon: Building2, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600", 
     description: "Professional architecture blueprints and system design documents for teams that need clarity, alignment, and a solid technical foundation. Instead of building from scattered notes, you start with a structured technical framework that your team can actually use." },
   { name: "Product PRDs", icon: FileText, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
