@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Users, Database, Rocket, ArrowRight } from "lucide-react";
+import { Calculator, Users, Database, Rocket, ArrowRight, Sparkles, Home, FileText, Building2 } from "lucide-react";
 
 const categories = [
   { name: "Finance Templates", icon: Calculator, price: "49", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
@@ -15,13 +15,13 @@ const categories = [
     description: "A curated list of top startup accelerators with intake cycles, focus areas, and application details — all in one place. This database helps you stay ahead — plan, apply, and increase your chances of getting into the right program." },
   { name: "Leads (1M)", icon: Users, price: "49", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
     description: "Instant access to a massive outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
-  { name: "AI LinkedIn Prompts Pack", icon: Rocket, price: "49", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
+  { name: "AI LinkedIn Prompts Pack", icon: Sparkles, price: "49", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
     description: ""},
-  { name: "Architecture PRD", icon: Database, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600", 
+  { name: "Architecture PRD", icon: Building2, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600", 
     description: "Professional architecture blueprints and system design documents for teams that need clarity, alignment, and a solid technical foundation. Instead of building from scattered notes, you start with a structured technical framework that your team can actually use." },
-  { name: "Product PRDs", icon: Database, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
+  { name: "Product PRDs", icon: FileText, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
     description: "Professional, industry-standard Product Requirements Document templates that help founders, product managers, and consultants move from idea to execution faster. Instead of spending days figuring out structure, you start with a proven framework and focus on the actual product." },
-  { name: "Real Estate", icon: Users, price: "49", href: "/digitalAssets/real-estate-database", bg: "bg-red-100", iconColor: "text-red-600", 
+  { name: "Real Estate", icon: Home, price: "49", href: "/digitalAssets/real-estate-database", bg: "bg-red-100", iconColor: "text-red-600", 
     description: "" },
 ];
 
