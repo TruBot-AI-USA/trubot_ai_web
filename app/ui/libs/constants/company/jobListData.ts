@@ -21,6 +21,13 @@ const jobListData = [
     href: "/careers/cofounder",
   },
   {
+    id: "svp-fullstack-hands-on",
+    title: "Sr. Vice President – Technology (Full Stack, Hands-On)",
+    department: "Engineering & Product",
+    level: "SVP",
+    href: "/careers/svp-fullstack-hands-on",
+  },
+  {
     id: "devops-cloud-architect-azure",
     title: "DevOps Cloud Architect (Azure)",
     department: "Technology",
