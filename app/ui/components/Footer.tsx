@@ -12,7 +12,7 @@ import {
 
 type LinkItem = { href: string; label: string };
 type IndustryItem = { label: string };
-type SubmenuItem = { label: string; submenu: LinkItem[] };
+type SubmenuItem = { label: string;  href?: string; submenu: LinkItem[] };
 
 const linkClass =
   "relative inline-block text-sm transition-colors duration-300 text-navy font-medium hover:text-electric " +
@@ -37,16 +37,34 @@ const renderIndustries = (items: IndustryItem[]) =>
   ));
 
 const renderProductGroups = (items: SubmenuItem[]) =>
-  items.map(({ label, submenu }) => (
+  items.map(({ label, href, submenu }) => (
     <li key={label} className="text-left list-none">
-      <p className="text-xs font-bold text-navy uppercase tracking-wide mb-1">{label}</p>
+      {href ? (
+        <Link
+          href={href}
+          className="text-xs font-bold text-navy uppercase tracking-wide mb-1 block hover:text-electric"
+        >
+          {label}
+        </Link>
+      ) : (
+        <p className="text-xs font-bold text-navy uppercase tracking-wide mb-1">
+          {label}
+        </p>
+      )}
+
       <ul className="space-y-1 pl-2">
         {submenu.length > 0 ? (
           submenu.map(({ href, label: subLabel }) => (
-            <li key={href} className="list-none">
-              <Link href={href} className={linkClass}>
-                {subLabel}
-              </Link>
+            <li key={subLabel} className="list-none">
+              {href ? (
+                <Link href={href} className={linkClass}>
+                  {subLabel}
+                </Link>
+              ) : (
+                <span className="text-sm text-navy font-medium">
+                  {subLabel}
+                </span>
+              )}
             </li>
           ))
         ) : (

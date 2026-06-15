@@ -10,7 +10,12 @@ const categories = [
   { name: "Grant", icon: Database, price: "49", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600" },
   { name: "Accelerator", icon: Rocket, price: "49", href: "/digitalAssets/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600" },
   { name: "Leads (1M)", icon: Users, price: "49", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600" },
+  { name: "AI LinkedIn Prompts Pack", icon: Rocket, price: "29", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600" },
+  { name: "Architecture PRD", icon: Database, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600" },
+  { name: "Product PRDs", icon: Database, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600" },
+  { name: "Real Estate", icon: Users, price: "99", href: "/digitalAssets/real-estate-database", bg: "bg-red-100", iconColor: "text-red-600" },
 ];
+
 
 export default function DigitalAssetsPage() {
   const [loadingIndex, setLoadingIndex] = useState<number | null>(null);

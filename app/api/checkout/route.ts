@@ -22,7 +22,7 @@ export async function POST(req: Request) {
     
     // Keep the original price for display (not multiplied by 100)
     const displayPrice = amount ? Math.round(amount / 100) : price;
-
+    const orderId = `ORD-${Date.now().toString(36).toUpperCase()}`;
     const checkoutParams: Record<string, any> = {
       payment_method_types: ['card'],
       mode: 'payment',
@@ -38,14 +38,13 @@ export async function POST(req: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${domain}/digitalAssets/success?session_id={CHECKOUT_SESSION_ID}${email ? `&email=${encodeURIComponent(email)}` : ''}&product=${encodeURIComponent(product)}&price=${displayPrice}&orderId={CHECKOUT_SESSION_ID}&currency=usd`,
+      success_url: `${domain}/digitalAssets/success?session_id={CHECKOUT_SESSION_ID}${email ? `&email=${encodeURIComponent(email)}` : ''}&product=${encodeURIComponent(product)}&price=${displayPrice}&orderId=${orderId}&currency=usd`,
       cancel_url: `${domain}/digitalAssets?canceled=1`,
       automatic_tax: { enabled: process.env.STRIPE_TAX_AUTO === 'true' },
-      metadata: { product, name, currency: 'usd' },
+      metadata: { product, name, currency: 'usd', orderId },
     };
 
-    if (email) {
-      checkoutParams.customer_email = email;
+    if (email) {      checkoutParams.customer_email = email;
       checkoutParams.metadata.email = email;
     }
 

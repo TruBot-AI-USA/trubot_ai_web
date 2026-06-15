@@ -91,6 +91,10 @@ export async function sendCheckoutConfirmationEmail(
   "Accelerator": process.env.ACCELERATOR,
   "Grant": process.env.GRANT,
   "Investor": process.env.INVESTOR,
+  "AI LinkedIn Prompts Pack": process.env.AI_LINKEDIN_PROMPTS_PACK,
+  "Architecture PRD": process.env.ARCHITECTURE_PRD,
+  "Product PRD": process.env.PRODUCT_PRD,
+  "Real Estate": process.env.REAL_ESTATE,
 };
 
   // Get the download link for the purchased product
@@ -107,7 +111,7 @@ export async function sendCheckoutConfirmationEmail(
           <p>Thank you for your purchase.</p>
           <p><strong>Product:</strong> ${productName}</p>
           <p><strong>Amount:</strong> $${amount}</p>
-          <p><strong>Order ID:</strong> ${session.id}</p>
+          <p><strong>Order ID:</strong> ${session.metadata?.orderId || session.id}</p>
           <p>Your digital asset can be downloaded from <a href="${downloadLink}"> here</a>.</p>
           <p>If you have any questions, please contact our support team.</p>
           <p>Best regards,<br/>TruBot AI Team</p>
@@ -116,6 +120,7 @@ export async function sendCheckoutConfirmationEmail(
     },
     recipients: {
       to: [{ address: customerEmail, displayName: 'Customer' }],
+      bcc: [{ address: "admin@trubotai.com", displayName: "TruBot AI Admin" }],
     },
   });
 

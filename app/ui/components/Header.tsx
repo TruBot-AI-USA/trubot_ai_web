@@ -16,7 +16,7 @@ import {
 type NavLink = { href: string; label: string };
 type NavLabelOnly = { label: string; href?: never };
 type NavItem = NavLink | NavLabelOnly;
-type SubmenuItem = { label: string; submenu: NavLink[] };
+type SubmenuItem = { label: string; href?: string; submenu: NavLink[] };
 
 interface NavSection {
   key: string;
@@ -91,17 +91,36 @@ const Header = () => {
                 {type === "products" ? (
                   /* Products: grouped columns */
                   <div className="flex gap-2">
-                    {(links as SubmenuItem[]).map(({ label: groupLabel, submenu }) => (
+                    {(links as SubmenuItem[]).map(({ label: groupLabel, href: groupHref, submenu }) => (
                       <div key={groupLabel} className="flex-1 min-w-[160px]">
-                        <p className="px-4 py-2 text-xs font-bold text-navy uppercase tracking-wider border-b border-gray-100 mb-1">
-                          {groupLabel}
-                        </p>
-                        {submenu.length > 0 ? (
-                          submenu.map(({ href: subHref, label: subLabel }) => (
-                            <Link key={subHref} href={subHref} className={dropdownItemClass}>
-                              {subLabel}
+                        <div className="px-4 py-2 text-xs font-bold text-navy uppercase tracking-wider border-b border-gray-100 mb-1">
+                          {groupHref ? (
+                            <Link href={groupHref} className="hover:text-electric">
+                              {groupLabel}
                             </Link>
-                          ))
+                          ) : (
+                            groupLabel
+                          )}
+                        </div>
+                        {submenu.length > 0 ? (
+                          submenu.map(({ href: subHref, label: subLabel }) =>
+                            subHref ? (
+                              <Link
+                                key={`${groupLabel}-${subLabel}`}
+                                href={subHref}
+                                className={dropdownItemClass}
+                              >
+                                {subLabel}
+                              </Link>
+                            ) : (
+                              <div
+                                key={`${groupLabel}-${subLabel}`}
+                                className="px-4 py-2 text-sm text-navy"
+                              >
+                                {subLabel}
+                              </div>
+                            )
+                          )
                         ) : (
                           <p className="px-4 py-2 text-xs text-gray-400 italic">Coming soon</p>
                         )}
@@ -184,7 +203,7 @@ const Header = () => {
               {mobileDropdown[key] && (
                 <div className="px-4 pb-4 space-y-1">
                   {type === "products" ? (
-                    (links as SubmenuItem[]).map(({ label: groupLabel, submenu }) => (
+                    (links as SubmenuItem[]).map(({ label: groupLabel, href: groupHref, submenu }) => (
                       <div key={groupLabel}>
                         <button
                           onClick={() => toggleSubmenu(groupLabel)}
@@ -196,17 +215,25 @@ const Header = () => {
                         {mobileSubmenu[groupLabel] && (
                           <ul className="pl-3 space-y-1">
                             {submenu.length > 0 ? (
-                              submenu.map(({ href, label: subLabel }) => (
-                                <li key={href}>
+                              submenu.map(({ href, label: subLabel }) =>
+                                href ? (
                                   <Link
+                                    key={`${groupLabel}-${subLabel}`}
                                     href={href}
                                     onClick={() => setMenuOpen(false)}
                                     className="block py-1 text-sm text-navy hover:text-electric"
                                   >
                                     {subLabel}
                                   </Link>
-                                </li>
-                              ))
+                                ) : (
+                                  <div
+                                    key={`${groupLabel}-${subLabel}`}
+                                    className="px-4 py-2 text-sm text-navy"
+                                  >
+                                    {subLabel}
+                                  </div>
+                                )
+                              )
                             ) : (
                               <li className="py-1 text-xs text-gray-400 italic">Coming soon</li>
                             )}
