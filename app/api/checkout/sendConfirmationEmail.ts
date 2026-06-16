@@ -95,6 +95,7 @@ export async function sendCheckoutConfirmationEmail(
   "Architecture PRD": process.env.ARCHITECTURE_PRD,
   "Product PRD": process.env.PRODUCT_PRD,
   "Real Estate": process.env.REAL_ESTATE,
+  "All Assets": process.env.ALL_ASSETS
 };
 
   // Get the download link for the purchased product

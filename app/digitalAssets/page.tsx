@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calculator, Users, Database, Rocket, ArrowRight, Sparkles, Home, FileText, Building2 } from "lucide-react";
+import { Calculator, Users, Database, Rocket, ArrowRight, Sparkles, Package, Home, FileText, Building2 } from "lucide-react";
 
 const categories = [
-  { name: "Finance Templates", icon: Calculator, price: "49", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
+  { name: "Finance Templates", icon: Calculator, price: "199", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
     description: "Professional financial planning templates built for founders, operators, and growing teams. One-time purchase. Unlimited use." },
-  { name: "Investor", icon: Users, price: "199", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
+  { name: "Investor", icon: Users, price: "299", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
     description: "A curated investor database designed to help you reach the right VCs, angels, and funds — faster. Think of it as your starting pipeline — not just a list, but a fundraising accelerator." },
-  { name: "Grant", icon: Database, price: "49", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600", 
+  { name: "Grant", icon: Database, price: "199", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600", 
     description: "A curated database of grants, accelerators, and funding programs — so you don’t miss opportunities that don’t cost you equity. This database saves 40+ hours of research — and helps you find opportunities you didn’t even know existed." },
   { name: "Accelerator", icon: Rocket, price: "49", href: "/digitalAssets/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600", 
     description: "A curated list of top startup accelerators with intake cycles, focus areas, and application details — all in one place. This database helps you stay ahead — plan, apply, and increase your chances of getting into the right program." },
@@ -21,8 +21,10 @@ const categories = [
     description: "Professional architecture blueprints and system design documents for teams that need clarity, alignment, and a solid technical foundation. Instead of building from scattered notes, you start with a structured technical framework that your team can actually use." },
   { name: "Product PRDs", icon: FileText, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
     description: "Professional, industry-standard Product Requirements Document templates that help founders, product managers, and consultants move from idea to execution faster. Instead of spending days figuring out structure, you start with a proven framework and focus on the actual product." },
+  { name: "All Assets", icon: Package, price: "999", href: "/digitalAssets/all-assets", bg: "bg-teal-100", iconColor: "text-teal-600", 
+    description: "Access to all digital assets in a single, comprehensive package." },
   { name: "Real Estate", icon: Home, price: "49", href: "/digitalAssets/real-estate-database", bg: "bg-red-100", iconColor: "text-red-600", 
-    description: "" },
+    description: "", comingSoon: true,},
 ];
 
 
@@ -77,7 +79,7 @@ export default function DigitalAssetsPage() {
                       <p className="text-sm text-gray-500 leading-relaxed mb-4 min-h-[48px]">
                         {cat.description}
                       </p>
-                      <div className="flex items-center justify-between">
+                      {/*<div className="flex items-center justify-between">
                         <span className="text-2xl font-bold text-blue-600">${cat.price}</span>
                         <button
                           type="button"
@@ -111,6 +113,60 @@ export default function DigitalAssetsPage() {
                           {loadingIndex === index ? 'Processing...' : 'Buy Now'}
                           <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                         </button>
+                      </div>*/}
+                      <div className="flex items-center justify-between">
+                        {cat.comingSoon ? (
+                          <>
+                            <span className="text-lg font-bold text-orange-600">
+                              🚀 Coming Soon
+                            </span>
+
+                            <span className="text-sm font-medium text-gray-400 cursor-not-allowed">
+                              Buy Now
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-2xl font-bold text-blue-600">
+                              ${cat.price}
+                            </span>
+
+                            <button
+                              type="button"
+                              onClick={async (e) => {
+                                e.stopPropagation();
+                                setLoadingIndex(index);
+                                try {
+                                  const amount = Math.round(Number(cat.price) * 100);
+                                  const res = await fetch('/api/checkout', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                      product: cat.href.split('/').pop(),
+                                      amount,
+                                      name: cat.name
+                                    })
+                                  });
+                                  const data = await res.json().catch(() => null);
+                                  if (res.ok && data?.url) {
+                                    window.location.href = data.url;
+                                  } else {
+                                    alert(data?.error || `Checkout failed (${res.status})`);
+                                  }
+                                } catch (err) {
+                                  console.error(err);
+                                  alert('Checkout error');
+                                } finally {
+                                  setLoadingIndex(null);
+                                }
+                              }}
+                              className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors"
+                            >
+                              {loadingIndex === index ? 'Processing...' : 'Buy Now'}
+                              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                            </button>
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
