@@ -262,7 +262,7 @@ interface Category {
 const categories: Category[] = [
   { name: "Finance Templates", tag: "finance", icon: Calculator, price: "399", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
     description: "Professional financial planning templates built for founders, operators, and growing teams. One-time purchase. Unlimited use." },
-  { name: "Investor", tag: "investor", icon: Users, price: "299", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
+  { name: "Investor", tag: "investor", icon: Users, price: "399", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
     description: "A curated investor database designed to help you reach the right VCs, angels, and funds — faster. Think of it as your starting pipeline — not just a list, but a fundraising accelerator." },
   { name: "Grant", tag: "database", icon: Database, price: "199", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600", 
     description: "A curated database of grants, accelerators, and funding programs — so you don’t miss opportunities that don’t cost you equity. This database saves 40+ hours of research — and helps you find opportunities you didn’t even know existed." },
