@@ -93,7 +93,7 @@ export async function sendCheckoutConfirmationEmail(
   "Investor": process.env.INVESTOR,
   "AI LinkedIn Prompts Pack": process.env.AI_LINKEDIN_PROMPTS_PACK,
   "Architecture PRD": process.env.ARCHITECTURE_PRD,
-  "Product PRD": process.env.PRODUCT_PRD,
+  "Product PRDs": process.env.PRODUCT_PRD,
   "Real Estate": process.env.REAL_ESTATE,
   "All Assets": process.env.ALL_ASSETS
 };

@@ -264,6 +264,15 @@ const Header = () => {
 
           <div className="mt-4 space-y-3">
             <Button
+              href="/digitalAssets"
+              label="Buy Digital Assets"
+              ariaLabel="Buy Digital Assets"
+              variant="primary"
+              animate
+              fullWidth
+              onClick={() => setMenuOpen(false)}
+            />
+            <Button
               href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3GU3FqaXzxYUNEFvVUp1AAFUErY1k6klqKYNbU0X2tC7RZ_3AGQSuMjUeIeQ_4yCrjej7YLAEV"
               label="Book a Demo"
               ariaLabel="Book an appointment with TruBot AI"
