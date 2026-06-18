@@ -163,7 +163,7 @@ const Header = () => {
             animate
           />
           <Button
-            href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3GU3FqaXzxYUNEFvVUp1AAFUErY1k6klqKYNbU0X2tC7RZ_3AGQSuMjUeIeQ_4yCrjej7YLAEV"
+            href="https://outlook.office.com/bookwithme/user/8ad34a3590b947cba0715998c11ba3e3@trubotai.com/meetingtype/lCKVWjBaB0OVrEEhC-bjdw2?anonymous&ismsaljsauthenabled&ep=mcard"
             target="_blank"
             rel="noopener noreferrer"
             label="Book a Demo"
@@ -273,7 +273,7 @@ const Header = () => {
               onClick={() => setMenuOpen(false)}
             />
             <Button
-              href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3GU3FqaXzxYUNEFvVUp1AAFUErY1k6klqKYNbU0X2tC7RZ_3AGQSuMjUeIeQ_4yCrjej7YLAEV"
+              href="https://outlook.office.com/bookwithme/user/8ad34a3590b947cba0715998c11ba3e3@trubotai.com/meetingtype/lCKVWjBaB0OVrEEhC-bjdw2?anonymous&ismsaljsauthenabled&ep=mcard"
               label="Book a Demo"
               ariaLabel="Book an appointment with TruBot AI"
               variant="primary"

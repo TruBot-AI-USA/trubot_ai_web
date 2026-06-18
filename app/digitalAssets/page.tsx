@@ -112,6 +112,23 @@ const productDetails: Record<string, ProductDetails> = {
       "One-time download — no usage limits",
     ],
   },
+  "Leads (250K)": {
+    longDesc:
+      "Launch campaigns today, not next week. Building outreach lists is slow, expensive, and repetitive. This gives you a ready-made database so your team can start sending campaigns immediately.",
+    note: "Important: This is a data asset, not the TruLead platform. This is a one-time downloadable lead database — not the full TruLead SaaS product. No login. No search interface. No AI scoring. No CRM sync. If you need automation, enrichment, or workflows — that's TruLead SaaS. If you just need data to move fast — this is it.",
+    builtFor: [
+      "Sales teams — Run large-scale cold email campaigns instantly",
+      "Growth agencies — Build and deploy outreach lists across multiple clients",
+      "Founders — Validate markets, test messaging, and generate early traction",
+    ],
+    whatYouGet: [
+      "250,000 lead records",
+      "Clean, structured dataset (CSV / Excel ready)",
+      "Key fields: name, company, role, email (where available), industry, geography",
+      "Ready for upload into any outreach tool (Apollo, Lemlist, Instantly, etc.)",
+      "One-time download — no usage limits",
+    ],
+  },
   "AI LinkedIn Prompts Pack": {
     longDesc:
       "Built for professionals who want to be seen as the smartest person in the room",
@@ -269,7 +286,9 @@ const categories: Category[] = [
   { name: "Accelerator", tag: "database", icon: Rocket, price: "49", href: "/digitalAssets/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600", 
     description: "A curated list of top startup accelerators with intake cycles, focus areas, and application details — all in one place. This database helps you stay ahead — plan, apply, and increase your chances of getting into the right program." },
   { name: "Leads (1M)", tag: "database", icon: Users, price: "99", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
-    description: "Instant access to a massive outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
+    description: "Instant access to a massive 1 million outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
+  { name: "Leads (250K)", tag: "database", icon: Users, price: "49", href: "/digitalAssets/250k-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
+    description: "Instant access to a 250,000 outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
   { name: "AI LinkedIn Prompts Pack", tag: "ai", icon: Sparkles, price: "49", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
     description: "A curated collection of AI prompts engineered to help you write data-driven, insight-led LinkedIn content that positions you as a thought leader — not just another poster. Use it to build a consistent presence, Generate post ideas, hooks, and full drafts in minutes, Create content series that position you around a specific expertise, and respond to trends and news with credible, structured takes. One-time purchase. Use it forever."},
   { name: "Architecture PRD", tag: "template", icon: Building2, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600", 
