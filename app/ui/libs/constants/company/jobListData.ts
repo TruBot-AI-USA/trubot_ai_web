@@ -35,6 +35,13 @@ const jobListData = [
     href: "/careers/technical-cofounder",
   },
   {
+    id: "sales-cofounder",
+    title: "Sales Co-Founder / Chief Growth Officer",
+    department: "Business Development",
+    level: "Co-Founder",
+    href: "/careers/sales-cofounder",
+  },
+  {
     id: "devops-cloud-architect-azure",
     title: "DevOps Cloud Architect (Azure)",
     department: "Technology",

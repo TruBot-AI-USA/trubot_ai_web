@@ -11,9 +11,7 @@ const technicalCofounderPageData: CareerPageDataType = {
     roleIntro:
         "We’re looking for a deeply technical, execution-focused Technical Co-Founder who can architect, build, and scale our AI platform end-to-end.",
     responsibilities: [
-
         "Lead architecture, design, and development of AI-powered SaaS platforms",
-
         "Build scalable and secure cloud-native applications",
         "Drive full stack development using modern web technologies",
         "Lead engineering teams and mentor developers",
@@ -43,7 +41,7 @@ const technicalCofounderPageData: CareerPageDataType = {
     workingHours:
         "Flexible working hours with remote collaboration.",
     applyInstructions:
-        "To apply, please email your resume to careers@trubotai.com with the subject line: 'Application for Technical Co-Founder",
+        "To apply, please email your resume to careers@trubotai.com with the subject line: 'Application for Technical Co-Founder'",
     applyEmail: "careers@trubotai.com",
 };
 
