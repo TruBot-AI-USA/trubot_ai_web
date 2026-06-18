@@ -28,6 +28,13 @@ const jobListData = [
     href: "/careers/svp-fullstack-hands-on",
   },
   {
+    id: "technical-cofounder",
+    title: "Technical Co-Founder",
+    department: "Technology",
+    level: "Co-Founder",
+    href: "/careers/technical-cofounder",
+  },
+  {
     id: "devops-cloud-architect-azure",
     title: "DevOps Cloud Architect (Azure)",
     department: "Technology",
