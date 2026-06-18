@@ -286,7 +286,7 @@ const Page = () => {
 
     {/* Primary CTA */}
     <Button
-      href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3GU3FqaXzxYUNEFvVUp1AAFUErY1k6klqKYNbU0X2tC7RZ_3AGQSuMjUeIeQ_4yCrjej7YLAEV"
+      href="https://outlook.office.com/bookwithme/user/8ad34a3590b947cba0715998c11ba3e3@trubotai.com/meetingtype/lCKVWjBaB0OVrEEhC-bjdw2?anonymous&ismsaljsauthenabled&ep=mcard"
       label="Book A Consultation"
       className="w-full rounded-xl font-semibold transition-all bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md hover:shadow-xl hover:-translate-y-0.5 h-11 text-sm"
     />

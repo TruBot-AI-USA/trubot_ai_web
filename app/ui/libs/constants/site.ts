@@ -35,6 +35,7 @@ const DigitalAssetsList = [
   { label: "Grant" },
   { label: "Investor" },  
   { label: "Leads (1M)" },
+  { label: "Leads (250K)" },
   { label: "Product PRDs" },
   { label: "Real Estate" },
 ];
@@ -81,7 +82,7 @@ const footerLinkList = [
 ];
 
 const meetLink =
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3GU3FqaXzxYUNEFvVUp1AAFUErY1k6klqKYNbU0X2tC7RZ_3AGQSuMjUeIeQ_4yCrjej7YLAEV";
+  "https://outlook.office.com/bookwithme/user/8ad34a3590b947cba0715998c11ba3e3@trubotai.com/meetingtype/lCKVWjBaB0OVrEEhC-bjdw2?anonymous&ismsaljsauthenabled&ep=mcard";
 
 export {
   productLinkList,

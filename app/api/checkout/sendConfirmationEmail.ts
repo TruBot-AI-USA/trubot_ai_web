@@ -88,6 +88,7 @@ export async function sendCheckoutConfirmationEmail(
   const productLinks = {
   "Finance Templates": process.env.FINANCE_TEMPLATES,
   "Leads (1M)": process.env.LEADS_1M,
+  "Leads (250K)": process.env.LEADS_250K,
   "Accelerator": process.env.ACCELERATOR,
   "Grant": process.env.GRANT,
   "Investor": process.env.INVESTOR,
