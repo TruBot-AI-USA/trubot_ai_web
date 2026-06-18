@@ -350,6 +350,123 @@ export default function DigitalAssetsPage() {
           </motion.div>
         </div>
       </section>
+              {/* ── Full-width 50% OFF Ribbon (both edges curve upward in same direction) ── */}
+        <div
+          className="relative w-full py-3 md:py-3.5 overflow-hidden mb-8 md:mb-10"
+          style={{
+            clipPath: `polygon(
+              0% 5%, 20% 3%, 40% 2%, 50% 1.5%, 60% 2%, 80% 3%, 100% 5%,
+              100% 96%, 80% 94.5%, 60% 93%, 50% 92.5%, 40% 93%, 20% 94.5%, 0% 96%
+            )`
+          }}
+        >
+          {/* Base gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700" />
+
+          {/* Soft inner radial glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_50%,rgba(255,255,255,0.08),transparent_70%)]" />
+
+          {/* Subtle noise/grain texture */}
+          <div
+            className="absolute inset-0 opacity-[0.035]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+              backgroundRepeat: 'repeat',
+              backgroundSize: '128px 128px',
+            }}
+          />
+
+          {/* Top highlight edge glow */}
+          <div className="absolute top-0 left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+
+          {/* Animated shimmer sweep */}
+          <motion.div
+            className="absolute inset-0"
+            initial={{ x: '-100%' }}
+            animate={{ x: '400%' }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'linear', repeatDelay: 4 }}
+            style={{
+              background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+              width: '60%',
+            }}
+          />
+
+          {/* Floating decorative sparkles */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div className="absolute -top-3 -left-3 w-14 h-14 rounded-full bg-white/5 blur-xl" />
+            <motion.div className="absolute -bottom-3 -right-3 w-16 h-16 rounded-full bg-blue-400/10 blur-xl" />
+            <motion.div
+              className="absolute top-1/3 left-[12%] w-1.5 h-1.5 rounded-full bg-white/25"
+              animate={{ opacity: [0.2, 0.6, 0.2] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="absolute top-1/2 right-[18%] w-1 h-1 rounded-full bg-white/20"
+              animate={{ opacity: [0.3, 0.8, 0.3] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+            <motion.div
+              className="absolute bottom-1/3 right-[30%] w-2 h-2 rounded-full bg-blue-300/20"
+              animate={{ opacity: [0.1, 0.5, 0.1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            />
+          </div>
+
+          {/* Content — centered — improved visibility */}
+          <div className="relative mx-auto w-full max-w-[1400px] px-6 md:px-8 lg:px-12">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
+              {/* ── Glowing 50% OFF Badge ── */}
+              <motion.div
+                animate={{ scale: [1, 1.04, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="relative"
+              >
+                {/* Neon glow behind badge */}
+                <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/20 via-amber-400/20 to-orange-400/20 rounded-xl blur-lg" />
+                <div className="relative inline-flex items-center gap-1.5 bg-gradient-to-br from-amber-400 via-yellow-400 to-orange-500 px-3.5 py-1.5 rounded-lg text-xs md:text-sm font-extrabold tracking-wide shadow-[0_0_20px_rgba(251,191,36,0.3)] ring-1 ring-yellow-300/40">
+                  <svg className="w-4 h-4 text-[#8F4A0E]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                  <span className="text-[#8F4A0E] [text-shadow:0_2px_6px_rgba(0,0,0,0.4)]">50%</span>
+                  <span className="text-[10px] md:text-xs font-bold text-[#8F4A0E] [text-shadow:0_2px_6px_rgba(0,0,0,0.4)]">OFF</span>
+                </div>
+              </motion.div>
+
+              {/* ── ALL PRODUCTS ── */}
+              <span className="text-white font-extrabold text-sm md:text-lg tracking-[0.08em] [text-shadow:0_2px_8px_rgba(0,0,0,0.4)]">
+                ALL PRODUCTS
+              </span>
+
+              {/* ── Premium Separator ── */}
+              <div className="hidden sm:flex items-center gap-2">
+                <div className="w-8 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+                <div className="w-1.5 h-1.5 rounded-full bg-white/60 shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+                <div className="w-8 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+              </div>
+
+              {/* ── LIMITED TIME OFFER ── */}
+              <motion.div
+                animate={{ opacity: [0.9, 1, 0.9] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative"
+              >
+                {/* Soft amber glow behind text */}
+                <div className="absolute -inset-3 bg-amber-400/15 rounded-full blur-md" />
+                <div className="relative flex items-center gap-2.5 text-white text-xs md:text-sm font-bold uppercase tracking-wider [text-shadow:0_1px_6px_rgba(0,0,0,0.4)]">
+                  <svg className="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                  <span className="text-white font-extrabold tracking-[0.12em]">
+                    Limited Time Offer
+                  </span>
+                  <svg className="w-4 h-4 text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
 
       {/* Product Grid */}
       <section className="pb-20 md:pb-28">
