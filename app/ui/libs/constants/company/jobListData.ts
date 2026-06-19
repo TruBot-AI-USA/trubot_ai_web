@@ -42,6 +42,13 @@ const jobListData = [
     href: "/careers/sales-cofounder",
   },
   {
+    id: "fundraising-cofounder",
+    title: "Fundraising Co-Founder / Strategic Finance Lead",
+    department: "Finance",
+    level: "Co-Founder",
+    href: "/careers/fundraising-cofounder",
+  },
+  {
     id: "devops-cloud-architect-azure",
     title: "DevOps Cloud Architect (Azure)",
     department: "Technology",

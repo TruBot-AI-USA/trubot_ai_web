@@ -50,6 +50,7 @@ import { cofounderPageData } from "./cofounder";
 import { svpFullstackHandsOnPageData } from "./svp-fullstack-hands-on";
 import technicalCofounderPageData from "./technical-cofounder";
 import salesCofounderPageData from "./sales-cofounder";
+import fundraisingCofounderPageData from "./fundraising-cofounder";
 
 export const careerPagesMap: Record<string, CareerPageDataType> = {
   "business-acquisition-partner-sba": businessAcquisitionPartnerPageData,
@@ -104,4 +105,5 @@ export const careerPagesMap: Record<string, CareerPageDataType> = {
   "svp-fullstack-hands-on": svpFullstackHandsOnPageData,
   "technical-cofounder": technicalCofounderPageData,
   "sales-cofounder": salesCofounderPageData,
+  "fundraising-cofounder": fundraisingCofounderPageData,
 };
