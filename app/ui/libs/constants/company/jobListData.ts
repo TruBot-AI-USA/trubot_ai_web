@@ -28,6 +28,27 @@ const jobListData = [
     href: "/careers/svp-fullstack-hands-on",
   },
   {
+    id: "technical-cofounder",
+    title: "Technical Co-Founder",
+    department: "Technology",
+    level: "Co-Founder",
+    href: "/careers/technical-cofounder",
+  },
+  {
+    id: "sales-cofounder",
+    title: "Sales Co-Founder / Chief Growth Officer",
+    department: "Business Development",
+    level: "Co-Founder",
+    href: "/careers/sales-cofounder",
+  },
+  {
+    id: "fundraising-cofounder",
+    title: "Fundraising Co-Founder / Strategic Finance Lead",
+    department: "Finance",
+    level: "Co-Founder",
+    href: "/careers/fundraising-cofounder",
+  },
+  {
     id: "devops-cloud-architect-azure",
     title: "DevOps Cloud Architect (Azure)",
     department: "Technology",
