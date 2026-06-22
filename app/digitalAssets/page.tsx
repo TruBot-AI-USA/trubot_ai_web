@@ -601,9 +601,12 @@ export default function DigitalAssetsPage() {
                         ) : (
                           <>
                            <div className="flex flex-col">
-                              <span className="text-sm text-gray-600 line-through">
-                                ${Number(cat.price) * 2 + 1}
-                              </span>
+                                                            <div className="flex items-center gap-2">
+                                <span className="text-sm text-gray-400 line-through">
+                                  ${parseInt(cat.price) * 2 + 1}
+                                </span>
+                                <span className="inline-flex items-center bg-green-100 text-green-700 text-[9px] font-bold px-1.5 py-0.5 rounded">50% OFF</span>
+                              </div>
                               <span className="text-2xl font-bold text-blue-600">
                                 ${cat.price}
                               </span>
