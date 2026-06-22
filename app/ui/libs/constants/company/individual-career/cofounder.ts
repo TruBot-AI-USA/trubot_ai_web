@@ -50,7 +50,7 @@ const cofounderPageData: CareerPageDataType = {
     compensation:
         "Equity-based with profit-sharing, dividend participation, and exit upside depending on deal participation and investment structure. Optional equity participation in the TruBot AI ecosystem.",
     workingHours:
-        "Flexible and fully remote with async collaboration. No fixed working hours. Participation is deal-driven and aligned with TruBot AI’s equity-first operating model.",
+        "Flexible, with at least 4 hours overlap between 8:30 AM – 1:30 PM EST (6:00 PM – 11:00 PM IST).",
     applyInstructions:
         "To apply, please email your resume to careers@trubotai.com with CC to gopal@trubotai.com. Subject line: 'Application – Cofounder'.",
     applyEmail: "careers@trubotai.com",

@@ -45,7 +45,7 @@ const salesCofounderPageData: CareerPageDataType = {
     compensation:
         "Equity-heavy founding structure initially, transitioning into salary plus expanded equity based on funding and growth milestones.",
     workingHours:
-        "Flexible working hours with remote collaboration.",
+        "Flexible, with at least 4 hours overlap between 8:30 AM – 1:30 PM EST (6:00 PM – 11:00 PM IST).",
     applyInstructions:
         "To apply, please email your resume to careers@trubotai.com with the subject line: 'Application for Sales Co-Founder'",
     applyEmail: "careers@trubotai.com",
