@@ -32,7 +32,7 @@ export const products: Record<string, ProductData> = {
     tagline: "Investor-ready finance templates to accelerate planning, forecasting, and fundraising.",
     description: "Professional financial planning and analysis templates. Budget, forecast, and report with ease to drive smarter business decisions.",
     longDescription: "Stop building spreadsheets from scratch. Whether you're pitching investors, planning your next quarter, or just trying to understand where your cash is going — you need financial clarity fast. Our finance templates give you a battle-tested starting point, not a blank page.",
-    price: 49,
+    price: 399,
     icon: Calculator,
     features: ["Pre-built financial models", "P&L & cash flow projections", "Budget & forecast sheets", "KPI dashboards", "Valuation calculators", "Investor-ready formatting"],
     whatsIncluded: ["Financial model templates", "Budget planner sheets", "Forecast & projection tools", "KPI dashboard templates", "Editable Excel & Google Sheets files", "Documentation & usage guide"],
