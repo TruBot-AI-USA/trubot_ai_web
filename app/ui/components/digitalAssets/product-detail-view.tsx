@@ -168,7 +168,7 @@ export default function ProductDetailView({ product, slug }: ProductDetailViewPr
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              /*product: cat.href.split('/').pop(),*/
+              product: product.name, /*cat.href.split('/').pop(),*/
               amount,
               name: product.name
             })
