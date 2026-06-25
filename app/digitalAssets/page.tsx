@@ -10,19 +10,14 @@ import ProductDetailView from "@/app/ui/components/digitalAssets/product-detail-
 // ── Filters ──
 const filters = [
   { label: "All", value: "all" },
-  { label: "Finance", value: "finance" },
-  { label: "Investor", value: "investor" },
-  { label: "Data Assets", value: "dataAssets" },
-  { label: "Templates", value: "template" },
   { label: "AI", value: "ai" },
-  { label: "GTM", value: "gtm" },
-  { label: "NDA", value: "nda" },
-  { label: "M&A", value: "ma" },
-  { label: "Partners", value: "channel" },
-  { label: "Website", value: "website" },
-  { label: "Real Estate", value: "real-estate" },
-  { label: "Leads (Bulk)", value: "leads-big" },
   { label: "Bundle", value: "bundle" },
+  { label: "Data Assets", value: "dataAssets" },
+  { label: "Finance", value: "finance" },
+  { label: "Leads (Bulk)", value: "leads-big" },
+  { label: "Real Estate", value: "real-estate" },
+  { label: "SDLC Templates", value: "template" },   
+  { label: "Strategy", value: "strategy" },
 ];
 
 // ── Per-product expanded details ──
@@ -385,7 +380,7 @@ interface Category {
 const categories: Category[] = [
   { name: "Finance Templates", tag: "finance", icon: Calculator, price: "399", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
     description: "Professional financial planning templates built for founders, operators, and growing teams. One-time purchase. Unlimited use." },
-    { name: "Investor", tag: "investor", icon: Users, price: "399", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
+    { name: "Investor", tag: "dataAssets", icon: Users, price: "399", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
       description: "A curated investor database designed to help you reach the right VCs, angels, and funds — faster. Think of it as your starting pipeline — not just a list, but a fundraising accelerator." },
       { name: "Grant", tag: "dataAssets", icon: Database, price: "199", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600", 
         description: "A curated database of grants, accelerators, and funding programs — so you don’t miss opportunities that don’t cost you equity. This database saves 40+ hours of research — and helps you find opportunities you didn’t even know existed." },
@@ -427,7 +422,7 @@ const categories: Category[] = [
                                             description: "150 million verified B2B leads — the ultimate dataset for enterprise-scale outreach campaigns." },
                                             { name: "Leads (390M)", tag: "leads-big", icon: Database, price: "3999", href: "/marketplace/390m-leads", bg: "bg-indigo-100", iconColor: "text-indigo-600", 
                                               description: "390 million verified B2B leads — the most comprehensive B2B dataset available." },
-                                              { name: "All Assets Bundle", tag: "bundle", icon: Gift, price: "1199", href: "/marketplace/all-assets-bundle", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
+                                              { name: "All Assets Bundle", tag: "bundle", icon: Gift, price: "5199", href: "/marketplace/all-assets-bundle", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
                                                 description: "Every digital asset in our marketplace at a massive discount. Get everything in one bundle." },
                                               ];
                                               
