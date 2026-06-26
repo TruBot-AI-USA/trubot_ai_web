@@ -712,7 +712,7 @@ const categories: Category[] = [
                                                     /* ── "All" filter: Show card grid ── */
                                                     <div>
                                                     {/* ── Cards Grid ── */}
-                                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                                                     {filteredCategories.map((cat, index) => {              
                                                       const details = productDetails[cat.name];
                                                       const showTooltip = tooltipCard === cat.name;
@@ -726,7 +726,20 @@ const categories: Category[] = [
                                                         className={`relative h-full ${showTooltip ? "z-50" : "z-[1]"}`}
                                                         >
                                                         {/* ── Card body ── */}
-                                                        <div className="group bg-white border border-gray-200 rounded-2xl px-5 pt-5 pb-5 transition-all duration-300 flex flex-col relative hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/8 hover:-translate-y-1.5">
+                                                        {/*<div className="group w-full h-full bg-white border border-gray-200 rounded-2xl px-5 pt-5 pb-5 transition-all duration-300 flex flex-col relative hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/8 hover:-translate-y-1.5">*/}
+                                                        <div
+                                                          className={`group rounded-2xl px-5 pt-5 pb-5 transition-all duration-300 flex flex-col relative hover:-translate-y-1.5
+                                                            ${
+                                                              cat.name === "All Assets Bundle"
+                                                                ? "group w-full h-full bg-yellow-50 border-2 border-yellow-400 shadow-2xl"
+                                                                : "group w-full h-full bg-white border border-gray-200 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/8"
+                                                            }`}
+                                                        >
+                                                          {cat.name === "All Assets Bundle" && (
+                                                          <div className="absolute top-3 right-3 z-20 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-black shadow-lg">
+                                                            ⭐ Best Value
+                                                          </div>
+                                                        )}
                                                         <div className="flex flex-col flex-1">
                                                         {/* Top: Icon + Heading */}
                                                         <div className="flex items-center gap-3">
@@ -741,8 +754,7 @@ const categories: Category[] = [
                                                         <h3 className="text-[15px] md:text-[17px] font-bold text-[#18352b] transition-colors leading-tight">
                                                         {cat.name}
                                                         </h3>
-                                                        </div>
-                                                        
+                                                        </div>                                                      
                                                         {/* Content area — grows to fill space for equal-height cards */}
                                                         <div className="flex flex-1 flex-col mt-4">
                                                         <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
@@ -797,7 +809,7 @@ const categories: Category[] = [
                                                         </div>
                                                         
                                                         {/* Bottom: Price + Buy Now */}
-                                                        <div className="flex items-center justify-between">
+                                                        <div className="mt-auto flex items-center justify-between">
                                                         {cat.comingSoon ? (
                                                           <>
                                                           <span className="text-lg font-bold text-orange-600">
