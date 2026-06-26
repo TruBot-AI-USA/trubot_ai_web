@@ -86,7 +86,7 @@ export async function sendCheckoutConfirmationEmail(
   const productName = session.metadata?.name || session.metadata?.product || 'Your Purchase';
   const amount = session.amount_total ? (session.amount_total / 100).toFixed(2) : 'N/A';
   const productLinks = {
-  "Finance Templates": process.env.FINANCE_TEMPLATES,
+  "Finance Templates": process.env.FINANCE_TEMPLATE,
   "Leads (1M)": process.env.LEADS_1M,
   "Leads (250K)": process.env.LEADS_250K,
   "Accelerator": process.env.ACCELERATOR,
@@ -94,9 +94,21 @@ export async function sendCheckoutConfirmationEmail(
   "Investor": process.env.INVESTOR,
   "AI LinkedIn Prompts Pack": process.env.AI_LINKEDIN_PROMPTS_PACK,
   "Architecture PRD": process.env.ARCHITECTURE_PRD,
-  "Product PRDs": process.env.PRODUCT_PRD,
+  "Product PRD": process.env.PRODUCT_PRD,
   "Real Estate": process.env.REAL_ESTATE,
-  "All Assets": process.env.ALL_ASSETS
+  "All Assets Bundle": process.env.ALL_ASSETS_BUNDLE,
+  "Channel Partner Pack": process.env.CHANNEL_PARTNER_PACK,
+  "Cold Email Templates": process.env.COLD_EMAIL_TEMPLATE,
+  "GTM": process.env.GTM,
+  "Leads (150M)": process.env.LEADS_150M,
+  "Leads (390M)": process.env.LEADS_390M,
+  "Lean PRD": process.env.LEAN_PRD,
+  "M&A": process.env.MA,
+  "NDA and Agreements": process.env.NDA_AGREEMENT,
+  "Pitch Deck Samples": process.env.PITCH_DECK,
+  "Project Timeline Templates": process.env.PROJECT_TIMELINE_TEMPLATE,
+  "Proposals Docs": process.env.PROPOSAL_DOC,
+  "Website Content": process.env.WEBSITE_CONTENT,
 };
 
   // Get the download link for the purchased product

@@ -28,16 +28,15 @@ const PlatformAI1080List: { href: string; label: string }[] = [
 ];
 
 const DigitalAssetsList = [
-  { label: "Accelerator" },
-  { label: "AI LinkedIn Prompts Pack" },
-  { label: "Architecture PRD" },
-  { label: "Finance Templates" },
-  { label: "Grant" },
-  { label: "Investor" },  
-  { label: "Leads (1M)" },
-  { label: "Leads (250K)" },
-  { label: "Product PRDs" },
+  { label: "All" },
+  { label: "AI" },
+  { label: "Finance" },
+  { label: "Strategy" },
+  { label: "Data Assets" },
+  { label: "Leads (Bulk)" },
+  { label: "SDLC Templates" },
   { label: "Real Estate" },
+  { label: "Bundle" },  
 ];
 
 const productLinkList = [
