@@ -11,13 +11,15 @@ import ProductDetailView from "@/app/ui/components/digitalAssets/product-detail-
 const filters = [
   { label: "All", value: "all" },
   { label: "AI", value: "ai" },
-  { label: "Bundle", value: "bundle" },
-  { label: "Data Assets", value: "dataAssets" },
   { label: "Finance", value: "finance" },
-  { label: "Leads (Bulk)", value: "leads-big" },
-  { label: "Real Estate", value: "real-estate" },
-  { label: "SDLC Templates", value: "template" },   
   { label: "Strategy", value: "strategy" },
+  { label: "Data Assets", value: "dataAssets" },
+  { label: "Leads (Bulk)", value: "leads-big" },
+  { label: "SDLC Templates", value: "template" }, 
+  { label: "Real Estate", value: "real-estate" },
+  { label: "Bundle", value: "bundle" },
+   
+  
 ];
 
 // ── Per-product expanded details ──
@@ -48,7 +50,7 @@ const productDetails: Record<string, ProductDetails> = {
       "No subscription. No setup. No fluff.",
     ],
   },
-  Investor: {
+  "Investor": {
     longDesc:
     "Skip months of research. Start conversations that matter. Fundraising isn't just about your pitch — it's about reaching the right investors at the right stage. This database gives you a ready-made, high-quality starting point so you can focus on closing, not hunting.",
     builtFor: [
@@ -65,7 +67,7 @@ const productDetails: Record<string, ProductDetails> = {
       "Built for immediate outreach and pipeline creation",
     ],
   },
-  Grant: {
+  "Grant": {
     longDesc:
     "Stop digging through scattered websites. Start applying faster. Grants, government programs, and accelerators are some of the best funding sources — but they're buried across dozens of portals, deadlines, and eligibility criteria. We've done the research for you — so you can focus on applying and winning.",
     builtFor: [
@@ -84,7 +86,7 @@ const productDetails: Record<string, ProductDetails> = {
       "Clean, searchable format (Excel / Google Sheets ready)",
     ],
   },
-  Accelerator: {
+  "Accelerator": {
     longDesc:
     "Don't miss the window. Apply at the right time. Accelerators can fast-track your startup with funding, mentorship, and network access — but the biggest challenge is knowing which ones to apply to and when. We've mapped it all for you — so you never miss a relevant opportunity again.",
     builtFor: [
@@ -150,7 +152,7 @@ const productDetails: Record<string, ProductDetails> = {
       "Useful for internal alignment, client delivery, and investor communication",
     ],
   },
-  "Product PRDs": {
+  "Product PRD": {
     longDesc:
     "Stop starting every PRD from a blank page. Writing a solid PRD can take days of senior product time. Our templates give you a proven structure for defining features, aligning stakeholders, and handing clear requirements to design and engineering.",
     builtFor: [
@@ -182,7 +184,7 @@ const productDetails: Record<string, ProductDetails> = {
       "Instant download, lifetime access",
     ],
   },
-  "GTM and Strategy": {
+  "GTM": {
     longDesc:
     "These are not MBA slide decks or theoretical frameworks. Every template in this pack is built around how early-stage companies actually think about go-to-market — from zero to first revenue, from first revenue to scale. That means flexible frameworks you adapt to your specific business model, step-by-step guidance built into every section, decision trees to guide your channel and motion choices, and formats ready for investor meetings, board reviews, and team planning sessions.",
     builtFor: [
@@ -220,7 +222,7 @@ const productDetails: Record<string, ProductDetails> = {
       "Complete documentation and audit trail for every confidentiality arrangement",
     ],
   },
-  "M&A Strategy": {
+  "M&A": {
     longDesc:
     "End-to-end M&A toolkit — from target identification through valuation, due diligence, and deal structuring, all in one pack. Strategy and execution in one place with built-in valuation metrics covering the key methodologies used in real transactions.",
     builtFor: [
@@ -293,7 +295,41 @@ const productDetails: Record<string, ProductDetails> = {
       "Ready for upload into any outreach tool (Apollo, Lemlist, Instantly, etc.)",
       "One-time download — no usage limits",
     ],
-  },
+  },  
+  "Leads (150M)": {
+    longDesc:
+    "Launch campaigns today, not next week. Building outreach lists is slow, expensive, and repetitive. This gives you a ready-made database so your team can start sending campaigns immediately.",
+    note: "Important: This is a data asset, not the TruLead platform. This is a one-time downloadable lead database — not the full TruLead SaaS product. No login. No search interface. No AI scoring. No CRM sync. If you need automation, enrichment, or workflows — that's TruLead SaaS. If you just need data to move fast — this is it.",
+    builtFor: [
+      "Sales teams — Run large-scale cold email campaigns instantly",
+      "Growth agencies — Build and deploy outreach lists across multiple clients",
+      "Founders — Validate markets, test messaging, and generate early traction",
+    ],
+    whatYouGet: [
+      "150 Million+ lead records",
+      "Clean, structured dataset (CSV / Excel ready)",
+      "Key fields: name, company, role, email (where available), industry, geography",
+      "Ready for upload into any outreach tool (Apollo, Lemlist, Instantly, etc.)",
+      "One-time download — no usage limits",
+    ],
+  }, 
+  "Leads (390M)": {
+    longDesc:
+    "Launch campaigns today, not next week. Building outreach lists is slow, expensive, and repetitive. This gives you a ready-made database so your team can start sending campaigns immediately.",
+    note: "Important: This is a data asset, not the TruLead platform. This is a one-time downloadable lead database — not the full TruLead SaaS product. No login. No search interface. No AI scoring. No CRM sync. If you need automation, enrichment, or workflows — that's TruLead SaaS. If you just need data to move fast — this is it.",
+    builtFor: [
+      "Sales teams — Run large-scale cold email campaigns instantly",
+      "Growth agencies — Build and deploy outreach lists across multiple clients",
+      "Founders — Validate markets, test messaging, and generate early traction",
+    ],
+    whatYouGet: [
+      "390 Million+ lead records",
+      "Clean, country wise structured dataset (CSV / Excel ready)",
+      "Key fields: name, company, role, email (where available), industry, geography",
+      "Ready for upload into any outreach tool (Apollo, Lemlist, Instantly, etc.)",
+      "One-time download — no usage limits",
+    ],
+  }, 
 };
 
 
@@ -378,53 +414,53 @@ interface Category {
 }
 
 const categories: Category[] = [
-  { name: "Finance Templates", tag: "finance", icon: Calculator, price: "399", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
+  { name: "All Assets Bundle", tag: "bundle", icon: Gift, price: "5299", href: "/marketplace/all-assets-bundle", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
+    description: "Every digital asset in our marketplace at a massive discount. Get everything in one bundle." },
+  { name: "Accelerator", tag: "dataAssets", icon: Rocket, price: "49", href: "/digitalAssets/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600", 
+    description: "A curated list of top startup accelerators with intake cycles, focus areas, and application details — all in one place. This database helps you stay ahead — plan, apply, and increase your chances of getting into the right program." },
+  { name: "AI LinkedIn Prompts Pack", tag: "ai", icon: Sparkles, price: "49", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
+    description: "A curated collection of AI prompts engineered to help you write data-driven, insight-led LinkedIn content that positions you as a thought leader — not just another poster. Use it to build a consistent presence, Generate post ideas, hooks, and full drafts in minutes, Create content series that position you around a specific expertise, and respond to trends and news with credible, structured takes. One-time purchase. Use it forever."},
+  { name: "Architecture PRD", tag: "template", icon: Building2, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600", 
+    description: "Professional architecture blueprints and system design documents for teams that need clarity, alignment, and a solid technical foundation. Instead of building from scattered notes, you start with a structured technical framework that your team can actually use." },
+  { name: "Channel Partner Pack", tag: "channel", icon: Handshake, price: "99", href: "/marketplace/channel-partners", bg: "bg-violet-100", iconColor: "text-violet-600", 
+    description: "Everything to launch, manage, and scale a channel partner programme — templates, playbooks, and tools." },
+  { name: "Cold Email Templates", tag: "template", icon: Mail, price: "49", href: "/marketplace/cold-email-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
+    description: "Proven cold email templates that get replies, book meetings, and close deals." },
+  { name: "Finance Templates", tag: "finance", icon: Calculator, price: "499", href: "/digitalAssets/finance-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
     description: "Professional financial planning templates built for founders, operators, and growing teams. One-time purchase. Unlimited use." },
-    { name: "Investor", tag: "dataAssets", icon: Users, price: "399", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
-      description: "A curated investor database designed to help you reach the right VCs, angels, and funds — faster. Think of it as your starting pipeline — not just a list, but a fundraising accelerator." },
-      { name: "Grant", tag: "dataAssets", icon: Database, price: "199", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600", 
-        description: "A curated database of grants, accelerators, and funding programs — so you don’t miss opportunities that don’t cost you equity. This database saves 40+ hours of research — and helps you find opportunities you didn’t even know existed." },
-        { name: "Accelerator", tag: "dataAssets", icon: Rocket, price: "49", href: "/digitalAssets/accelerator-database", bg: "bg-orange-100", iconColor: "text-orange-600", 
-          description: "A curated list of top startup accelerators with intake cycles, focus areas, and application details — all in one place. This database helps you stay ahead — plan, apply, and increase your chances of getting into the right program." },
-          { name: "Leads (1M)", tag: "dataAssets", icon: Users, price: "99", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
-            description: "Instant access to a massive 1 million outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
-            { name: "Leads (250K)", tag: "dataAssets", icon: Users, price: "49", href: "/digitalAssets/250k-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
-              description: "Instant access to a 250,000 outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
-              { name: "AI LinkedIn Prompts Pack", tag: "ai", icon: Sparkles, price: "49", href: "/digitalAssets/ai-linkedin-prompts-pack", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
-                description: "A curated collection of AI prompts engineered to help you write data-driven, insight-led LinkedIn content that positions you as a thought leader — not just another poster. Use it to build a consistent presence, Generate post ideas, hooks, and full drafts in minutes, Create content series that position you around a specific expertise, and respond to trends and news with credible, structured takes. One-time purchase. Use it forever."},
-                { name: "Architecture PRD", tag: "template", icon: Building2, price: "49", href: "/digitalAssets/architecture-prd", bg: "bg-teal-100", iconColor: "text-teal-600", 
-                  description: "Professional architecture blueprints and system design documents for teams that need clarity, alignment, and a solid technical foundation. Instead of building from scattered notes, you start with a structured technical framework that your team can actually use." },
-                  { name: "Product PRDs", tag: "template", icon: FileText, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
-                    description: "Professional, industry-standard Product Requirements Document templates that help founders, product managers, and consultants move from idea to execution faster. Instead of spending days figuring out structure, you start with a proven framework and focus on the actual product." },
-                    { name: "GTM and Strategy", tag: "gtm", icon: Crosshair, price: "199", href: "/marketplace/gtm-strategy", bg: "bg-sky-100", iconColor: "text-sky-600", 
-                      description: "Structured go-to-market frameworks and strategy templates. Move from idea to market with clarity, confidence, and a plan that scales." },
-                      { name: "Pitch Deck Samples", tag: "template", icon: Send, price: "99", href: "/marketplace/pitch-deck-samples", bg: "bg-orange-100", iconColor: "text-orange-600", 
-                        description: "Professional pitch deck templates that help you tell your story and win investors." },
-                        { name: "Proposals Docs", tag: "template", icon: FileText, price: "99", href: "/marketplace/proposals-docs", bg: "bg-blue-100", iconColor: "text-blue-600", 
-                          description: "Professional proposal and business plan templates for grant applications and client pitches." },
-                          { name: "Sample PRD", tag: "template", icon: FileText, price: "99", href: "/marketplace/sample-prd", bg: "bg-amber-100", iconColor: "text-amber-600", 
-                            description: "Ready-to-use PRD samples and templates to help product teams define, scope, and communicate requirements." },
-                            { name: "Project Timeline Templates", tag: "template", icon: Calendar, price: "49", href: "/marketplace/project-timeline-templates", bg: "bg-teal-100", iconColor: "text-teal-600", 
-                              description: "Professional project timeline and Gantt chart templates to plan, track, and deliver projects on time." },
-                              { name: "Cold Email Templates", tag: "template", icon: Mail, price: "49", href: "/marketplace/cold-email-templates", bg: "bg-blue-100", iconColor: "text-blue-600", 
-                                description: "Proven cold email templates that get replies, book meetings, and close deals." },
-                                { name: "NDA and Agreements", tag: "nda", icon: Shield, price: "99", href: "/marketplace/nda-pack", bg: "bg-slate-100", iconColor: "text-slate-600", 
-                                  description: "Professional NDA templates, AI prompts, dashboards, documentation, and SOP tools for founders and LLPs." },
-                                  { name: "M&A Strategy", tag: "ma", icon: TrendingUp, price: "199", href: "/marketplace/ma-strategy", bg: "bg-emerald-100", iconColor: "text-emerald-600", 
-                                    description: "Professional M&A strategy frameworks, analysis tools, valuation templates, and deal documentation." },
-                                    { name: "Channel Partner Pack", tag: "channel", icon: Handshake, price: "99", href: "/marketplace/channel-partners", bg: "bg-violet-100", iconColor: "text-violet-600", 
-                                      description: "Everything to launch, manage, and scale a channel partner programme — templates, playbooks, and tools." },
-                                      { name: "Website Content", tag: "website", icon: Globe, price: "199", href: "/marketplace/website-content", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
-                                        description: "15 professionally written content documents covering every page of an AI startup website." },
-                                        { name: "Real Estate", tag: "real-estate", icon: Home, price: "199", href: "/marketplace/real-estate", bg: "bg-rose-100", iconColor: "text-rose-600", 
-                                          description: "Professional-grade templates, trackers, and workflows for landlords, property investors, and real estate pros." },
-                                          { name: "Leads (150M)", tag: "leads-big", icon: Database, price: "1999", href: "/marketplace/150m-leads", bg: "bg-purple-100", iconColor: "text-purple-600", 
-                                            description: "150 million verified B2B leads — the ultimate dataset for enterprise-scale outreach campaigns." },
-                                            { name: "Leads (390M)", tag: "leads-big", icon: Database, price: "3999", href: "/marketplace/390m-leads", bg: "bg-indigo-100", iconColor: "text-indigo-600", 
-                                              description: "390 million verified B2B leads — the most comprehensive B2B dataset available." },
-                                              { name: "All Assets Bundle", tag: "bundle", icon: Gift, price: "5199", href: "/marketplace/all-assets-bundle", bg: "bg-yellow-100", iconColor: "text-yellow-600", 
-                                                description: "Every digital asset in our marketplace at a massive discount. Get everything in one bundle." },
-                                              ];
+  { name: "Grant", tag: "dataAssets", icon: Database, price: "199", href: "/digitalAssets/grant-database", bg: "bg-green-100", iconColor: "text-green-600", 
+    description: "A curated database of grants, accelerators, and funding programs — so you don’t miss opportunities that don’t cost you equity. This database saves 40+ hours of research — and helps you find opportunities you didn’t even know existed." },
+  { name: "GTM", tag: "gtm", icon: Crosshair, price: "199", href: "/marketplace/gtm-strategy", bg: "bg-sky-100", iconColor: "text-sky-600", 
+    description: "Structured go-to-market frameworks and strategy templates. Move from idea to market with clarity, confidence, and a plan that scales." },
+  { name: "Investor", tag: "dataAssets", icon: Users, price: "399", href: "/digitalAssets/investor-database", bg: "bg-purple-100", iconColor: "text-purple-600", 
+    description: "A curated investor database designed to help you reach the right VCs, angels, and funds — faster. Think of it as your starting pipeline — not just a list, but a fundraising accelerator." },
+  { name: "Leads (1M)", tag: "dataAssets", icon: Users, price: "99", href: "/digitalAssets/1m-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
+    description: "Instant access to a massive 1 million outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
+  { name: "Leads (250K)", tag: "dataAssets", icon: Users, price: "49", href: "/digitalAssets/250k-leads", bg: "bg-pink-100", iconColor: "text-pink-600", 
+    description: "Instant access to a 250,000 outreach-ready lead dataset — no subscriptions, no tools, just pure data. This removes the bottleneck — so you can focus on messaging, testing, and closing." },
+  { name: "Leads (150M)", tag: "leads-big", icon: Database, price: "1999", href: "/marketplace/150m-leads", bg: "bg-purple-100", iconColor: "text-purple-600", 
+    description: "150 million verified B2B leads — the ultimate dataset for enterprise-scale outreach campaigns." },
+  { name: "Leads (390M)", tag: "leads-big", icon: Database, price: "3999", href: "/marketplace/390m-leads", bg: "bg-indigo-100", iconColor: "text-indigo-600", 
+    description: "390 million verified B2B leads — the most comprehensive B2B dataset available." },
+  { name: "Lean PRD", tag: "template", icon: FileText, price: "99", href: "/marketplace/sample-prd", bg: "bg-amber-100", iconColor: "text-amber-600", 
+    description: "Ready-to-use PRD samples and templates to help product teams define, scope, and communicate requirements." },
+  { name: "M&A", tag: "ma", icon: TrendingUp, price: "199", href: "/marketplace/ma-strategy", bg: "bg-emerald-100", iconColor: "text-emerald-600", 
+    description: "Professional M&A strategy frameworks, analysis tools, valuation templates, and deal documentation." },
+  { name: "NDA and Agreements", tag: "nda", icon: Shield, price: "99", href: "/marketplace/nda-pack", bg: "bg-slate-100", iconColor: "text-slate-600", 
+     description: "Professional NDA templates, AI prompts, dashboards, documentation, and SOP tools for founders and LLPs." },
+  { name: "Pitch Deck Samples", tag: "template", icon: Send, price: "99", href: "/marketplace/pitch-deck-samples", bg: "bg-orange-100", iconColor: "text-orange-600", 
+    description: "Professional pitch deck templates that help you tell your story and win investors." },
+  { name: "Product PRD", tag: "template", icon: FileText, price: "49", href: "/digitalAssets/product-prds", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
+    description: "Professional, industry-standard Product Requirements Document templates that help founders, product managers, and consultants move from idea to execution faster. Instead of spending days figuring out structure, you start with a proven framework and focus on the actual product." },
+  { name: "Project Timeline Templates", tag: "template", icon: Calendar, price: "49", href: "/marketplace/project-timeline-templates", bg: "bg-teal-100", iconColor: "text-teal-600", 
+    description: "Professional project timeline and Gantt chart templates to plan, track, and deliver projects on time." },
+  { name: "Proposals Docs", tag: "template", icon: FileText, price: "99", href: "/marketplace/proposals-docs", bg: "bg-blue-100", iconColor: "text-blue-600", 
+    description: "Professional proposal and business plan templates for grant applications and client pitches." },
+  { name: "Real Estate", tag: "real-estate", icon: Home, price: "199", href: "/marketplace/real-estate", bg: "bg-rose-100", iconColor: "text-rose-600", 
+    description: "Professional-grade templates, trackers, and workflows for landlords, property investors, and real estate pros." },
+  { name: "Website Content", tag: "website", icon: Globe, price: "199", href: "/marketplace/website-content", bg: "bg-cyan-100", iconColor: "text-cyan-600", 
+    description: "15 professionally written content documents covering every page of an AI startup website." },
+  ];
                                               
                                               
                                               // ── Component ──
@@ -754,7 +790,7 @@ const categories: Category[] = [
                                                         className="inline-flex items-center gap-1 text-xs font-medium text-blue-400/70 hover:text-blue-600 cursor-pointer transition-colors select-none"
                                                         >
                                                         <Info size={12} />
-                                                        <span>See more</span>
+                                                        <span>View More</span>
                                                         </button>
                                                         </div>
                                                         </div>

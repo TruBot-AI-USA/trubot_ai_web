@@ -30,13 +30,13 @@ const PlatformAI1080List: { href: string; label: string }[] = [
 const DigitalAssetsList = [
   { label: "All" },
   { label: "AI" },
-  { label: "Bundle" }, 
   { label: "Finance" },
+  { label: "Strategy" },
   { label: "Data Assets" },
   { label: "Leads (Bulk)" },
-  { label: "Real Estate" },
   { label: "SDLC Templates" },
-  { label: "Strategy" },
+  { label: "Real Estate" },
+  { label: "Bundle" },  
 ];
 
 const productLinkList = [

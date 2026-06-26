@@ -32,7 +32,7 @@ const productData: Record<string, {
     name: "Finance Templates",
     description: "Financial models, budgets, and forecasting templates",
     longDescription: "Professional-grade financial templates for startups and businesses. Includes P&L statements, cash flow projections, and valuation models.",
-    price: 49,
+    price: 499,
     items: "15 Templates",
     icon: Calculator,
     features: ["P&L statements", "Cash flow projections", "Valuation models", "Budget templates", "Financial ratios", "Investor-ready format"],
@@ -40,7 +40,7 @@ const productData: Record<string, {
     color: "from-blue-500/10 to-blue-600/5",
   },
   "grant-database": {
-    name: "Grant Database",
+    name: "Grant",
     description: "500+ active grant opportunities",
     longDescription: "Discover 500+ active business grants, government funding programs, and innovation awards. Updated quarterly with new opportunities.",
     price: 49,
@@ -73,7 +73,7 @@ const productData: Record<string, {
     color: "from-pink-500/10 to-pink-600/5",
   },
   "prds": {
-    name: "Product PRDs",
+    name: "Product PRD",
     description: "Professional product requirement documents",
     longDescription: "200+ professionally crafted product requirement document (PRD) templates covering various product types and industries.",
     price: 19,
