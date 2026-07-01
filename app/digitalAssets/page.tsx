@@ -1238,6 +1238,12 @@ export default function digitalAssets() {
                   <X size={20} />
                 </button>
               </div>*/}
+                <button
+                  onClick={() => setBundleListOpen(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+                >
+                  <X size={20} />
+                </button>
             </div>
 
             {/* ── Scrollable product list ── */}
