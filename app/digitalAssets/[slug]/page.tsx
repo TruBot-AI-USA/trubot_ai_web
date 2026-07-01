@@ -18,7 +18,7 @@ const productData: Record<string, {
   color: string;
 }> = {
   "investor-database": {
-    name: "Investor Database",
+    name: "Investor",
     description: "12,000+ verified investors with direct contacts",
     longDescription: "Access our comprehensive database of 12,000+ verified angel investors, venture capital firms, and investment funds. Perfect for startups raising capital.",
     price: 199,
@@ -51,7 +51,7 @@ const productData: Record<string, {
     color: "from-green-500/10 to-green-600/5",
   },
   "accelerator-database": {
-    name: "Accelerator Database",
+    name: "Accelerator",
     description: "Top startup accelerators worldwide",
     longDescription: "Curated list of 300+ top startup accelerators and incubators worldwide. Includes program details, equity requirements, and application links.",
     price: 49,
@@ -63,12 +63,12 @@ const productData: Record<string, {
   },
   "1m-leads": {
     name: "1M B2B Leads",
-    description: "1 million verified B2B leads",
-    longDescription: "Access 1 million+ verified B2B leads with direct contact information. Perfect for sales teams, marketers, and growth hackers.",
+    description: "1 million B2B leads",
+    longDescription: "Access 1 million+ B2B leads with direct contact information. Perfect for sales teams, marketers, and growth hackers.",
     price: 49,
     items: "1M+ Leads",
     icon: Users,
-    features: ["Verified email addresses", "Company information", "Industry classification", "Decision maker titles", "Company size data", "Location data"],
+    features: ["Email addresses", "Company information", "Industry classification", "Decision maker titles", "Company size data", "Location data"],
     deliverables: ["CSV file", "CRM-ready format", "Data dictionary"],
     color: "from-pink-500/10 to-pink-600/5",
   },
