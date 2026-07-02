@@ -174,7 +174,7 @@ export default function ProductDetailView({ product, slug }: ProductDetailViewPr
                 </ul>
               </ExpandableSection>
 
-              <ExpandableSection title="templetes you recives">
+              <ExpandableSection title="Templates you Receive">
                 <div className="flex flex-wrap gap-2">
                   {product.deliverables.map((d) => (
                     <span key={d} className="px-2.5 py-1 rounded-lg bg-gray-50 border border-gray-200 text-sm text-gray-600">
