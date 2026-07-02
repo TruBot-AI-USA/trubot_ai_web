@@ -252,12 +252,39 @@ export default function ProductPage() {
                         <span className="text-3xl font-bold text-blue-600">${product.price.toLocaleString()}</span>
                       </div>
                     </div>
-                    <Link href={`/verify?product=${slug}&price=${product.price}`}>
-                      <Button variant="primary" size="xl" className="rounded-xl shadow-lg shadow-blue-600/25">
-                        Buy Now
-                        <ArrowRight size={20} />
-                      </Button>
-                    </Link>
+                    <Button
+                      as="button"
+                      onClick={async () => {
+                        try {
+                          const amount = Math.round(Number(product.price) * 100);
+                          const res = await fetch("/api/checkout", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                              product: slug,
+                              amount,
+                              name: product.name,
+                            }),
+                          });
+
+                          const data = await res.json().catch(() => null);
+
+                          if (res.ok && data?.url) {
+                            window.location.href = data.url;
+                          } else {
+                            alert(data?.error || `Checkout failed (${res.status})`);
+                          }
+                        } catch (err) {
+                          console.error(err);
+                          alert("Checkout error");
+                        }
+                      }}
+                      variant="primary"
+                      size="xl"
+                      className="rounded-xl shadow-lg shadow-blue-600/25"
+                      label="Buy Now"
+                      iconRight={ArrowRight}
+                    />
                   </div>
                 </div>
 
@@ -337,12 +364,39 @@ export default function ProductPage() {
                       <span className="text-2xl font-bold text-blue-600">${product.price.toLocaleString()}</span>
                     </div>
                   </div>
-                  <Link href={`/verify?product=${slug}&price=${product.price}`}>
-                    <Button variant="primary" className="w-full rounded-xl" size="lg">
-                      Buy Now
-                      <ArrowRight size={18} />
-                    </Button>
-                  </Link>
+                  <Button
+                    as="button"
+                    onClick={async () => {
+                      try {
+                        const amount = Math.round(Number(product.price) * 100);
+                        const res = await fetch("/api/checkout", {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            product: slug,
+                            amount,
+                            name: product.name,
+                          }),
+                        });
+
+                        const data = await res.json().catch(() => null);
+
+                        if (res.ok && data?.url) {
+                          window.location.href = data.url;
+                        } else {
+                          alert(data?.error || `Checkout failed (${res.status})`);
+                        }
+                      } catch (err) {
+                        console.error(err);
+                        alert("Checkout error");
+                      }
+                    }}
+                    variant="primary"
+                    className="w-full rounded-xl"
+                    size="lg"
+                    label="Buy Now"
+                    iconRight={ArrowRight}
+                  />
                 </div>
               </div>
             </div>

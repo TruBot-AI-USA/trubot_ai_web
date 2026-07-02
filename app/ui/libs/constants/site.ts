@@ -28,22 +28,22 @@ const PlatformAI1080List: { href: string; label: string }[] = [
 ];
 
 const DigitalAssetsList = [
-  { label: "All" },
-  { label: "AI" },
-  { label: "Finance" },
-  { label: "Strategy" },
-  { label: "Data Assets" },
-  { label: "Leads (Bulk)" },
-  { label: "SDLC Templates" },
-  { label: "Real Estate" },
-  { label: "Bundle" },  
+  { href: "/digitalAssets?tab=all", label: "All" },
+  { href: "/digitalAssets?tab=ai", label: "AI" },
+  { href: "/digitalAssets?tab=finance", label: "Finance" },
+  { href: "/digitalAssets?tab=strategy", label: "Strategy" },
+  { href: "/digitalAssets?tab=data-assets", label: "Data Assets" },
+  { href: "/digitalAssets?tab=leads-bulk", label: "Leads (Bulk)" },
+  { href: "/digitalAssets?tab=sdlc-templates", label: "SDLC Templates" },
+  { href: "/digitalAssets?tab=real-estate", label: "Real Estate" },
+  { href: "/digitalAssets?tab=bundle", label: "Bundle" },
 ];
 
 const productLinkList = [
   { label: "Platform AI 360", submenu: PlatformAI360List },
    { label: "Platform AI 720", submenu: PlatformAI720List },
     { label: "Platform AI 1080", submenu: PlatformAI1080List },
-    { label: "Digital Assets 360",  href: "/digitalAssets", submenu: DigitalAssetsList },
+    { label: "Digital Assets 360", submenu: DigitalAssetsList },
 ];
 
 const solutionLinkList = [

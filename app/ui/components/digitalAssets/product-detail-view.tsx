@@ -1,12 +1,13 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight, CheckCircle, Star,
   Zap, Clock, Info, Shield
 } from "lucide-react";
 import { ProductData } from "@/app/ui/libs/types/product-data";
+import Button from "@/app/ui/components/shared/Button";
 
 // ── Product image mapping for filtered detail screens ──
 const productImages: Record<string, string> = {
@@ -60,6 +61,37 @@ interface ProductDetailViewProps {
 export default function ProductDetailView({ product, slug }: ProductDetailViewProps) {
   const originalPrice = product.price * 2;
   const imageSrc = productImages[slug];
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  const handleBuyNow = async () => {
+    setIsCheckingOut(true);
+
+    try {
+      const amount = Math.round(Number(product.price) * 100);
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          product: slug,
+          amount,
+          name: product.name,
+        }),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (res.ok && data?.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data?.error || `Checkout failed (${res.status})`);
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Checkout error");
+    } finally {
+      setIsCheckingOut(false);
+    }
+  };
 
   return (
     <div>
@@ -169,13 +201,13 @@ export default function ProductDetailView({ product, slug }: ProductDetailViewPr
                   </div>
                 </div>
               </div>
-              <Link
-                href={`/verify?product=${slug}&price=${product.price}`}
+              <Button
+                as="button"
+                onClick={handleBuyNow}
                 className="w-full inline-flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-semibold px-5 py-3.5 rounded-xl hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/25"
-              >
-                Buy Now
-                <ArrowRight size={16} />
-              </Link>
+                label={isCheckingOut ? "Processing..." : "Buy Now"}
+                iconRight={ArrowRight}
+              />
               <div className="mt-3 flex items-center justify-center gap-4 text-sm text-gray-400">
                 <span className="flex items-center gap-1"><Shield size={11} /> Secure Stripe checkout</span>
                 <span className="flex items-center gap-1"><Clock size={11} /> Lifetime access</span>
