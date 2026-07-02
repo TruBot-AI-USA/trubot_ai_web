@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Calculator, Briefcase, Database, Rocket, Users, Sparkles, Building2, FileText, Home, Crosshair, Shield, TrendingUp, Handshake, Globe, Mail, Calendar, Send, Gift, ArrowRight, Info, X } from "lucide-react";
 import { getProductsByFilter, products, filterToSlugs } from "@/app/ui/libs/types/product-data";
 import ProductDetailView from "@/app/ui/components/digitalAssets/product-detail-view";
@@ -500,8 +501,20 @@ const CARDS_WITHOUT_SEE_MORE = new Set([
   "Proposals Docs",
 ]);
 
+const FILTER_QUERY_PARAM = "tab";
+
+const getFilterFromUrl = (searchParams: URLSearchParams | null) => {
+  const value = searchParams?.get(FILTER_QUERY_PARAM);
+  if (!value) return "all";
+  const matchingFilter = filters.find((filter) => filter.value === value);
+  return matchingFilter ? matchingFilter.value : "all";
+};
+
 // ── Component ──
-export default function digitalAssets() {
+export default function DigitalAssetsPage() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [activeSubCategory, setActiveSubCategory] = useState<string | null>(null);
   const [tooltipCard, setTooltipCard] = useState<string | null>(null);
@@ -520,6 +533,14 @@ export default function digitalAssets() {
     }
   }, [tooltipCard]);
 
+  useEffect(() => {
+    const nextFilter = getFilterFromUrl(searchParams);
+    setActiveFilter(nextFilter);
+    setSelectedProductSlug(null);
+    setActiveSubCategory(null);
+    setTooltipCard(null);
+  }, [searchParams]);
+
   const subCategories = filterSubCategories[activeFilter] || [];
   const hasSubCategories = subCategories.length > 0;
   const isSingleProductFilter = ["finance", "real-estate", "bundle"].includes(activeFilter);
@@ -536,6 +557,25 @@ export default function digitalAssets() {
     activeFilter === "all"
       ? [...categories]
       : categories.filter((cat) => cat.tag === activeFilter);
+
+  const updateFilter = (nextFilter: string) => {
+    skipScrollRef.current = true;
+    setActiveFilter(nextFilter);
+    setSelectedProductSlug(null);
+    setActiveSubCategory(null);
+    setTooltipCard(null);
+
+    const params = new URLSearchParams(searchParams?.toString());
+    if (nextFilter === "all") {
+      params.delete(FILTER_QUERY_PARAM);
+    } else {
+      params.set(FILTER_QUERY_PARAM, nextFilter);
+    }
+
+    const query = params.toString();
+    const nextUrl = query ? `${pathname}?${query}` : pathname;
+    router.replace(nextUrl, { scroll: false });
+  };
 
   // Sort: "All Assets Bundle" always first, then alphabetical
   filteredCategories.sort((a, b) => {
@@ -619,13 +659,7 @@ export default function digitalAssets() {
             {filters.map((f) => (
               <button
                 key={f.value}
-                onClick={() => {
-                  skipScrollRef.current = true;
-                  setActiveFilter(f.value);
-                  setSelectedProductSlug(null);
-                  setActiveSubCategory(null);
-                  setTooltipCard(null);
-                }}
+                onClick={() => updateFilter(f.value)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeFilter === f.value
                     ? "bg-blue-600 text-white shadow-md shadow-blue-600/20"
@@ -793,12 +827,24 @@ export default function digitalAssets() {
         </div>
 
         <div ref={detailContentRef} className="mx-auto w-full max-w-[1400px] px-6 md:px-8 lg:px-12">
+        <AnimatePresence mode="wait">
           {isFilteredView && filterProducts.length > 0 ? (
             /* ── Filtered: Show inline product detail view(s) ── */
-            <div>
-              {/* Multi-product selector — only shown when no sub-category tabs exist */}
+              <motion.div
+              key={`filtered-${activeFilter}-${activeSubCategory || currentProductSlug}`}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+            {/* Multi-product selector — only shown when no sub-category tabs exist */}
               {!hasSubCategories && filterProducts.length > 1 && (
-                <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                  className="flex flex-wrap items-center justify-center gap-2 mb-6"
+                >                
                   {filterProducts.map((p) => {
                     const slug = Object.keys(products).find((s) => products[s].name === p.name) || "";
                     const isActive = currentProductSlug === slug;
@@ -816,28 +862,51 @@ export default function digitalAssets() {
                       </button>
                     );
                   })}
-                </div>
+                </motion.div>
               )}
 
               {currentProductSlug && products[currentProductSlug] ? (
-                <div>
+                 <motion.div
+                  key={currentProductSlug}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                >
                   {/* Breadcrumb */}
-                  <div className="flex items-center gap-2 text-xs text-gray-400 mb-6">
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 }}
+                    className="flex items-center gap-2 text-xs text-gray-400 mb-6"
+                  >
                     <span className="text-gray-600 font-medium">
                       {filters.find((f) => f.value === activeFilter)?.label}
                     </span>
                     <span className="text-gray-300">/</span>
                     <span className="text-[#18352b] font-medium">{products[currentProductSlug].name}</span>
-                  </div>
+                  </motion.div>
                   <ProductDetailView product={products[currentProductSlug]} slug={currentProductSlug} />
-                </div>
+                </motion.div>
               ) : (
-                <p className="text-center text-gray-400 py-16">Product not found.</p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center text-gray-400 py-16"
+                >
+                  Product not found.
+                </motion.p>
               )}
-            </div>
+            </motion.div>        
+        
           ) : (
             /* ── "All" filter: Show card grid ── */
-            <div>
+             <motion.div
+              key="all-grid"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
               {/* ── Cards Grid ── */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredCategories.map((cat, index) => {
@@ -1128,9 +1197,10 @@ export default function digitalAssets() {
                   No products match this category.
                 </p>
               )}
-            </div>
+            </motion.div>            
           )}
-        </div>
+          </AnimatePresence>
+        </div>      
       </section>
 
       {/* Mobile tooltip — full-screen overlay */}
@@ -1272,13 +1342,13 @@ export default function digitalAssets() {
                           <p className="text-[11px] text-gray-500 leading-relaxed mt-0.5 line-clamp-2">
                             {product.desc}
                           </p>
-                          <Link
+                          {/*<Link
                             href={product.href}
                             className="inline-flex items-center gap-1 text-[10px] font-medium text-amber-600/60 hover:text-amber-700 mt-1 opacity-0 group-hover:opacity-100 transition-opacity"
                           >
                             View details
                             <ArrowRight size={10} />
-                          </Link>
+                          </Link>*/}
                         </div>
                       </motion.div>
                     );
