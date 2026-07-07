@@ -117,7 +117,7 @@ export async function sendCheckoutConfirmationEmail(
   const poller = await emailClient.beginSend({
     senderAddress: emailSender,
     content: {
-      subject: `${process.env.EMAIL_TITLE}Payment Confirmation - ${productName}`,
+      subject: `${process.env.EMAIL_TITLE ?? ""}Payment Confirmation - ${productName}`,
       plainText: `Payment Successful!\n\nThank you for your purchase.\nProduct: ${productName}\nAmount: $${amount}\nOrder ID: ${session.id}\n\nYour digital asset will be available for download shortly.\nIf you have any questions, please contact our support team.\n\nBest regards,\nTruBot AI Team`,
       html: `
         <div style="font-family: Arial, sans-serif; color: #0F172A;">
