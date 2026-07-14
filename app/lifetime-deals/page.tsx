@@ -130,7 +130,7 @@ const whyChooseItems = [
   { icon: Clock, title: "Pay Once", desc: "Make a single payment and enjoy lifetime access to your selected product.", color: "from-blue-500 to-blue-600" },
   { icon: PiggyBank, title: "Save Thousands", desc: "Avoid recurring subscription fees and maximize long-term savings.", color: "from-green-500 to-green-600" },
   { icon: TrendingUp, title: "Built for Growing Businesses", desc: "Perfect for startups, agencies, consultants, and SMBs.", color: "from-purple-500 to-purple-600" },
-  { icon: RefreshCw, title: "Future Updates Included", desc: "Receive future improvements and feature updates for your purchased Lifetime tier.", color: "from-orange-500 to-orange-600" },
+  { icon: RefreshCw, title: "Future Updates Included", desc: "Receive future improvements and feature updates for your purchased Lifetime tier with additional cost.", color: "from-orange-500 to-orange-600" },
   { icon: Shield, title: "Secure & Reliable", desc: "Built on enterprise-grade cloud infrastructure with secure hosting.", color: "from-teal-500 to-teal-600" },
 ];
 
@@ -552,9 +552,9 @@ export default function LifetimeDealsPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
                 { icon: Infinity, label: "Lifetime Access", desc: "Ongoing use of your purchased plan with no expirations or renewals." },
-                { icon: RefreshCw, label: "Future Updates", desc: "Get every feature update, security patch, and improvement at no extra cost." },
+                { icon: RefreshCw, label: "Future Updates", desc: "Get every feature update, security patch, and improvement with additional cost." },
                 { icon: Cloud, label: "Secure Cloud Hosting", desc: "Enterprise-grade infrastructure with reliable, encrypted hosting." },
-                { icon: Mail, label: "Email Support", desc: "Dedicated email support to help you get the most out of your purchase." },
+                { icon: Mail, label: "Email Support", desc: "Dedicated email support to help you get the most out of your purchase on additional cost." },
                 { icon: Check, label: "One-Time Payment", desc: "A single payment locks in your access forever — no recurring fees." },
                 { icon: Package, label: "Premium Add-Ons", desc: "Optional upgrades available when you need more power or features." },
               ].map((item, i) => (
