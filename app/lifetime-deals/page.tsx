@@ -289,21 +289,23 @@ export default function LifetimeDealsPage() {
                 className="group bg-white border border-gray-200 rounded-2xl px-5 pt-5 pb-5 transition-all duration-300 flex flex-col h-full hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/8 hover:-translate-y-1.5"
               >
                 <div className="flex flex-col flex-1">
-                  {/* Icon + Name */}
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className={`relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl ${product.bg} flex items-center justify-center shadow-sm`}>
-                      <product.icon size={32} className={product.iconColor} />
+                  <div className="mb-4 h-[228px] md:h-[208px] lg:h-[188px] overflow-hidden">
+                    {/* Icon + Name */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl ${product.bg} flex items-center justify-center shadow-sm`}>
+                        <product.icon size={32} className={product.iconColor} />
+                      </div>
+                      <div>
+                        <h3 className="text-[17px] font-bold text-[#18352b]">{product.name}</h3>
+                        <p className="text-xs text-gray-400 mt-0.5">{product.tagline}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-[17px] font-bold text-[#18352b]">{product.name}</h3>
-                      <p className="text-xs text-gray-400 mt-0.5">{product.tagline}</p>
-                    </div>
-                  </div>
 
-                  {/* Description */}
-                  <p className="text-sm text-gray-500 leading-relaxed mb-4 min-h-[56px] md:min-h-[72px]">
-                    {product.description}
-                  </p>
+                    {/* Description */}
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      {product.description}
+                    </p>
+                  </div>
 
                   {/* Price */}
                   <div className="mb-4">
