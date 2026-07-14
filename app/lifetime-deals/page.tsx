@@ -31,7 +31,7 @@ const ltdProducts: LTDProduct[] = [
     id: "trulead",
     name: "TruLead",
     tagline: "Build Your Sales Pipeline Faster",
-    description: "Access millions of verified B2B contacts with advanced filtering and export capabilities to accelerate prospecting and outreach.",
+    description: "Access millions of B2B contacts with advanced filtering and export capabilities to accelerate prospecting and outreach.",
     price: "1250",
     isStartingPrice: true,
     icon: Zap,
