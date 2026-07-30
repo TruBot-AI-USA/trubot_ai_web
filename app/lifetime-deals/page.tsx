@@ -7,43 +7,66 @@ import {
   Check, ArrowRight, Shield, Cloud, RefreshCw, Users,
   Zap, Building2, MessageSquare, Gift, Clock,
   Infinity, PiggyBank, TrendingUp, Sparkles, Package,
-  Cpu, HardDrive, Headphones, Puzzle, Plus, X, Mail
+  Cpu, HardDrive, Headphones, Puzzle, Plus, X, Mail,
+  BarChart3, Database
 } from "lucide-react";
 import Button from "@/app/ui/components/shared/Button";
 
-// ── Product Data ──
+// ── Type Definitions ──
+interface LTDProductTier {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  support: string;
+  userLimit: string;
+  downloadLimit: string;
+  popular?: boolean;
+  cta: string;
+  available?: boolean;
+}
+
 interface LTDProduct {
   id: string;
   name: string;
   tagline: string;
   description: string;
-  price: string;
-  isStartingPrice?: boolean;
-  isBundle?: boolean;
   icon: React.ComponentType<{ size?: number; className?: string }>;
   bg: string;
   iconColor: string;
-  features: string[];
+  tiers: LTDProductTier[];
 }
 
+// ── Products with Tiers ──
 const ltdProducts: LTDProduct[] = [
   {
     id: "trulead",
     name: "TruLead",
     tagline: "Build Your Sales Pipeline Faster",
     description: "Access millions of B2B contacts with advanced filtering and export capabilities to accelerate prospecting and outreach.",
-    price: "1250",
-    isStartingPrice: true,
     icon: Zap,
     bg: "bg-blue-100",
     iconColor: "text-blue-600",
-    features: [
-      "Large B2B lead database",
-      "Advanced search filters",
-      "CSV & Excel export",
-      "CRM sync",
-      "Monthly download allowance",
-      "Email support",
+    tiers: [
+      {
+        name: "Pro",
+        price: "1250",
+        description: "Full-power lead generation suite for high-volume sales teams and agencies.",
+        features: [
+          "Full access to complete B2B lead database",
+          "AI-powered lead scoring",
+          "Advanced filters & saved searches",
+          "CSV, Excel & API export",
+          "Unlimited downloads per month",
+          "Up to 10 user seats",
+          "CRM sync & automation",
+          "Priority Email Support",
+        ],
+        support: "Priority Email Support",
+        userLimit: "10 users",
+        downloadLimit: "Unlimited",
+        cta: "Buy Trulead",
+      },
     ],
   },
   {
@@ -51,17 +74,29 @@ const ltdProducts: LTDProduct[] = [
     name: "TruCRM",
     tagline: "Manage Every Customer Relationship",
     description: "A powerful CRM that helps you organize contacts, track deals, manage activities, and close more sales—all without monthly subscriptions.",
-    price: "1250",
     icon: Users,
     bg: "bg-teal-100",
     iconColor: "text-teal-600",
-    features: [
-      "Contact management",
-      "Lead tracking",
-      "Sales pipeline",
-      "Activity management",
-      "Dashboard analytics",
-      "Basic API access",
+    tiers: [
+      {
+        name: "Core CRM",
+        price: "1250",
+        description: "Complete CRM platform for teams that need a central place to manage contacts, deals, and pipeline.",
+        features: [
+          "Contact management",
+          "Lead tracking",
+          "Sales pipeline management",
+          "Activity & task management",
+          "Dashboard & analytics",
+          "Up to 5 user seats",
+          "Basic API access",
+          "Email Support",
+        ],
+        support: "Email Support",
+        userLimit: "5 users",
+        downloadLimit: "Unlimited",
+        cta: "Buy Core CRM",
+      },
     ],
   },
   {
@@ -69,17 +104,29 @@ const ltdProducts: LTDProduct[] = [
     name: "TruERP",
     tagline: "Simplify Business Operations",
     description: "Manage inventory, suppliers, orders, invoicing, and business operations from a single platform.",
-    price: "1250",
     icon: Building2,
     bg: "bg-amber-100",
     iconColor: "text-amber-600",
-    features: [
-      "Inventory management",
-      "Order management",
-      "Invoicing & billing",
-      "Supplier management",
-      "Procurement",
-      "Financial reports",
+    tiers: [
+      {
+        name: "Core ERP",
+        price: "1250",
+        description: "Full-featured ERP system for businesses that need streamlined operations and financial management.",
+        features: [
+          "Inventory management",
+          "Order management",
+          "Invoicing & billing",
+          "Supplier management",
+          "Procurement",
+          "Financial reports",
+          "Up to 5 user seats",
+          "Email Support",
+        ],
+        support: "Email Support",
+        userLimit: "5 users",
+        downloadLimit: "Unlimited",
+        cta: "Buy Core ERP",
+      },
     ],
   },
   {
@@ -87,42 +134,81 @@ const ltdProducts: LTDProduct[] = [
     name: "TruSocial",
     tagline: "Schedule Content Like a Pro",
     description: "Plan, organize, and publish your social media content with an intuitive scheduling platform.",
-    price: "1250",
-    isStartingPrice: true,
     icon: MessageSquare,
     bg: "bg-pink-100",
     iconColor: "text-pink-600",
-    features: [
-      "Social media scheduling",
-      "Content calendar",
-      "Publishing queue",
-      "Basic analytics",
-      "Multi-platform publishing",
+    tiers: [
+      {
+        name: "Scheduling Starter",
+        price: "299",
+        description: "Essential social media scheduling for individuals and small teams managing a few accounts.",
+        features: [
+          "Social media scheduling",
+          "Content calendar view",
+          "Publishing queue",
+          "Basic analytics",
+          "Up to 3 social accounts",
+          "Single user seat",
+        ],
+        support: "Email Support",
+        userLimit: "1 user",
+        downloadLimit: "50 posts/month",
+        cta: "Buy Scheduling Starter",
+      },
+      {
+        name: "Scheduling Pro",
+        price: "1250",
+        description: "Advanced social media management for agencies and teams publishing at scale.",
+        features: [
+          "Social media scheduling & automation",
+          "Advanced content calendar & planning",
+          "Unlimited publishing queue",
+          "Advanced analytics & reporting",
+          "Multi-platform publishing (LinkedIn, X, FB, IG)",
+          "Up to 10 social accounts",
+          "Up to 5 user seats",
+          "Priority Email Support",
+        ],
+        support: "Priority Email Support",
+        userLimit: "5 users",
+        downloadLimit: "Unlimited posts",
+        popular: true,
+        cta: "Buy Scheduling Pro",
+      },
     ],
   },
 ];
 
 // ── Bundle ──
-const truSuiteBundle: LTDProduct = {
+const truSuiteBundle: LTDProduct & { bundleTier: LTDProductTier } = {
   id: "trusuite-bundle",
   name: "TruSuite Bundle",
   tagline: "Everything You Need to Grow Your Business",
-  description: "Unlock all four eligible TruBotAI products with one purchase and save more than buying individually.",
-  price: "2499",
-  isBundle: true,
+  description: "Get all TruBotAI products in one complete bundle — TruLead, TruCRM, TruERP, and TruSocial — with shared infrastructure, unified dashboard, and premium support.",
   icon: Gift,
   bg: "bg-amber-100",
   iconColor: "text-amber-600",
-  features: [
-    "TruLead",
-    "TruCRM",
-    "TruERP",
-    "TruSocial",
-    "Unified Dashboard",
-    "Single Sign-On (SSO)",
-    "Shared User Seats",
-    "Priority Email Support",
-  ],
+  tiers: [],
+  bundleTier: {
+    name: "Bundle",
+    available: false,
+    price: "2499",
+    description: "The complete TruBotAI ecosystem — all four products in one unified bundle at a massive discount compared to buying individually.",
+    features: [
+      "TruLead (your choice of tier)",
+      "TruCRM — Core CRM",
+      "TruERP — Core ERP",
+      "TruSocial (your choice of tier)",
+      "Unified Dashboard",
+      "Single Sign-On (SSO)",
+      "Shared User Seats across products",
+      "Priority Email Support",
+    ],
+    support: "Priority Email Support",
+    userLimit: "10 shared seats",
+    downloadLimit: "Unified across products",
+    cta: "Buy Bundle",
+  },
 };
 
 // ── Why Choose cards ──
@@ -136,11 +222,11 @@ const whyChooseItems = [
 
 // ── Comparison data ──
 const comparisonData = [
-  { product: "TruLead", available: true, price: "$1,250", isStarting: true },
-  { product: "TruCRM", available: true, price: "$1,250" },
-  { product: "TruERP", available: true, price: "$1,250" },
-  { product: "TruSocial", available: true, price: "$1,250", isStarting: true },
-  { product: "TruSuite Bundle", available: false, price: "Coming Soon" },
+  { product: "TruLead", available: true, price: "$1,250", tiers: "Pro" },
+  { product: "TruCRM", available: true, price: "$1,250", tiers: "Core CRM" },
+  { product: "TruERP", available: true, price: "$1,250", tiers: "Core ERP" },
+  { product: "TruSocial", available: true, price: "$299 - $1,250", tiers: "2 Tiers" },
+  { product: "TruSuite Bundle", available: false, price: "Coming Soon", tiers: "All Products" },
 ];
 
 // ── Add-ons ──
@@ -157,30 +243,42 @@ const addOns = [
 const faqs = [
   {
     q: "What does Lifetime Access mean?",
-    a: "Lifetime access gives you ongoing use of your purchased Lifetime Deal plan with the features included in that tier.",
+    a: "Lifetime access gives you ongoing use of your purchased Lifetime Deal plan with the features included in that tier. You pay once and use it for life — no recurring subscriptions for the core features of your purchased tier.",
   },
   {
     q: "Are AI features included?",
-    a: "AI-powered capabilities are available separately as optional subscription add-ons.",
+    a: "AI-powered capabilities (such as AI lead scoring, content generation, and advanced analytics) are available separately as optional paid add-ons. They are not included in the base Lifetime Deal tiers.",
   },
   {
-    q: "Can I upgrade later?",
-    a: "Yes. You can upgrade your plan or purchase additional add-ons whenever your business grows.",
+    q: "What kind of support do I get?",
+    a: "Support depends on the tier you purchase. Standard Email Support is included with Basic/Starter tiers, while Priority Email Support is included with Pro tiers and the TruSuite Bundle. Dedicated Email Support is available as a paid add-on.",
   },
   {
-    q: "Is support included?",
-    a: "Yes. Every Lifetime Deal includes email support.",
+    q: "Can I upgrade to a higher tier later?",
+    a: "Yes. You can upgrade to a higher tier within the same product or purchase additional paid add-ons whenever your business grows. You only pay the difference in price.",
   },
   {
     q: "Can I buy more than one Lifetime Deal?",
-    a: "Absolutely. Purchase individual products or choose the TruSuite Bundle for the best overall value.",
+    a: "Absolutely. You can purchase individual products separately, or choose the TruSuite Bundle for the best overall value. If you need additional user seats or higher limits, paid add-ons are available.",
+  },
+  {
+    q: "What's the difference between the tiers?",
+    a: "Higher tiers include more features, higher user and download limits, and upgraded support. For example, TruLead Basic includes 500 downloads/month for 1 user, while TruLead Pro offers unlimited downloads for up to 10 users with AI scoring and Priority Email Support.",
   },
 ];
 
 export default function LifetimeDealsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [selectedTiers, setSelectedTiers] = useState<Record<string, number>>({
+    trulead: 0,
+    trucrm: 0,
+    truerp: 0,
+    trusocial: 0,
+  });
 
-  // Bundle pricing TBD — coming soon
+  const handleTierChange = (productId: string, tierIndex: number) => {
+    setSelectedTiers((prev) => ({ ...prev, [productId]: tierIndex }));
+  };
 
   return (
     <>
@@ -224,14 +322,13 @@ export default function LifetimeDealsPage() {
             <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
               <Button
                 href="#products"
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-7 py-3 rounded-xl shadow-lg shadow-blue-600/25 transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5" label={""}              >
-                Get Lifetime Access
-                <ArrowRight size={16} className="ml-1.5" />
-              </Button>
+                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-7 py-3 rounded-xl shadow-lg shadow-blue-600/25 transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5">
+                  Get Lifetime Access
+                  <ArrowRight size={16} className="ml-1.5" />
+                </Button>
               <Button
                 href="#compare"
-                variant="outline"
-                className="border-blue-300 text-blue-600 bg-white text-sm font-medium px-7 py-3 rounded-xl transition-all duration-200" label={""}              >
+               className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-7 py-3 rounded-xl transition-all duration-200" label={""}>
                 Compare Plans
               </Button>
             </div>
@@ -266,7 +363,7 @@ export default function LifetimeDealsPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#18352b]">
               Choose Your <span className="text-blue-600">Lifetime Deal</span>
@@ -276,24 +373,26 @@ export default function LifetimeDealsPage() {
             </p>
           </motion.div>
 
-          {/* Product grid */}
+          {/* ── Product Cards Grid (one card per product with tier selector) ── */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-            {ltdProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                id={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="group bg-white border border-gray-200 rounded-2xl px-5 pt-5 pb-5 transition-all duration-300 flex flex-col h-full hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/8 hover:-translate-y-1.5"
-              >
-                <div className="flex flex-col flex-1">
-                  <div className="mb-4 h-[228px] md:h-[208px] lg:h-[188px] overflow-hidden">
+            {ltdProducts.map((product, pIndex) => {
+              const selectedIdx = selectedTiers[product.id] ?? 0;
+              const selectedTier = product.tiers[selectedIdx];
+              return (
+                <motion.div
+                  key={product.id}
+                  id={product.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: pIndex * 0.1 }}
+                  className="group bg-white border border-gray-200 rounded-2xl px-5 pt-5 pb-5 transition-all duration-300 flex flex-col h-full hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/8 hover:-translate-y-1.5"
+                >
+                  <div className="flex flex-col flex-1">
                     {/* Icon + Name */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`relative flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-2xl ${product.bg} flex items-center justify-center shadow-sm`}>
-                        <product.icon size={32} className={product.iconColor} />
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className={`relative flex-shrink-0 w-12 h-12 rounded-2xl ${product.bg} flex items-center justify-center shadow-sm`}>
+                        <product.icon size={26} className={product.iconColor} />
                       </div>
                       <div>
                         <h3 className="text-[17px] font-bold text-[#18352b]">{product.name}</h3>
@@ -301,64 +400,107 @@ export default function LifetimeDealsPage() {
                       </div>
                     </div>
 
+                    {/* Tier Selector (only show if multiple tiers) */}
+                    {product.tiers.length > 1 && (
+                      <div className="flex gap-1 mb-3 bg-gray-100 p-1 rounded-xl">
+                        {product.tiers.map((tier, tIndex) => (
+                          <button
+                            key={tier.name}
+                            onClick={() => handleTierChange(product.id, tIndex)}
+                            className={`flex-1 text-[11px] font-semibold px-2 py-1.5 rounded-lg transition-all duration-200 ${
+                              selectedIdx === tIndex
+                                ? 'bg-white text-blue-600 shadow-sm'
+                                : 'text-gray-500 hover:text-gray-700'
+                            }`}
+                          >
+                            {tier.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
                     {/* Description */}
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      {product.description}
+                    <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                      {selectedTier.description}
                     </p>
-                  </div>
 
-                  {/* Price */}
-                  <div className="mb-4">
-                    <div className="flex items-baseline gap-1.5 mb-1">
-                      {product.isStartingPrice && <span className="text-xs text-gray-400 font-medium">Starting at</span>}
-                      <span className="text-3xl font-extrabold text-blue-600">${product.price}</span>
+                    {/* Price */}
+                    <div className="mb-3">
+                      <div className="flex items-baseline gap-1.5 mb-1">
+                        <span className="text-3xl font-extrabold text-blue-600">${selectedTier.price}</span>
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        <span className="text-[11px] text-gray-400 font-medium">One-time payment · Lifetime access</span>
+                        <span className="text-[10px] text-green-600 font-semibold flex items-center gap-1">
+                          <PiggyBank size={11} />
+                          Save thousands vs. monthly subscriptions
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-0.5">
-                      <span className="text-[11px] text-gray-400 font-medium">One-time payment · Lifetime access</span>
-                      <span className="text-[10px] text-green-600 font-semibold flex items-center gap-1">
-                        <PiggyBank size={11} />
-                        Save thousands vs. monthly subscriptions
-                      </span>
+
+                    {/* Popular badge */}
+                    {selectedTier.popular && (
+                      <div className="flex items-center gap-1.5 mb-2">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                          <Sparkles size={10} />
+                          Most Popular
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Key details row */}
+                    <div className="grid grid-cols-2 gap-2 mb-3">
+                      <div className="bg-gray-50 rounded-lg px-3 py-2">
+                        <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Users</span>
+                        <p className="text-xs font-semibold text-[#18352b] mt-0.5">{selectedTier.userLimit}</p>
+                      </div>
+                      <div className="bg-gray-50 rounded-lg px-3 py-2">
+                        <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Downloads</span>
+                        <p className="text-xs font-semibold text-[#18352b] mt-0.5">{selectedTier.downloadLimit}</p>
+                      </div>
+                      <div className="col-span-2 bg-gray-50 rounded-lg px-3 py-2">
+                        <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">Support</span>
+                        <p className="text-xs font-semibold text-[#18352b] mt-0.5">{selectedTier.support}</p>
+                      </div>
                     </div>
+
+                    {/* Features */}
+                    <ul className="space-y-2 mb-5 flex-1">
+                      {selectedTier.features.map((feat) => (
+                        <li key={feat} className="flex items-start gap-2.5 text-sm text-gray-600">
+                          <Check size={15} className="text-green-500 flex-shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* CTA */}
+                    <Link
+                      href="http://portal.trubotai.com?ltd-deals=true"
+                      className="inline-flex items-center justify-center gap-1.5 bg-blue-600 text-white text-sm font-bold px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                    >
+                      {selectedTier.cta}
+                      <ArrowRight size={14} />
+                    </Link>
                   </div>
-
-                  {/* Features */}
-                  <ul className="space-y-2 mb-6 flex-1">
-                    {product.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2.5 text-sm text-gray-600">
-                        <Check size={15} className="text-green-500 flex-shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <Link
-                    href="http://172.208.69.182?ltd-deals=true"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 bg-blue-600 text-white text-sm font-bold px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg"
-                  >
-                    Buy Now
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* ═══ BUNDLE CARD ═══ */}
           <motion.div
+            id="trusuite-bundle"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <div className="relative bg-white border-2 border-dashed border-amber-300/50 rounded-2xl px-6 md:px-8 pt-6 pb-6 transition-all duration-300 hover:border-amber-400 hover:shadow-xl hover:shadow-amber-200/20 hover:-translate-y-1.5 overflow-hidden">
-              {/* Coming Soon tag */}
+            <div className="relative bg-gradient-to-br from-amber-50/40 to-white border-2 border-amber-300/50 rounded-2xl px-6 md:px-8 pt-6 pb-6 transition-all duration-300 hover:border-amber-400 hover:shadow-xl hover:shadow-amber-200/20 hover:-translate-y-1.5 overflow-hidden">
+              {/* Best Value tag */}
               <div className="absolute top-0 right-0">
-                <div className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-bl-xl">
-                  🚀 Coming Soon
+                <div className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-[9px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-bl-xl shadow-sm">
+                  🏆 Best Value
                 </div>
               </div>
 
@@ -366,7 +508,7 @@ export default function LifetimeDealsPage() {
                 {/* Left: Info */}
                 <div className="md:col-span-3">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400/70 to-yellow-500/70 flex items-center justify-center shadow-md">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center shadow-md">
                       <Gift size={28} className="text-white" />
                     </div>
                     <div>
@@ -375,10 +517,10 @@ export default function LifetimeDealsPage() {
                     </div>
                   </div>
                   <p className="text-sm text-gray-500 leading-relaxed mb-4 max-w-xl">
-                    The complete TruBotAI experience — all products in one unified bundle. We're putting the final touches on this offer. Join the waitlist to be notified when it launches.
+                    {truSuiteBundle.description}
                   </p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4 opacity-60">
-                    {truSuiteBundle.features.map((feat) => (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+                    {truSuiteBundle.bundleTier.features.map((feat) => (
                       <div key={feat} className="flex items-center gap-1.5 text-xs text-gray-600">
                         <Check size={12} className="text-green-500 flex-shrink-0" />
                         <span>{feat}</span>
@@ -387,24 +529,52 @@ export default function LifetimeDealsPage() {
                   </div>
                 </div>
 
-                {/* Right: Coming Soon + CTA */}
+                {/* Right: Price + CTA */}
                 <div className="md:col-span-2 flex flex-col items-start md:items-end justify-center gap-3">
                   <div className="text-left md:text-right">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-xs text-amber-700 font-medium mb-2">
-                      <Sparkles size={12} />
-                      Pricing TBD
+                    <div className="flex items-baseline gap-1.5 mb-1 justify-start md:justify-end">
+                      <span className="text-4xl font-extrabold text-amber-600">
+                        {truSuiteBundle.bundleTier.available === false ? "Coming Soon" : `$${truSuiteBundle.bundleTier.price}`}
+                      </span>
                     </div>
-                    <p className="text-sm text-gray-400 max-w-[220px]">
-                      We'll announce pricing and availability soon. Be the first to know.
-                    </p>
+                    <p className="text-[11px] text-gray-400 font-medium mb-3">One-time payment · Lifetime access</p>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-xs text-green-700 font-medium mb-2">
+                      <PiggyBank size={12} />
+                      Save 50%+ vs. buying individually
+                    </div>
+                    <div className="space-y-1 mt-3">
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <Check size={12} className="text-green-500" />
+                        <span><strong className="text-[#18352b]">Support:</strong> {truSuiteBundle.bundleTier.support}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <Check size={12} className="text-green-500" />
+                        <span><strong className="text-[#18352b]">Users:</strong> {truSuiteBundle.bundleTier.userLimit}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <Check size={12} className="text-green-500" />
+                        <span><strong className="text-[#18352b]">Downloads:</strong> {truSuiteBundle.bundleTier.downloadLimit}</span>
+                      </div>
+                    </div>
                   </div>
-                  <button
-                    disabled
-                    className="inline-flex items-center justify-center gap-1.5 bg-gray-200 text-gray-400 text-sm font-bold px-6 py-3 rounded-xl cursor-not-allowed w-full md:w-auto"
-                  >
-                    Coming Soon
-                    <Clock size={14} />
-                  </button>
+                  {truSuiteBundle.bundleTier.available === false ? (
+                    <button
+                      type="button"
+                      disabled
+                      className="inline-flex items-center justify-center gap-1.5 bg-gray-400 text-white text-sm font-bold px-6 py-3 rounded-xl cursor-not-allowed opacity-80 w-full md:w-auto"
+                    >
+                      {truSuiteBundle.bundleTier.cta}
+                      <ArrowRight size={14} />
+                    </button>
+                  ) : (
+                    <Link
+                      href={`/verify?product=trusuite-bundle&type=ltd&price=${truSuiteBundle.bundleTier.price}`}
+                      className="inline-flex items-center justify-center gap-1.5 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-sm font-bold px-6 py-3 rounded-xl hover:from-amber-600 hover:to-yellow-600 transition-all duration-200 shadow-lg shadow-amber-500/25 hover:shadow-xl hover:shadow-amber-500/30 w-full md:w-auto"
+                    >
+                      {truSuiteBundle.bundleTier.cta}
+                      <ArrowRight size={14} />
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -474,8 +644,9 @@ export default function LifetimeDealsPage() {
               <thead>
                 <tr className="border-b-2 border-gray-200">
                   <th className="py-4 px-4 text-sm font-semibold text-[#18352b]">Product</th>
+                  <th className="py-4 px-4 text-sm font-semibold text-[#18352b] text-center">Tiers</th>
                   <th className="py-4 px-4 text-sm font-semibold text-[#18352b] text-center">Lifetime Deal</th>
-                  <th className="py-4 px-4 text-sm font-semibold text-[#18352b] text-right">Starting Price</th>
+                  <th className="py-4 px-4 text-sm font-semibold text-[#18352b] text-right">Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -497,6 +668,9 @@ export default function LifetimeDealsPage() {
                       </span>
                     </td>
                     <td className="py-4 px-4 text-center">
+                      <span className="text-xs text-gray-500 font-medium">{row.tiers}</span>
+                    </td>
+                    <td className="py-4 px-4 text-center">
                       {row.available ? (
                         <span className="inline-flex items-center gap-1 text-green-600 text-sm font-medium">
                           <Check size={16} />
@@ -511,7 +685,7 @@ export default function LifetimeDealsPage() {
                     </td>
                     <td className="py-4 px-4 text-right">
                       <span className="text-sm font-semibold text-[#18352b]">
-                        {row.isStarting ? `Starting at ${row.price}` : row.price}
+                        {row.price}
                       </span>
                     </td>
                   </motion.tr>
@@ -548,42 +722,91 @@ export default function LifetimeDealsPage() {
             </p>
           </motion.div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[
-                { icon: Infinity, label: "Lifetime Access", desc: "Ongoing use of your purchased plan with no expirations or renewals." },
-                { icon: RefreshCw, label: "Future Updates", desc: "Get every feature update, security patch, and improvement with additional cost." },
-                { icon: Cloud, label: "Secure Cloud Hosting", desc: "Enterprise-grade infrastructure with reliable, encrypted hosting." },
-                { icon: Mail, label: "Email Support", desc: "Dedicated email support to help you get the most out of your purchase on additional cost." },
-                { icon: Check, label: "One-Time Payment", desc: "A single payment locks in your access forever — no recurring fees." },
-                { icon: Package, label: "Premium Add-Ons", desc: "Optional upgrades available when you need more power or features." },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
-                  className="group relative bg-white border border-gray-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-lg hover:shadow-blue-600/8 hover:-translate-y-1 transition-all duration-300"
-                >
-                  {/* Hover gradient overlay */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/40 group-hover:via-blue-50/20 group-hover:to-blue-50/0 transition-all duration-300 pointer-events-none" />
+          <div className="max-w-5xl mx-auto space-y-12">
+            {/* ── Included ── */}
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <div className="h-6 w-1 bg-green-500 rounded-full" />
+                <h3 className="text-lg font-bold text-[#18352b]">Included with Every Purchase</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {[
+                  { icon: Infinity, label: "Lifetime Access to Purchased Plan", desc: "Ongoing use of your purchased Lifetime tier with no expirations or renewals." },
+                  { icon: Check, label: "One-Time Payment", desc: "A single payment locks in your access forever — no recurring fees or subscriptions." },
+                  { icon: Cloud, label: "Secure Cloud Hosting", desc: "Enterprise-grade infrastructure with reliable, encrypted hosting included." },
+                  { icon: RefreshCw, label: "Core Product Updates", desc: "Receive essential feature updates, security patches, and improvements at no extra cost." },
+                  { icon: Package, label: "Access to Purchased Lifetime Tier", desc: "Full access to the specific Lifetime tier you purchased, including all its features." },
+                  { icon: TrendingUp, label: "Upgrade Path for Premium Add-Ons", desc: "Optional upgrade path for premium add-ons when your business needs more power." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.4 }}
+                    className="group relative bg-white border border-gray-200 rounded-2xl p-6 hover:border-green-300 hover:shadow-lg hover:shadow-green-600/8 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-green-50/0 via-green-50/0 to-green-50/0 group-hover:from-green-50/40 group-hover:via-green-50/20 group-hover:to-green-50/0 transition-all duration-300 pointer-events-none" />
 
-                  <div className="relative flex flex-col items-center text-center">
-                    {/* Icon in a larger rounded container */}
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4 shadow-md shadow-blue-500/20 group-hover:shadow-lg group-hover:shadow-blue-500/30 group-hover:scale-110 transition-all duration-300">
-                      <item.icon size={24} className="text-white" />
+                    <div className="relative flex flex-col items-center text-center">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-4 shadow-md shadow-green-500/20 group-hover:shadow-lg group-hover:shadow-green-500/30 group-hover:scale-110 transition-all duration-300">
+                        <item.icon size={24} className="text-white" />
+                      </div>
+                      <h3 className="text-[#18352b] font-semibold text-base mb-1.5 group-hover:text-green-600 transition-colors duration-300">
+                        {item.label}
+                      </h3>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                     </div>
-                    <h3 className="text-[#18352b] font-semibold text-base mb-1.5 group-hover:text-blue-600 transition-colors duration-300">
-                      {item.label}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
 
-                  {/* Bottom accent line that appears on hover */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full group-hover:w-3/4 transition-all duration-300" />
-                </motion.div>
-              ))}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full group-hover:w-3/4 transition-all duration-300" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* ── Paid Add-ons ── */}
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <div className="h-6 w-1 bg-amber-500 rounded-full" />
+                <h3 className="text-lg font-bold text-[#18352b]">Available as Paid Add-ons</h3>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { icon: Mail, label: "Dedicated Email Support", desc: "Available as a paid add-on — get priority email support with faster response times for your team." },
+                  { icon: Sparkles, label: "Future Feature Enhancements", desc: "Available as a paid add-on — access to upcoming premium features and major version upgrades." },
+                  { icon: Cpu, label: "AI Features", desc: "Unlock AI-powered capabilities like lead scoring, content generation, and analytics." },
+                  { icon: HardDrive, label: "Additional Storage", desc: "Expand your storage capacity as your business data grows." },
+                  { icon: Users, label: "Additional User Seats", desc: "Add more team members to collaborate across your platform." },
+                  { icon: Database, label: "Usage Credits", desc: "Top up usage quotas for high-volume operations and data exports." },
+                  { icon: Headphones, label: "Priority Support", desc: "White-glove support with dedicated SLAs and faster resolution times." },
+                  { icon: BarChart3, label: "Premium Analytics", desc: "Advanced reporting dashboards and custom analytics for deeper insights." },
+                  { icon: Puzzle, label: "Advanced Integrations", desc: "Connect with additional third-party tools, APIs, and enterprise systems." },
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06, duration: 0.4 }}
+                    className="group relative bg-white border border-gray-200 rounded-2xl p-5 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-600/8 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-50/0 via-amber-50/0 to-amber-50/0 group-hover:from-amber-50/40 group-hover:via-amber-50/10 group-hover:to-amber-50/0 transition-all duration-300 pointer-events-none" />
+
+                    <div className="relative flex flex-col items-center text-center">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center mb-3 shadow-md shadow-amber-500/20 group-hover:shadow-lg group-hover:shadow-amber-500/30 group-hover:scale-110 transition-all duration-300">
+                        <item.icon size={20} className="text-white" />
+                      </div>
+                      <h4 className="text-sm font-semibold text-[#18352b] mb-1 group-hover:text-amber-600 transition-colors duration-300">
+                        {item.label}
+                      </h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                      <span className="inline-block mt-2 text-[9px] font-semibold uppercase tracking-wider text-amber-500 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        Paid Add-on
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -746,14 +969,12 @@ export default function LifetimeDealsPage() {
             <p className="text-sm text-amber-400 font-semibold mb-8">
               Only 100 Lifetime Deals Available
             </p>
-            <Button
-              href="#products"
-              className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-[#18352b] text-base font-bold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/30 transition-all duration-200 hover:shadow-2xl hover:shadow-amber-500/40 hover:-translate-y-0.5"
-              label={""}
-            >
-              Get Lifetime Access Today
-              <ArrowRight size={18} className="ml-2" />
-            </Button>
+            <Link href="#products">
+              <Button as="button" className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-[#18352b] text-base font-bold px-8 py-4 rounded-xl shadow-xl shadow-amber-500/30 transition-all duration-200 hover:shadow-2xl hover:shadow-amber-500/40 hover:-translate-y-0.5">
+                Get Lifetime Access Today
+                <ArrowRight size={18} className="ml-2" />
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
