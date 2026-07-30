@@ -533,7 +533,7 @@ export default function LifetimeDealsPage() {
                 <div className="md:col-span-2 flex flex-col items-start md:items-end justify-center gap-3">
                   <div className="text-left md:text-right">
                     <div className="flex items-baseline gap-1.5 mb-1 justify-start md:justify-end">
-                      <span className="text-4xl font-extrabold text-amber-600">
+                      <span className="text-2xl md:text-1xl font-extrabold text-amber-600">
                         {truSuiteBundle.bundleTier.available === false ? "Coming Soon" : `$${truSuiteBundle.bundleTier.price}`}
                       </span>
                     </div>
