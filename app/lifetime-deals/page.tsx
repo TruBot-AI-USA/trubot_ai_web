@@ -195,7 +195,7 @@ const truSuiteBundle: LTDProduct & { bundleTier: LTDProductTier } = {
     price: "2499",
     description: "The complete TruBotAI ecosystem — all four products in one unified bundle at a massive discount compared to buying individually.",
     features: [
-      "TruLead (your choice of tier)",
+      "TruLead",
       "TruCRM — Core CRM",
       "TruERP — Core ERP",
       "TruSocial (your choice of tier)",
