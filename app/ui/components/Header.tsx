@@ -163,6 +163,13 @@ const Header = () => {
             animate
           />
           <Button
+            href="/lifetime-deals"
+            label="Lifetime Deals (LTD)"
+            ariaLabel="Buy Lifetime Deals with TruBot AI"
+            variant="primary"
+            animate
+          />
+          <Button
             href="https://outlook.office.com/bookwithme/user/8ad34a3590b947cba0715998c11ba3e3@trubotai.com/meetingtype/lCKVWjBaB0OVrEEhC-bjdw2?anonymous&ismsaljsauthenabled&ep=mcard"
             target="_blank"
             rel="noopener noreferrer"
@@ -267,6 +274,15 @@ const Header = () => {
               href="/digitalAssets"
               label="Buy Digital Assets"
               ariaLabel="Buy Digital Assets"
+              variant="primary"
+              animate
+              fullWidth
+              onClick={() => setMenuOpen(false)}
+            />
+            <Button
+              href="/lifetime-deals"
+              label="Lifetime Deals (LTD)"
+              ariaLabel="Buy Lifetime Deals with TruBot AI"
               variant="primary"
               animate
               fullWidth
