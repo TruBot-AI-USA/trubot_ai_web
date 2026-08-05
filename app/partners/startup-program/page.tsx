@@ -30,7 +30,7 @@ const Page = () => {
         <PageLayout background="gray" id="program-overview">
           <SectionHeader
             title="Built for Visionaries. Powered by TruBot."
-            subtitle="This isn’t just another startup accelerator. It’s a precision-optimized, AI-automated launch engine built to help founders like you dominate your category."
+            subtitle="This isnt just another startup accelerator. Its a precision-optimized, AI-automated launch engine built to help founders like you dominate your category."
             align="center"
           />
 

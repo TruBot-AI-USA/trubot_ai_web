@@ -47,12 +47,28 @@ const productLinkList = [
     { label: "Digital Assets 360",  href: "/digitalAssets", submenu: DigitalAssetsList },
 ];
 
-const solutionLinkList = [
-  { label: "Retail & E-commerce" },
-  { label: "Financial Services" },
-  { label: "Healthcare" },
-  { label: "Manufacturing" },
-  { label: "Professional Services" },
+
+ const solutionLinkList = [
+  {
+    href: "/solutions/retail",
+    label: "Retail & E-commerce",
+  },
+  {
+    href: "/solutions/financial-services",
+    label: "Financial Services",
+  },
+  {
+    href: "/solutions/healthcare",
+    label: "Healthcare",
+  },
+  {
+    href: "/solutions/manufacturing",
+    label: "Manufacturing",
+  },
+  {
+    href: "/solutions/professional-services",
+    label: "Professional Services",
+  },
 ];
 
 const partnerLinkList = [

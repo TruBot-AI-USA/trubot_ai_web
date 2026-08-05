@@ -6,9 +6,9 @@ import PageLayout from "../ui/components/shared/PageLayout";
 import { ctaSection, solutionList } from "../ui/libs/constants/solutions";
 
 export const metadata = {
-  title: "AI Chatbot Solutions by Industry – TruBot AI",
+  title: "AI Chatbot Solutions by Industry-TruBot AI",
   description:
-    "Explore TruBot AI’s no-code chatbot builder, multilingual chatbots, and AI-powered customer support for WhatsApp, Messenger, and more.",
+    "Explore TruBot AI no-code chatbot builder, multilingual chatbots, and AI-powered customer support for WhatsApp, Messenger, and more.",
   keywords: [
     "AI Chatbot Solutions",
     "No-Code Chatbot Builder",
@@ -62,7 +62,7 @@ const Page = () => {
                   description={item.description}
                   icon={FaRocket}
                   tags={[category.title]}
-                  link="#"
+                  link="{item.link}"
                 />
               ))}
             </div>
