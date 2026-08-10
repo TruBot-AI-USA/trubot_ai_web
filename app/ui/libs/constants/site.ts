@@ -43,15 +43,31 @@ const productLinkList = [
   { label: "Platform AI 360", submenu: PlatformAI360List },
    { label: "Platform AI 720", submenu: PlatformAI720List },
     { label: "Platform AI 1080", submenu: PlatformAI1080List },
-    { label: "Digital Assets 360", submenu: DigitalAssetsList },
+     { label: "Digital Assets 360", submenu: DigitalAssetsList },
 ];
 
-const solutionLinkList = [
-  { label: "Retail & E-commerce" },
-  { label: "Financial Services" },
-  { label: "Healthcare" },
-  { label: "Manufacturing" },
-  { label: "Professional Services" },
+
+ const solutionLinkList = [
+  {
+    href: "/solutions/retail",
+    label: "Retail & E-commerce",
+  },
+  {
+    href: "/solutions/financial-services",
+    label: "Financial Services",
+  },
+  {
+    href: "/solutions/healthcare",
+    label: "Healthcare",
+  },
+  {
+    href: "/solutions/manufacturing",
+    label: "Manufacturing",
+  },
+  {
+    href: "/solutions/professional-services",
+    label: "Professional Services",
+  },
 ];
 
 const partnerLinkList = [

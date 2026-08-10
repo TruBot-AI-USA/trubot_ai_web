@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Sora, Montserrat } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -18,8 +19,12 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-export const metadata = {
-  title: "TruBot AI – AI Automation for Modern Teams",
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.trubotai.com"),
+  title: {
+    default: "TruBot AI – AI Automation for Modern Teams",
+    template: "%s | TruBot AI",
+  },
   description:
     "Chatbots, voicebots, and AI agents tailored for modern business workflows. Discover TruBot AI today.",
   keywords: [
@@ -55,6 +60,24 @@ export const metadata = {
     images: ["/images/og-image.png"],
     site: "@trubotai",
     creator: "@trubotai",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  themeColor: "#ffffff",
+  alternates: {
+    canonical: "https://www.trubotai.com",
+    languages: {
+      "en-US": "/",
+    },
   },
   icons: {
     icon: "/favicon.ico",

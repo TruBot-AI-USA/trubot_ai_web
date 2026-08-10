@@ -14,7 +14,7 @@ import {
 } from "../libs/constants/site";
 
 type NavLink = { href: string; label: string };
-type NavLabelOnly = { label: string; href?: never };
+type NavLabelOnly = { label: string; href?: string };
 type NavItem = NavLink | NavLabelOnly;
 type SubmenuItem = { label: string; href?: string; submenu: NavLink[] };
 
@@ -127,16 +127,23 @@ const Header = () => {
                       </div>
                     ))}
                   </div>
-                ) : type === "industries" ? (
-                  /* Solutions: labels only */
-                  <ul>
-                    {(links as NavLabelOnly[]).map(({ label: itemLabel }, i) => (
-                      <li key={i} className="px-4 py-2 text-sm text-navy rounded-md">
-                        {itemLabel}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
+                   ) : type === "industries" ? (
+                    <ul>
+                      {(links as NavLabelOnly[]).map(({ href, label }) => (
+                        <li key={label}>
+                          {href ? (
+                            <Link href={href} className={dropdownItemClass}>
+                              {label}
+                            </Link>
+                          ) : (
+                            <span className="block px-4 py-2 text-sm text-navy">
+                              {label}
+                            </span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
                   /* Links: standard nav links */
                   <ul>
                     {(links as NavLink[]).map(({ href: itemHref, label: itemLabel }) => (
@@ -248,11 +255,24 @@ const Header = () => {
                         )}
                       </div>
                     ))
-                  ) : type === "industries" ? (
-                    (links as NavLabelOnly[]).map(({ label: itemLabel }, i) => (
-                      <p key={i} className="py-1 text-sm text-navy">{itemLabel}</p>
-                    ))
-                  ) : (
+                ) : type === "industries" ? (
+                  (links as NavLabelOnly[]).map(({ href, label }) =>
+                    href ? (
+                      <Link
+                        key={label}
+                        href={href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block py-1 text-sm text-navy hover:text-electric"
+                      >
+                        {label}
+                      </Link>
+                    ) : (
+      <p key={label} className="py-1 text-sm text-navy">
+        {label}
+      </p>
+    )
+  )
+) : (
                     (links as NavLink[]).map(({ href, label: itemLabel }) => (
                       <Link
                         key={href}
