@@ -378,13 +378,13 @@ export default function ClientLifetimeDeals() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#18352b] leading-tight">
               Own It Once. <span className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">Use It for Life.</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs md:text-sm text-gray-500 mb-8 max-w-3xl mx-auto leading-relaxed">
               Get lifetime access to selected TruBotAI products with a single one-time payment.
               No recurring subscriptions for core features. Designed for founders, agencies,
               sales teams, and growing businesses that want long-term value without monthly costs.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+           {/*<div className="flex flex-wrap items-center justify-center gap-4 mb-10">
               <Button
                 href="#products"
                 className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-7 py-3 rounded-xl shadow-lg shadow-blue-600/25 transition-all duration-200 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5"
@@ -399,9 +399,9 @@ export default function ClientLifetimeDeals() {
               >
                 Compare Plans
               </Button>
-            </div>
+            </div> */}
 
-            <div className="flex flex-wrap justify-center gap-6 md:gap-10">
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
               {[
                 { icon: Check, label: "One-Time Payment" },
                 { icon: Infinity, label: "Lifetime Access" },
@@ -409,7 +409,7 @@ export default function ClientLifetimeDeals() {
                 { icon: RefreshCw, label: "Future Product Updates" },
                 { icon: Mail, label: "Email Support Included" },
               ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2 text-sm text-gray-500">
+                <div key={item.label} className="flex items-center gap-2 text-xs text-gray-500 whitespace-nowrap">
                   <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
                     <item.icon size={13} className="text-green-600" />
                   </div>
@@ -629,7 +629,7 @@ export default function ClientLifetimeDeals() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative pt-0 pb-20 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-50/30 to-transparent" />
         <div className="mx-auto w-full max-w-[1400px] px-6 md:px-8 lg:px-12 relative z-10">
           <motion.div
@@ -667,7 +667,7 @@ export default function ClientLifetimeDeals() {
         </div>
       </section>
 
-      <section id="compare" className="pb-20 md:pb-28">
+      {/*<section id="compare" className="pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-[1400px] px-6 md:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -737,9 +737,9 @@ export default function ClientLifetimeDeals() {
             </table>
           </div>
         </div>
-      </section>
+      </section>*/}
 
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative pt-0 pb-20 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50/20 via-white to-blue-50/20" />
         <div className="mx-auto w-full max-w-[1400px] px-6 md:px-8 lg:px-12 relative z-10">
           <motion.div
@@ -907,7 +907,7 @@ export default function ClientLifetimeDeals() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28 bg-gray-50">
+      <section className="relative pt-0 pb-20 md:pb-28 bg-gray-50">
         <div className="mx-auto w-full max-w-[1400px] px-6 md:px-8 lg:px-12 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
