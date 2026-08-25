@@ -529,7 +529,7 @@ export default function ClientLifetimeDeals() {
                     </ul>
 
                     <Link
-                      href="http://20.121.67.57?ltd-deals=true"
+                      href={`http://20.121.67.57?ltd-deals=true&product=${product.id}`}
                       className="inline-flex items-center justify-center gap-1.5 bg-blue-600 text-white text-sm font-bold px-4 py-3 rounded-xl hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg"
                     >
                       {selectedTier.cta}
